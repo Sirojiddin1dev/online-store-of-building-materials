@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!doctype html>
 <html class="no-js" lang="en-US">
 
@@ -97,15 +98,20 @@
                         <div class="col-lg-4 col-md-12">
                             <div class="header-top-right">
                                 <ul class="header-list-menu f-right">
-                                    <!-- Language Start -->
-                                    <li><a href="#">Language: English <i class="fa fa-angle-down"></i></a>
-                                        <ul class="ht-dropdown">
-                                            <li><a href="#">Spanish</a></li>
-                                            <li><a href="#">Bengali</a></li>
-                                            <li><a href="#">Russian</a></li>
-                                        </ul>
-                                    </li>
-                                    <!-- Language End -->                                
+                                    <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                                        <input name="next" type="hidden" value="{{ redirect_to }}">
+                                        <select name="language">
+                                            {% get_current_language as LANGUAGE_CODE %}
+                                            {% get_available_languages as LANGUAGES %}
+                                            {% get_language_info_list for LANGUAGES as languages %}
+                                            {% for language in languages %}
+                                                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                                                    {{ language.name_local }} ({{ language.code }})
+                                                </option>
+                                            {% endfor %}
+                                        </select>
+                                        <input type="submit" value="Go">
+                                    </form>
                                     <!-- Currency Start -->
                                     <li><a href="#">Currency:  USD <i class="fa fa-angle-down"></i></a>
                                         <ul class="ht-dropdown">
