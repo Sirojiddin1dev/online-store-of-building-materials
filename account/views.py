@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import User
 from django.contrib.auth import login, logout, authenticate
-from dashboard.models import Ad
 
 
 def create_user_view(request):
