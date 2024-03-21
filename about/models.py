@@ -6,7 +6,7 @@ class About(models.Model):
     description = models.CharField(max_length=255)
     img = models.ImageField(upload_to='about_photo/')
 
-    def str(self):
+    def __str__(self):
         return self.text
 
 
@@ -16,7 +16,7 @@ class About1(models.Model):
     description = models.CharField(max_length=255)
     description1 = models.CharField(max_length=255)
 
-    def str(self):
+    def __str__(self):
         return self.text
 
 
