@@ -36,7 +36,7 @@
                                 </div>
                                 <p class="mb-20">{{ single_blog.description }}</p>
                                 <div class="blog-img blog-single-img">
-                                    {% for i in single_blog.img.all %}
+                                    {% for img in single_blog.img.all %}
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <img src="{{ img.img.url }}" alt="blog-image">
@@ -74,24 +74,25 @@
                                 <!-- Single Blog Start -->
                                 {% for i in blog %}
                                 <div class="single-blog">
-                            {% for i in blog.img.all %}
-                            <div class="blog-img">
-                                <a href="{% url 'single_blog_url' i.pk %}"><img src="{{ i.img.img.url }}" alt="blog-image"></a>
-                            </div>
-                            {% endfor %}
-                            <div class="blog-content">
-                                    <h4 class="blog-title"><a href="{% url 'single_blog_url' i.pk %}">{{ i.title }}</a></h4>
-                                <div class="blog-meta">
-                                    <ul>
-                                        <li><span>By: </span> <a href="#">{{ i.user.id }}</a></li>
-                                        <li><span>On: </span>{{ i.date }}</li>
-                                    </ul>
+                                    {% for i in blog.img.all %}
+                                    <div class="blog-img">
+                                        <a href="{% url 'single_blog_url' i.pk %}"><img src="{{ i.img.img.url }}" alt="blog-image"></a>
+                                    </div>
+                                    {% endfor %}
+                                    <div class="blog-content">
+                                            <h4 class="blog-title"><a href="{% url 'single_blog_url' i.pk %}">{{ i.title }}</a></h4>
+                                        <div class="blog-meta">
+                                            <ul>
+                                                <li><span>By: </span> <a href="#">{{ i.user.id }}</a></li>
+                                                <li><span>On: </span>{{ i.date }}</li>
+                                            </ul>
+                                        </div>
+                                        <div class="readmore">
+                                            <a href="{% url 'single_blog_url' i.pk %}">Read More.....</a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="readmore">
-                                    <a href="{% url 'single_blog_url' i.pk %}">Read More.....</a>
-                                </div>
-                            </div>
-                        </div>
+                                {% endfor %}
                                 <!-- Single Blog End -->
                             </div>
                         </div>
