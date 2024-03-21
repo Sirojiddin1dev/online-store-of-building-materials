@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import RegexValidator
+from django.utils import timezone
 
 
 class User(AbstractUser):
@@ -12,11 +13,18 @@ class User(AbstractUser):
             message='Invalid phone number',
             code='invalid_number'
         ), ])
+    login_count = models.PositiveIntegerField(default=0)
+    last_login = models.DateTimeField(null=True, blank=True)
 
     class Meta(AbstractUser.Meta):
         swappable = 'AUTH_USER_MODEL'
         verbose_name = 'User'
         verbose_name_plural = 'Users'
+
+    def update_login_info(self):
+        self.login_count += 1
+        self.last_login = timezone.now()
+        self.save()
 
     def __str__(self):
         return self.username

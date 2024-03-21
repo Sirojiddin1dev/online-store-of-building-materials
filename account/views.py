@@ -28,6 +28,7 @@ def login_view(request):
         usr = authenticate(username=username, password=password)
         if usr is not None:
             login(request, usr)
+            usr.update_login_info()  # Update login count and last login time
             if usr.is_superuser or usr.is_staff:
                 return redirect('index_1_url')
             return redirect('index_url')
