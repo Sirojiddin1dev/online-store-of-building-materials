@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html class="no-js" lang="en-US">
 
@@ -14,29 +15,29 @@
     <link href="https://fonts.googleapis.com/css?family=Lily+Script+One" rel="stylesheet"> 
 
     <!-- mobile menu css -->
-    <link rel="stylesheet" href="css/meanmenu.min.css">
+    <link rel="stylesheet" href="{% static 'css/meanmenu.min.css' %}">
     <!-- animate css -->
-    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
     <!-- nivo slider css -->
-    <link rel="stylesheet" href="css/nivo-slider.css">
+    <link rel="stylesheet" href="{% static 'css/nivo-slider.css' %}">
     <!-- owl carousel css -->
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
     <!-- slick css -->
-   <link rel="stylesheet" href="css/slick.css">
+   <link rel="stylesheet" href="{% static 'css/slick.css' %}">
     <!-- price slider css -->
-    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}">
     <!-- fontawesome css -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
      <!-- fancybox css -->
-    <link rel="stylesheet" href="css/jquery.fancybox.css">     
+    <link rel="stylesheet" href="{% static 'css/jquery.fancybox.css' %}">
     <!-- bootstrap css -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <!-- default css  -->
-    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="{% static 'css/default.css' %}">
     <!-- style css -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
     <!-- responsive css -->
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
 
     <!-- modernizr js -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
@@ -281,9 +282,8 @@
                                         <li><a href="#">pages</a>
                                             <!-- Mobile Menu Dropdown Start -->
                                             <ul>
-                                                <li><a href="login.html">login Page</a></li>
-                                                <li><a href="register.html">Register Page</a></li>
-                                                <li><a href="404.html">404 Page</a></li>
+                                                <li><a href="{% url 'login_url' %}">login Page</a></li>
+                                                <li><a href="{% url 'register_url' %}">Register Page</a></li>
                                             </ul>
                                             <!-- Mobile Menu Dropdown End -->
                                         </li>
@@ -536,32 +536,32 @@
     </div>
     <!-- Wrapper End -->
     <!-- jquery 3.12.4 -->
-    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
     <!-- mobile menu js  -->
-    <script src="js/jquery.meanmenu.min.js"></script>
+    <script src="{% static 'js/jquery.meanmenu.min.js' %}"></script>
     <!-- scroll-up js -->
-    <script src="js/jquery.scrollUp.js"></script>
+    <script src="{% static 'js/jquery.scrollUp.js' %}"></script>
     <!-- owl-carousel js -->
-    <script src="js/owl.carousel.min.js"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
     <!-- slick js -->
-    <script src="js/slick.min.js"></script>
+    <script src="{% static 'js/slick.min.js' %}"></script>
     <!-- wow js -->
-    <script src="js/wow.min.js"></script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
     <!-- price slider js -->
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.countdown.min.js"></script>
+    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
     <!-- nivo slider js -->
-    <script src="js/jquery.nivo.slider.js"></script>
+    <script src="{% static 'js/jquery.nivo.slider.js' %}"></script>
     <!-- fancybox js -->
-    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
     <!-- bootstrap -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <!-- popper -->
-    <script src="js/popper.js"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
     <!-- plugins -->
-    <script src="js/plugins.js"></script>
+    <script src="{% static 'js/plugins.js' %}"></script>
     <!-- main js -->
-    <script src="js/main.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
 </body>
 
 </html>
