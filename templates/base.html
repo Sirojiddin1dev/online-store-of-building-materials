@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Home || Jantrik Bootstrap4 Template for Tools, Equipment Store</title>
+    <title>Qurilish Mollar savdosi</title>
     <meta name="description" content="Default Description">
     <meta name="keywords" content="E-commerce" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -80,7 +80,7 @@
                         <!-- Header Top left Start -->
                         <div class="col-lg-4 col-md-12 d-center">
                             <div class="header-top-left">
-                                <img src="img/icon/call.png" alt="">Call Us : +11 222 3333
+                                <img src="img/icon/call.png" alt="">Call Us : {{ info.phone_number }}
                             </div>
                         </div>
                         <!-- Header Top left End -->
@@ -137,7 +137,7 @@
                     <div class="row">
                         <div class="col-xl-3 col-lg-2 col-sm-5 col-5">
                             <div class="logo">
-                                <a href="index.html"><img src="img/logo/logo.png" alt="logo-image"></a>
+                                <a href="{{ url 'index_url' }}"><img src="{{ info.logo }}" alt="logo-image"></a>
                             </div>
                         </div>
                         <!-- Primary Vertical-Menu End -->
@@ -403,9 +403,9 @@
                                 <h3>Contact us</h3>
                                 <div class="footer-content">
                                     <div class="loc-address">
-                                        <span><i class="fa fa-map-marker"></i>184 Main Rd E, St Albans VIC 3021, Australia.</span>
-                                        <span><i class="fa fa-envelope-o"></i>Mail Us : yourinfo@example.com</span>
-                                        <span><i class="fa fa-phone"></i>Phone: + 00 254 254565 54</span>
+                                        <span><i class="fa fa-map-marker"></i>{{ info.address }}</span>
+                                        <span><i class="fa fa-envelope-o"></i>Mail Us : {{ info.email }}</span>
+                                        <span><i class="fa fa-phone"></i>Phone: {{ info.phone_number }}</span>
                                     </div>
                                     <div class="payment-mth"><a href="#"><img class="img" src="img/footer/1.png" alt="payment-image"></a></div>
                                 </div>
@@ -493,11 +493,9 @@
                         <p class="copy-right-text">Copyright © <a  href="#">Jantrik</a> All Rights Reserved.</p>
                         <div class="footer-social-content">
                             <ul class="social-content-list">
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-wifi"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                                <li><a href="{{info.twitter }}"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="{{ info.facebook }}"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="{{ info.youtube }}"><i class="fa fa-youtube"></i></a></li>
                             </ul>
                         </div>
                     </div>
