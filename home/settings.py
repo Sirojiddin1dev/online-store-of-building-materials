@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'account.apps.AccountConfig',
     'dashboard.apps.DashboardConfig',
+    'about.apps.AboutConfig',
+    'admin_panel.apps.AdminPanelConfig',
     'modeltranslation',
 ]
 

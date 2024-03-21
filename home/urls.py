@@ -24,11 +24,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ] + i18n_patterns(
     path('i18n/', include('django.conf.urls.i18n')),
-    path('', include('main.urls')),
-    path('account/', include('account.urls')),
+    path('index/', include('main.urls')),
+    path('', include('account.urls')),
     path('dashboard/', include('dashboard.urls')),
+    path('about/', include('about.urls')),
+    path('admin-panel/', include('admin_panel.urls'))
 )
-
 
 
 if settings.DEBUG:
