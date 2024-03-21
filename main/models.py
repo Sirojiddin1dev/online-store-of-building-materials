@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import RegexValidator
+from account.models import User
 
 
 class Info(models.Model):
@@ -8,9 +9,9 @@ class Info(models.Model):
     email = models.EmailField()
     phone_number = models.CharField( max_length=17, validators=[
         RegexValidator(
-            regex=r'^\+?1?\d{9,15}$',
+            regex='^[\+]9{2}8{1}[0-9]{9}$',
             message="Telefon raqamingizni to'g'ri ko'rsating.",
-            code = "Telefon raqa, xato"
+            code="Telefon raqam xato"
         )
     ])
     facebook = models.CharField(max_length=255)
@@ -29,3 +30,25 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.subject
+
+
+class Image(models.Model):
+    img = models.ImageField(upload_to='blog_img/')
+
+
+class Tag(models.Model):
+    name = models.CharField(max_length=55)
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=55)
+
+
+class Blog(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=55)
+    img = models.ManyToManyField(Image)
+    description = models.TextField()
+    category = models.ForeignKey(to='Category', on_delete=models.CASCADE)
+    tags = models.ManyToManyField(Tag)
+    date = models.DateTimeField(auto_now=True)
