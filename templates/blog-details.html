@@ -20,33 +20,32 @@
                     <!-- Main Blog Start -->
                     <div class="col-lg-8">
                         <!-- Blog Details Start -->
-                        {% for i in single_blog %}
                         <div class="blog-details">
                             {% for i in single_blog.img.all %}
                             <div class="blog-img">
-                                <img src="{{ i.img.img.url }}" alt="blog-image">
+                                <img src="{{ img.img.url }}" alt="blog-image">
                             </div>
                             {% endfor %}
                             <div class="blog-content">
-                                <h1>{{ i.title }}</h1>
+                                <h1>{{ single_blog.title }}</h1>
                                 <div class="blog-meta">
                                     <ul>
                                         <li><span>By: </span> <a>{{ single_blog.user.id }}</a></li>
-                                        <li><span>On: </span>{{ i.date }}</li>
+                                        <li><span>On: </span>{{ single_blog.date }}</li>
                                     </ul>
                                 </div>
-                                <p class="mb-20">{{ i.description }}</p>
+                                <p class="mb-20">{{ single_blog.description }}</p>
                                 <div class="blog-img blog-single-img">
                                     {% for i in single_blog.img.all %}
                                     <div class="row">
                                         <div class="col-sm-4">
-                                            <img src="{{ i.img.img.url }}" alt="blog-image">
+                                            <img src="{{ img.img.url }}" alt="blog-image">
                                         </div>
                                         <div class="col-sm-4">
-                                            <img src="i.img.img.url" alt="blog-image">
+                                            <img src="{{ img.img.url }}" alt="blog-image">
                                         </div>
                                         <div class="col-sm-4">
-                                            <img src="i.img.img.url" alt="blog-image">
+                                            <img src="{{ img.img.url }}" alt="blog-image">
                                         </div>
                                     </div>
                                     {% endfor %}
@@ -67,7 +66,6 @@
                                 <!--  Blog-Share End  -->
                             <!--  Blog-Pager End  -->
                         </div>
-                        {% endfor %}
                         <!-- Blog Details End -->
                         <!-- Blog Realated Post Start -->
                         <div class="blog-related-post recent-post mtb-50">
