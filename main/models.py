@@ -7,7 +7,7 @@ class Info(models.Model):
     logo = models.ImageField(upload_to='info_img/')
     address = models.CharField(max_length=200)
     email = models.EmailField()
-    phone_number = models.CharField( max_length=17, validators=[
+    phone_number = models.CharField(max_length=17, validators=[
         RegexValidator(
             regex='^[\+]9{2}8{1}[0-9]{9}$',
             message="Telefon raqamingizni to'g'ri ko'rsating.",

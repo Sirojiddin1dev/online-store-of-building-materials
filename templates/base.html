@@ -137,7 +137,7 @@
                     <div class="row">
                         <div class="col-xl-3 col-lg-2 col-sm-5 col-5">
                             <div class="logo">
-                                <a href="{{ url 'index_url' }}"><img src="{{ info.logo }}" alt="logo-image"></a>
+                                <a href="{% url 'index_url' %}"><img src="{{ info.logo }}" alt="logo-image"></a>
                             </div>
                         </div>
                         <!-- Primary Vertical-Menu End -->
@@ -493,7 +493,7 @@
                         <p class="copy-right-text">Copyright © <a  href="#">Jantrik</a> All Rights Reserved.</p>
                         <div class="footer-social-content">
                             <ul class="social-content-list">
-                                <li><a href="{{info.twitter }}"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="{{ info.twitter }}"><i class="fa fa-twitter"></i></a></li>
                                 <li><a href="{{ info.facebook }}"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="{{ info.youtube }}"><i class="fa fa-youtube"></i></a></li>
                             </ul>
