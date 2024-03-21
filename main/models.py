@@ -19,7 +19,7 @@ class Info(models.Model):
     twitter = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.facebook
+        return self.youtube
 
 
 class Contact(models.Model):
