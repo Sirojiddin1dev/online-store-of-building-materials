@@ -19,7 +19,7 @@ def create_user_view(request):
             img=img
         )
         return redirect('login_url')
-    return render(request, 'reg.html')
+    return render(request, 'register.html')
 
 
 def login_view(request):
@@ -34,15 +34,7 @@ def login_view(request):
 
 
 def my_profile_view(request):
-    user = request.user
-    count = Ad.objects.filter(user=user).order_by('id').count
-    ad = Ad.objects.filter(user=user).order_by('-id')[:8]
-    context = {
-        'user': request.user,
-        'count': count,
-        'ad': ad,
-    }
-    return render(request, 'profile.html', context)
+    return render(request, 'account.html')
 
 
 def logout_view(request):
