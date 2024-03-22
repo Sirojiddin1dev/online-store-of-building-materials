@@ -3,7 +3,10 @@ from .models import *
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def index_view(request):
-    return render(request, 'index.html')
+    context = {
+        'info': Info.objects.last()
+    }
+    return render(request, 'index.html', context)
 
 
 def PegenatorPage(List, num, request):
@@ -32,6 +35,9 @@ def single_blog_view(request, pk):
     context = {
         'single_blog': blog,
         'blog': Blog.objects.all().order_by('-id')[:2],
-        'info': Info.objects.last()
+        'category': Category.objects.all(),
+        'tag': Tag.objects.all(),
+        'info': Info.objects.last(),
+        'recent_posts': Blog.objects.all().order_by('-id')[:4]
     }
     return render(request, 'blog-details.html', context)
