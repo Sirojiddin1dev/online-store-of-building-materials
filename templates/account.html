@@ -22,19 +22,17 @@
                            <div class="col-lg-3 col-md-6">
                                <div class="d-single-info">
                                    <p class="user-name">Hello <span>{{ profile.username }}</span></p>
-                                   <p>{{ profile.email }} <a href="{% url 'logout_url' %}">Log Out</a>)</p>
+                                   <p><a href="{% url 'logout_url' %}">Log Out</a>)</p>
                                </div>
                            </div>
                            <div class="col-lg-3 col-md-6">
                                <div class="d-single-info">
-                                   <p>{{ profile.username }}</p>
                                    <p>{{ profile.email }}</p>
                                </div>
                            </div>
                            <div class="col-lg-3 col-md-6">
                                <div class="d-single-info">
-                                   <p>{{ profile.username }}</p>
-                                   <p>{{ profile.email }}</p>
+                                   <p>{{ profile.phone_number }}</p>
                                </div>
                            </div>
                            <div class="col-lg-3 col-md-6">
@@ -212,4 +210,4 @@
             </div>
         </div>
         <!-- My Account Page End Here -->
-{% endblock %}
+{% end  block %}
