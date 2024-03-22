@@ -55,7 +55,7 @@ def edit_user_view(request,pk):
         first_name=request.POST.get('first_name')
         last_name=request.POST.get('last_name')
         email=request.POST.get('email')
-        bio=request.POST.get('bio')
+        birthday=request.POST.get('birthday')
         img=request.POST.get('img')
         login_count = request.POST.get('login_count')
         last_login = request.POST.get('last_login')
@@ -69,8 +69,8 @@ def edit_user_view(request,pk):
             user.last_name=last_name
         if email is not None:
             user.email =email
-        if bio is not None:
-            user.bio=bio
+        if birthday is not None:
+            user.birthday=birthday
         if phone_number is not None:
             user.phone_number = phone_number
         if password is not None:
