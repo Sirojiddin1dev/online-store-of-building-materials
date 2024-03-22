@@ -12,7 +12,8 @@ class User(AbstractUser):
             regex='^[\+]9{2}8{1}[0-9]{9}$',
             message='Invalid phone number',
             code='invalid_number'
-        ), ])
+        ),
+    ])
     login_count = models.PositiveIntegerField(default=0)
     last_login = models.DateTimeField(null=True, blank=True)
 
