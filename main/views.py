@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import *
+from django.http import HttpResponse
 
 def index_view(request):
     context = {
@@ -44,5 +45,5 @@ def contact_view(request):
             phone_number=phone_number,
             message=message,
         )
-        return redirect("contact_url")
+        return HttpResponse("Siz so'rovingiz qabul qilindi! Sizga Tez orada Javob Berildi ")
     return render(request, 'contact.html', context)
