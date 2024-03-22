@@ -62,6 +62,7 @@ class Blog(models.Model):
 
 
 class Comment(models.Model):
+    blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
     name = models.CharField(max_length=155)
     email = models.EmailField()
     comment = models.TextField()
