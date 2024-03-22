@@ -25,7 +25,6 @@ class Info(models.Model):
 class Contact(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
-    subject = models.CharField(max_length=200)
     phone_number = models.CharField(max_length=17, validators=[
         RegexValidator(
             regex='^[\+]9{2}8{1}[0-9]{9}$',
@@ -36,7 +35,7 @@ class Contact(models.Model):
     message = models.TextField()
 
     def __str__(self):
-        return self.subject
+        return self.name
 
 
 class Image(models.Model):

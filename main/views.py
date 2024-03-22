@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
 
 def index_view(request):
@@ -27,3 +27,22 @@ def single_blog_view(request, pk):
         'recent_posts': Blog.objects.all().order_by('-id')[:4]
     }
     return render(request, 'blog-details.html', context)
+
+
+def contect_view(request):
+    context = {
+        'info': Info.objects.last()
+    }
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        phone_number = request.POST['phone_number']
+        message = request.POST['message']
+        contact = Contact.objects.create(
+            name=name,
+            email=email,
+            phone_number=phone_number,
+            message=message,
+        )
+        return redirect("contact_url")
+    return render(request, 'contact.html', context)
