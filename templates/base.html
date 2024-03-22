@@ -158,9 +158,9 @@
                                         <li><a href="#">pages<i class="fa fa-angle-down"></i></a>
                                             <!-- Home Version Dropdown Start -->
                                             <ul class="ht-dropdown dropdown-style-two">
-                                                <li><a href="login.html">Login Page</a></li>
-                                                <li><a href="register.html">Register Page</a></li>
-                                                <li><a href="account.html">Account Page</a></li>
+                                                <li><a href="{% url 'login_url' %}">Login Page</a></li>
+                                                <li><a href="{% url 'register_url' %}">Register Page</a></li>
+                                                <li><a href="{% url 'my_profile_url' %}">Account Page</a></li>
                                             </ul>
                                             <!-- Home Version Dropdown End -->
                                         </li>
@@ -176,9 +176,9 @@
                                 <ul>
                                     <li><a href="compare.html"><i class="fa fa-cog"></i></a>
                                         <ul class="ht-dropdown">
-                                            <li><a href="login.html">Login</a></li>
-                                            <li><a href="register.html">Register</a></li>
-                                            <li><a href="account.html">Account</a></li>
+                                            <li><a href="{% url 'login_url' %}">Login</a></li>
+                                            <li><a href="{% url 'register_url' %}">Register</a></li>
+                                            <li><a href="{% url 'my_profile_url' %}">Account</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
@@ -267,8 +267,8 @@
                                         <li><a href="#">pages</a>
                                             <!-- Mobile Menu Dropdown Start -->
                                             <ul>
-                                                <li><a href="login.html">login Page</a></li>
-                                                <li><a href="register.html">Register Page</a></li>
+                                                <li><a href="{% url 'login_url' %}">login Page</a></li>
+                                                <li><a href="{% url 'register_url' %}">Register Page</a></li>
                                             </ul>
                                             <!-- Mobile Menu Dropdown End -->
                                         </li>
