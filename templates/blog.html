@@ -18,14 +18,12 @@
             <div class="container">
                 <!-- Row End -->
                 <div class="row">
-                    {% for i in a %}
+                    {% for i in blog %}
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="single-blog">
-                            {% for i in a.img.all %}
                             <div class="blog-img">
-                                <a href="{% url 'single_blog_url' i.pk %}"><img src="{{ i.img.img.url }}" alt="blog-image"></a>
+                                <a href="{% url 'single_blog_url' i.pk %}"><img src="{{ i.image.url }}" alt="blog-image"></a>
                             </div>
-                            {% endfor %}
                             <div class="blog-content">
                                     <h4 class="blog-title"><a href="{% url 'single_blog_url' i.pk %}">{{ i.title }}</a></h4>
                                 <div class="blog-meta">
@@ -81,44 +79,7 @@
         </div>
         <!-- Blog Area End -->
         <!-- Brand Logo Start -->
-        <div class="brand-area pb-60">
-            <div class="container">
-                <!-- Brand Banner Start -->
-                <div class="brand-banner owl-carousel">
-                    <div class="single-brand">
-                        <a href="#"><img class="img" src="img/brand/1.png" alt="brand-image"></a>
-                    </div>
-                    <div class="single-brand">
-                        <a href="#"><img src="img/brand/2.png" alt="brand-image"></a>
-                    </div>
-                    <div class="single-brand">
-                        <a href="#"><img src="img/brand/3.png" alt="brand-image"></a>
-                    </div>
-                    <div class="single-brand">
-                        <a href="#"><img src="img/brand/4.png" alt="brand-image"></a>
-                    </div>
-                    <div class="single-brand">
-                        <a href="#"><img src="img/brand/5.png" alt="brand-image"></a>
-                    </div>
-                    <div class="single-brand">
-                        <a href="#"><img class="img" src="img/brand/1.png" alt="brand-image"></a>
-                    </div>
-                    <div class="single-brand">
-                        <a href="#"><img src="img/brand/2.png" alt="brand-image"></a>
-                    </div>
-                    <div class="single-brand">
-                        <a href="#"><img src="img/brand/3.png" alt="brand-image"></a>
-                    </div>
-                    <div class="single-brand">
-                        <a href="#"><img src="img/brand/4.png" alt="brand-image"></a>
-                    </div>
-                    <div class="single-brand">
-                        <a href="#"><img src="img/brand/5.png" alt="brand-image"></a>
-                    </div>
-                </div>
-                <!-- Brand Banner End -->                
-            </div>
-        </div>
+
         <!-- Brand Logo End -->
 
 {% endblock %}

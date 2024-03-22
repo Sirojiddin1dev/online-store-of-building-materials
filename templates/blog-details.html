@@ -20,33 +20,26 @@
                     <!-- Main Blog Start -->
                     <div class="col-lg-8">
                         <!-- Blog Details Start -->
-                        {% for i in single_blog %}
                         <div class="blog-details">
-                            {% for i in single_blog.img.all %}
+                            {% for img in single_blog.img.all %}
                             <div class="blog-img">
-                                <img src="{{ i.img.img.url }}" alt="blog-image">
+                                <img src="{{ img.img.url }}" alt="blog-image">
                             </div>
                             {% endfor %}
                             <div class="blog-content">
-                                <h1>{{ i.title }}</h1>
+                                <h1>{{ single_blog.title }}</h1>
                                 <div class="blog-meta">
                                     <ul>
                                         <li><span>By: </span> <a>{{ single_blog.user.id }}</a></li>
-                                        <li><span>On: </span>{{ i.date }}</li>
+                                        <li><span>On: </span>{{ single_blog.date }}</li>
                                     </ul>
                                 </div>
-                                <p class="mb-20">{{ i.description }}</p>
+                                <p class="mb-20">{{ single_blog.description }}</p>
                                 <div class="blog-img blog-single-img">
-                                    {% for i in single_blog.img.all %}
+                                    {% for img in single_blog.img.all %}
                                     <div class="row">
                                         <div class="col-sm-4">
-                                            <img src="{{ i.img.img.url }}" alt="blog-image">
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <img src="i.img.img.url" alt="blog-image">
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <img src="i.img.img.url" alt="blog-image">
+                                            <img src="{{ img.img.url }}" alt="blog-image">
                                         </div>
                                     </div>
                                     {% endfor %}
@@ -67,7 +60,6 @@
                                 <!--  Blog-Share End  -->
                             <!--  Blog-Pager End  -->
                         </div>
-                        {% endfor %}
                         <!-- Blog Details End -->
                         <!-- Blog Realated Post Start -->
                         <div class="blog-related-post recent-post mtb-50">
@@ -76,24 +68,25 @@
                                 <!-- Single Blog Start -->
                                 {% for i in blog %}
                                 <div class="single-blog">
-                            {% for i in blog.img.all %}
-                            <div class="blog-img">
-                                <a href="{% url 'single_blog_url' i.pk %}"><img src="{{ i.img.img.url }}" alt="blog-image"></a>
-                            </div>
-                            {% endfor %}
-                            <div class="blog-content">
-                                    <h4 class="blog-title"><a href="{% url 'single_blog_url' i.pk %}">{{ i.title }}</a></h4>
-                                <div class="blog-meta">
-                                    <ul>
-                                        <li><span>By: </span> <a href="#">{{ i.user.id }}</a></li>
-                                        <li><span>On: </span>{{ i.date }}</li>
-                                    </ul>
+                                    {% for i in blog.img.all %}
+                                    <div class="blog-img">
+                                        <a href="{% url 'single_blog_url' i.pk %}"><img src="{{ i.img.url }}" alt="blog-image"></a>
+                                    </div>
+                                    {% endfor %}
+                                    <div class="blog-content">
+                                            <h4 class="blog-title"><a href="{% url 'single_blog_url' i.pk %}">{{ i.title }}</a></h4>
+                                        <div class="blog-meta">
+                                            <ul>
+                                                <li><span>By: </span> <a href="#">{{ i.user.id }}</a></li>
+                                                <li><span>On: </span>{{ i.date }}</li>
+                                            </ul>
+                                        </div>
+                                        <div class="readmore">
+                                            <a href="{% url 'single_blog_url' i.pk %}">Read More.....</a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="readmore">
-                                    <a href="{% url 'single_blog_url' i.pk %}">Read More.....</a>
-                                </div>
-                            </div>
-                        </div>
+                                {% endfor %}
                                 <!-- Single Blog End -->
                             </div>
                         </div>
@@ -168,88 +161,34 @@
                             <div class="recent-post pt-30 same-sidebar">
                                 <h3 class="sidebar-title">recent posts</h3>
                                 <ul>
-                                    <!-- Singel Post Thumb Start -->
+                                    {% for i in recent_posts %}
                                     <li class="post-thumb fix">
                                         <div class="left-post-thumb f-left mr-20 mb-20">
-                                            <a href="#"><img class="img" src="img/products/1.jpg" alt="latest-post-imgae"></a>
+                                            <a href="#"><img class="img" src="{{ i.image.url }}" alt="latest-post-imgae"></a>
                                         </div>
                                         <div class="right-post-thumb fix">
-                                            <h4><a href="#">Lorem ipsum dolor sit amet</a></h4>
-                                            <span>August 10, 2018</span>
+                                            <h4><a href="#">{{ i.title }}</a></h4>
+                                            <span>{{ i.date }}</span>
                                         </div>
                                     </li>
-                                    <!-- Singel Post Thumb End -->
-                                    <!-- Singel Post Thumb Start -->
-                                    <li class="post-thumb fix">
-                                        <div class="left-post-thumb f-left mr-20 mb-20">
-                                            <a href="#"><img class="img" src="img/products/2.jpg" alt="latest-post-imgae"></a>
-                                        </div>
-                                        <div class="right-post-thumb fix">
-                                            <h4><a href="#">porro delectus itaque saepe</a></h4>
-                                            <span>August 10, 2018</span>
-                                        </div>
-                                    </li>
-                                    <!-- Singel Post Thumb End -->
-                                    <!-- Singel Post Thumb Start -->
-                                    <li class="post-thumb fix">
-                                        <div class="left-post-thumb f-left mr-20 mb-20">
-                                            <a href="#"><img class="img" src="img/products/3.jpg" alt="latest-post-imgae"></a>
-                                        </div>
-                                        <div class="right-post-thumb fix">
-                                            <div class="right-post-thumb">
-                                                <h4><a href="#">neque odio sequi hic animis</a></h4>
-                                                <span>August 10, 2018</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!-- Singel Post Thumb End -->
-                                    <!-- Singel Post Thumb Start -->
-                                    <li class="post-thumb fix">
-                                        <div class="left-post-thumb f-left mr-20">
-                                            <a href="#"><img class="img" src="img/products/4.jpg" alt="latest-post-imgae"></a>
-                                        </div>
-                                        <div class="right-post-thumb fix">
-                                            <h4><a href="#">Expedita provident eostseim</a></h4>
-                                            <span>August 10, 2018</span>
-                                        </div>
-                                    </li>
-                                     <!-- Singel Post Thumb End -->
+                                    {% endfor %}
                                 </ul>
                             </div>
                             <!-- Recent Post End -->
                             <!-- Category Post Start -->
                             <div class="categorie recent-post same-sidebar">
                                  <h3 class="sidebar-title mt-40">categories</h3>
+                                {% for i in category %}
                                  <ul class="categorie-list">
-                                     <li><a href="#">Electrical Device</a></li>
-                                     <li><a href="#">Hardware Device</a></li>
-                                     <li><a href="#">Drill Machine</a></li>
-                                      <li><a href="#">Tools Box</a></li>
-                                     <li><a href="#">Power Saw</a></li>
+                                     <li><a href="#">{{ i.name }}</a></li>
                                  </ul>
+                                {% endfor %}
                             </div>
-                            <!-- Category Post End -->
-                            <!-- Meta Post Start -->
-                            <div class="categorie recent-post same-sidebar">
-                                 <h3 class="sidebar-title mt-40">others</h3>
-                                 <ul class="categorie-list">
-                                     <li><a href="log-in.html">Log in</a></li>
-                                     <li><a href="#">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
-                                     <li><a href="#">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
-                                     <li><a href="#">WordPress.org</a></li>
-                                 </ul>
-                            </div>
-                            <!-- Meta Post End -->
-                            <!-- Meta Post Start -->
                             <div class="categorie recent-post same-sidebar">
                                  <h3 class="sidebar-title mt-40">Tags</h3>
+                                {% for i in tag %}
                                  <ul class="tag-list">
-                                     <li><a href="#">Tools</a></li>
-                                     <li><a href="#">Machine</a></li>
-                                     <li><a href="#">Hardware</a></li>
-                                     <li><a href="#">Electrical</a></li>
-                                     <li><a href="#">Drill Machine</a></li>
-                                     <li><a href="#">Power Saw</a></li>
+                                     <li><a href="#">{{ i.name }}</a></li>
                                  </ul>
                             </div>
                             <!-- Meta Post End -->

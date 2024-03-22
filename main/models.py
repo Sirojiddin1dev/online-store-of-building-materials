@@ -19,13 +19,20 @@ class Info(models.Model):
     twitter = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.facebook
+        return self.youtube
 
 
 class Contact(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
     subject = models.CharField(max_length=200)
+    phone_number = models.CharField(max_length=17, validators=[
+        RegexValidator(
+            regex='^[\+]9{2}8{1}[0-9]{9}$',
+            message="Telefon raqamingizni to'g'ri ko'rsating.",
+            code="Telefon raqam xato"
+        )
+    ])
     message = models.TextField()
 
     def __str__(self):
@@ -48,6 +55,7 @@ class Blog(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=55)
     img = models.ManyToManyField(Image)
+    image = models.ImageField(upload_to='blog_img/')
     description = models.TextField()
     category = models.ForeignKey(to='Category', on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag)
