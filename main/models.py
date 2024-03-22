@@ -62,6 +62,6 @@ class Blog(models.Model):
 
 
 class Comment(models.Model):
-    name = models.CharField(max_length=55)
+    name = models.CharField(max_length=155)
     email = models.EmailField()
     comment = models.TextField()
