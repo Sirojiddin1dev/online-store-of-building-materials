@@ -1,21 +1,17 @@
 from account.models import *
 
-class Category(models.Model):
-    name = models.CharField(max_length=255)
-
-    def related_model_count(self):
-        return Products.objects.filter(category=self).count()
-
-    def __str__(self):
-        return self.name
-
 
 class Products(models.Model):
     image = models.ImageField(upload_to='product_photo/')
     title = models.CharField(max_length=55)
     price = models.IntegerField(default=0)
     product_info = models.TextField(null=True, blank=True)
-    category = models.ForeignKey(to=Category, on_delete=models.CASCADE)
+    Category =(
+        ("Fasad", "Fasad"),
+        ('Tiokliya', 'Tiokliya'),
+        ('Qoliplik', 'Qoliplik'),
+    )
+    category = models.CharField(max_length=100, choices=Category)
     is_banner = models.BooleanField(default=False)
     banner_title = models.CharField(max_length=100, null=True, blank=True)
     banner_text = models.CharField(max_length=255, null=True, blank=True)
@@ -30,6 +26,16 @@ class Products(models.Model):
         return self.title
 
 
+class Wishlist(models.Model):
+    product = models.ManyToManyField(Products)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+
+class Checkout(models.Model):
+    product = models.ManyToManyField(Products)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+
 class Basket(models.Model):
     user = models.ForeignKey(to=User, on_delete=models.CASCADE)
     product = models.ForeignKey(to=Products, on_delete=models.CASCADE)
@@ -37,7 +43,7 @@ class Basket(models.Model):
     email = models.EmailField()
     subject = models.CharField(max_length=200)
     address = models.CharField(max_length=255)
-    phone_number = models.CharField(max_length=17, validators=[
+    phone_number = models.CharField(max_length=13, validators=[
         RegexValidator(
             regex='^[\+]9{2}8{1}[0-9]{9}$',
             message="Telefon raqamingizni to'g'ri ko'rsating.",
