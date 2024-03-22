@@ -55,6 +55,7 @@ class Blog(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=55)
     img = models.ManyToManyField(Image)
+    imgage = models.ImageField(upload_to='blog_img/')
     description = models.TextField()
     category = models.ForeignKey(to='Category', on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag)
