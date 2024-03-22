@@ -45,5 +45,5 @@ def contact_view(request):
             phone_number=phone_number,
             message=message,
         )
-        return HttpResponse("Siz so'rovingiz qabul qilindi! Sizga Tez orada Javob Berildi ")
+        return HttpResponse("Sizning so'rovingiz qabul qilindi! Sizga Tez orada Javob Berildi ")
     return render(request, 'contact.html', context)
