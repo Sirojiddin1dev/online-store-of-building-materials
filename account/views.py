@@ -48,5 +48,37 @@ def logout_view(request):
     return redirect('login_url')
 
 
-def update_profile_view(request):
-    return render(request, 'account.html')
+def edit_user_view(request,pk):
+    user= User.objects.get(pk=pk)
+    if request.method == "POST":
+        username=request.POST['username']
+        first_name=request.POST.get('first_name')
+        last_name=request.POST.get('last_name')
+        email=request.POST.get('email')
+        bio=request.POST.get('bio')
+        img=request.POST.get('img')
+        login_count = request.POST.get('login_count')
+        last_login = request.POST.get('last_login')
+        phone_number=request.POST.get('phone_number')
+        password=request.POST.get('password')
+        confirm_password=request.POST.get('cofirm_password')
+        user.username=username
+        if first_name is not None:
+            user.first_name=first_name
+        if last_name is not None:
+            user.last_name=last_name
+        if email is not None:
+            user.email =email
+        if bio is not None:
+            user.bio=bio
+        if phone_number is not None:
+            user.phone_number = phone_number
+        if password is not None:
+            if password == confirm_password:
+                user.set_password(password)
+        user.save()
+        return redirect("my_profile_url", user.id)
+    context={
+        'user':user
+    }
+    return render(request,"edit.html",context)
