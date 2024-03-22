@@ -31,12 +31,12 @@ class Wishlist(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
-class Checkout(models.Model):
+class Basket(models.Model):
     product = models.ManyToManyField(Products)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
-class Basket(models.Model):
+class Checkout(models.Model):
     user = models.ForeignKey(to=User, on_delete=models.CASCADE)
     product = models.ForeignKey(to=Products, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)

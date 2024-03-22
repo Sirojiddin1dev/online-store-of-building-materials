@@ -102,16 +102,14 @@
                                     <span>August 10, 2018 at 11:08 am</span>
                                     <p>But I must explain to you how all this mistaken idea of denouncing pleas praising pain born and I will give you a complete account of the system</p>
                                 </div>
-                                <a class="reply" href="#">reply</a>
                             </div>
                             <!-- Single Comment End -->
                         </div>
                         <!-- Comment Area End -->
                         <!-- Contact Email Area Start -->
                         <div class="blog-detail-contact">
-                            <h3>Leave A Comment</h3>
-                            <p class="text-capitalize mb-40">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                            <form id="comment-form" class="comment-form" action="{% url 'single_blog_url' %}" method="post">
+                            <h3>Leave Comment</h3>
+                            <form id="comment-form" class="comment-form" action="{% url 'single_blog_url' single_blog.pk %}" method="post">
                             {% csrf_token %}
                             <div class="address-wrapper">
                                 <div class="row">
