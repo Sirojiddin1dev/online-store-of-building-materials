@@ -333,9 +333,9 @@
                                 <h3 class="footer-title">My Account</h3>
                                 <div class="footer-content">
                                     <ul class="footer-list">
-                                        <li><a href="account.html">My account</a></li>
+                                        <li><a href="{% url 'my_profile_url' %}">My account</a></li>
                                         <li><a href="#">Checkout</a></li>
-                                        <li><a href="#">Login</a></li>
+                                        <li><a href="{% url 'login_url' %}">Login</a></li>
                                         <li><a href="#">address</a></li>
                                         <li><a href="#">Order status</a></li>
                                         <li><a href="#">Site Map</a></li>
@@ -350,7 +350,7 @@
                                 <h3 class="footer-title">customer service</h3>
                                 <div class="footer-content">
                                     <ul class="footer-list">
-                                        <li><a href="account.html">My account</a></li>
+                                        <li><a href="{% url 'my_profile_url' %}">My account</a></li>
                                         <li><a href="#">New</a></li>
                                         <li><a href="#">Gift Cards</a></li>
                                         <li><a href="#">Return Policy</a></li>
@@ -367,7 +367,7 @@
                                 <h3 class="footer-title">Let Us Help You</h3>
                                 <div class="footer-content">
                                     <ul class="footer-list">
-                                        <li><a href="#">Your Account</a></li>
+                                        <li><a href="{% url 'my_profile_url' %}">Your Account</a></li>
                                         <li><a href="#">Your Orders</a></li>
                                     </ul>
                                 </div>
