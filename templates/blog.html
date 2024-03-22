@@ -21,7 +21,7 @@
                     {% for i in a %}
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="single-blog">
-                            {% for img in a.img.all %}
+                            {% for img in a.img.last %}
                             <div class="blog-img">
                                 <a href="{% url 'single_blog_url' i.pk %}"><img src="{{ img.img.url }}" alt="blog-image"></a>
                             </div>
