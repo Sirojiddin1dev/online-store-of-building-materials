@@ -12,6 +12,7 @@ class Products(models.Model):
         ('Qoliplik', 'Qoliplik'),
     )
     category = models.CharField(max_length=100, choices=Category)
+    quantity = models.IntegerField(default=1)
     is_banner = models.BooleanField(default=False)
     banner_title = models.CharField(max_length=100, null=True, blank=True)
     banner_text = models.CharField(max_length=255, null=True, blank=True)
@@ -41,7 +42,6 @@ class Checkout(models.Model):
     product = models.ForeignKey(to=Products, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     email = models.EmailField()
-    subject = models.CharField(max_length=200)
     address = models.CharField(max_length=255)
     phone_number = models.CharField(max_length=13, validators=[
         RegexValidator(
@@ -50,7 +50,12 @@ class Checkout(models.Model):
             code="Telefon raqam xato"
         )
     ])
-    message = models.TextField()
+    COUNTRY_CHOICES = (
+        ('Uzbekistan','Uzbekistan'),
+        ('Rusian','Rusian'),
+        ('English','English'),
+    )
+    country = models.CharField(max_length=255, choices=COUNTRY_CHOICES)
 
     def __str__(self):
         return self.name

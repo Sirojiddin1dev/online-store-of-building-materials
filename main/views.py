@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import *
 from django.http import HttpResponse
+from dashboard.models import *
+
 
 def index_view(request):
     context = {
@@ -25,7 +27,7 @@ def single_blog_view(request, pk):
         'category': Category.objects.all(),
         'tag': Tag.objects.all(),
         'info': Info.objects.last(),
-        'recent_posts': Blog.objects.all().order_by('-id')[:4]
+        'recent_posts': Blog.objects.all().order_by('-id')[:4],
         'comment': Comment.objects.all()
     }
     if request.method == 'POST':
@@ -58,3 +60,57 @@ def contact_view(request):
         )
         return HttpResponse("Sizning so'rovingiz qabul qilindi! Sizga Tez orada Javob Berildi ")
     return render(request, 'contact.html', context)
+
+def remove_cart_product(request, pk):
+    basket = Basket.objects.get(pk=pk)
+    basket.delete()
+    return redirect('cart_url', pk=request.user.id)
+
+
+def cart_view(request, pk):
+    basket = Basket.objects.filter(user_id=pk)
+    basket_count = Basket.objects.filter(user_id=pk).count()
+    subtotal = 0
+    for i in basket:
+        subtotal += i.product.price
+    total = subtotal
+    context = {
+        'basket': basket,
+        'basket_count': basket_count,
+        'subtotal': subtotal,
+        'total': total,
+        'contact': Contact.objects.last(),
+        'info': Info.objects.last()
+    }
+    return render(request, 'cart.html', context)
+
+
+def checkout_view(request,):
+    basket = Basket.objects.filter(user_id=pk)
+    subtotal = 0
+    for i in basket:
+        subtotal += i.product.price
+        total = subtotal
+    context = {
+        'basket': basket,
+        'subtotal': subtotal,
+        'total': total,
+        'info': Info.objects.last()
+    }
+    if request.method == "POST":
+        user = request.POST['user']
+        name = request.POST['name']
+        email = request.POST['email']
+        phone_number = request.POST['phone_number']
+        address = request.POST['address']
+        country = request.POST['country']
+        Checkout.objects.create(
+            user_id=user,
+            name=name,
+            email=email,
+            phone_number=phone_number,
+            address=address,
+            country=country,
+        )
+        return HttpResponse('<h1>Sizning Arizangiz qabul qilindi!</h1>')
+    return render(request, 'checkout.html', context)
