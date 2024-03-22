@@ -6,6 +6,8 @@ from django.contrib.auth import login, logout, authenticate
 def create_user_view(request):
     if request.method == 'POST':
         username = request.POST.get('username')
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
         password = request.POST.get('password')
         email = request.POST.get('email')
         phone_number = request.POST.get('phone_number')
