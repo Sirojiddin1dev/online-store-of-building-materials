@@ -109,7 +109,7 @@
                         <!-- Contact Email Area Start -->
                         <div class="blog-detail-contact">
                             <h3>Leave Comment</h3>
-                            <form id="comment-form" class="comment-form" action="{% url 'single_blog_url' %}" method="post">
+                            <form id="comment-form" class="comment-form" action="{% url 'single_blog_url' single_blog.pk %}" method="post">
                             {% csrf_token %}
                             <div class="address-wrapper">
                                 <div class="row">
