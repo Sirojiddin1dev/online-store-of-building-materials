@@ -29,7 +29,7 @@ def single_blog_view(request, pk):
     return render(request, 'blog-details.html', context)
 
 
-def contect_view(request):
+def contact_view(request):
     context = {
         'info': Info.objects.last()
     }
