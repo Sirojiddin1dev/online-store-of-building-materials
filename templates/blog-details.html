@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
         <div class="breadcrumb-area ptb-60 ptb-sm-30">
             <div class="container">
@@ -34,13 +35,13 @@
                                 </div>
                                 <p class="mb-20">{{ single_blog.description }}</p>
                                 <div class="blog-img blog-single-img">
-                                    {% for img in single_blog.img.all %}
                                     <div class="row">
+                                        {% for img in single_blog.img.all %}
                                         <div class="col-sm-4">
                                             <img src="{{ img.img.url }}" alt="blog-image">
                                         </div>
+                                        {% endfor %}
                                     </div>
-                                    {% endfor %}
                                 </div>
                                 <!--  Blog-Share Start  -->
                                 <div class="blog-share mtb-50">
@@ -91,19 +92,20 @@
                         <!-- Blog Realated Post Start -->
                         <!-- Comment Area Start -->
                         <div class="comment-area recent-post">
-                            <h3 class="sidebar-title">1 COMMENTS</h3>
+                            <h3 class="sidebar-title">COMMENTS</h3>
                             <!-- Single Comment Start -->
+                            {% for i in comment %}
                             <div class="single-comment">
                                 <div class="comment-img f-left pr-30">
-                                    <img src="img/blog/user.jpg" alt="blog-comment">
+                                    <img src="{% static 'img/blog/user.jpg' %}" alt="blog-comment">
                                 </div>
                                 <div class="comment-details fix">
-                                    <h4><a href="#">RICE JOHNNY</a></h4>
-                                    <span>August 10, 2018 at 11:08 am</span>
-                                    <p>But I must explain to you how all this mistaken idea of denouncing pleas praising pain born and I will give you a complete account of the system</p>
+                                    <h4><a href="#">{{ i.name }}</a></h4>
+                                    <span>{{ i.date }}</span>
+                                    <p>{{ i.message }}</p>
                                 </div>
                             </div>
-                            <!-- Single Comment End -->
+                            {% endfor %}
                         </div>
                         <!-- Comment Area End -->
                         <!-- Contact Email Area Start -->

@@ -26,12 +26,13 @@ def single_blog_view(request, pk):
         'tag': Tag.objects.all(),
         'info': Info.objects.last(),
         'recent_posts': Blog.objects.all().order_by('-id')[:4]
+        'comment': Comment.objects.all()
     }
     if request.method == 'POST':
         name = request.POST['name']
-        email = request.POST['email']
+        date = request.POST['date']
         message = request.POST['message']
-        Contact.objects.create(
+        Comment.objects.create(
             name=name,
             email=email,
             message=message,
