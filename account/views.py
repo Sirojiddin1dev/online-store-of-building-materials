@@ -36,9 +36,17 @@ def login_view(request):
 
 
 def my_profile_view(request):
+    context = {
+        'profile': User.objects.last(),
+        'user': User.objects.get(pk=pk)
+    }
     return render(request, 'account.html')
 
 
 def logout_view(request):
     logout(request)
     return redirect('login_url')
+
+
+def update_profile_view(request):
+    return render(request, 'account.html')

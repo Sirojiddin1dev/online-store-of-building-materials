@@ -21,8 +21,8 @@
                        <div class="row no-gutters align-items-center">
                            <div class="col-lg-3 col-md-6">
                                <div class="d-single-info">
-                                   <p class="user-name">Hello <span>yourmail@info</span></p>
-                                   <p>(not yourmail@info? <a href="#">Log Out</a>)</p>
+                                   <p class="user-name">Hello <span>{% profile.username %}</span></p>
+                                   <p>{% profile.email %} <a href="{% url 'logout_url' %}">Log Out</a>)</p>
                                </div>
                            </div>
                            <div class="col-lg-3 col-md-6">
@@ -33,8 +33,8 @@
                            </div>
                            <div class="col-lg-3 col-md-6">
                                <div class="d-single-info">
-                                   <p>E-mail them at </p>
-                                   <p>support@example.com</p>
+                                   <p>{% profile.username %}</p>
+                                   <p>{% profile.email %}</p>
                                </div>
                            </div>
                            <div class="col-lg-3 col-md-6">
@@ -134,7 +134,7 @@
                                 <div id="account-details" class="tab-pane fade">
                                     <h3>Account details </h3>
                                     <div class="register-form login-form clearfix">
-                                        <form action="{% url 'my_profile_url' %}"method="post">
+                                        <form action="#" method="post">
                                             {% csrf_token %}
                                             <div class="form-group row align-items-center">
                                                 <label class="col-lg-3 col-md-4 col-form-label">Social title</label>
