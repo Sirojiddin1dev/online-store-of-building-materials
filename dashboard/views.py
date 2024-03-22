@@ -2,44 +2,22 @@ from django.shortcuts import render
 from .models import *
 
 
-def banner_view(request):
+def product_view(request):
     product = Products.objects.filter(is_banner=True)
     context = {
-        'product': Products.objects.all().order_by('-id')[:2]
+        'banner': Products.objects.all().order_by('-id')[:2],
+        "product1": Products.objects.all().order_by('-id')[:2],
+        'product2': Products.objects.all().order_by('-id')[:4],
+        'product3': Products.objects.all().order_by('-id')[:3],
+        'product4': Products.objects.all().order_by('-id')[:12],
+        'product5': Products.objects.all().order_by('-id')[:3],
     }
     return render(request, 'product.html', context)
 
 
-def product_view(request):
-    context ={
-        "products":Products.objects.all().order_by('-id')[:2]
-    }
-    return render(request, 'product.html', context)
 
-
-def product2_view(request):
+def shopping_view(request):
     context={
-        'products':Products.objects.all().order_by('-id')[:4]
+        'shop': Products.objects.all().order_by('-id')[:6]
     }
-    return render(request, 'product.html', context)
-
-
-def product3_view(request):
-    context={
-        'products':Products.objects.all().order_by('-id')[:3]
-    }
-    return render(request, 'product.html', context)
-
-
-def product4_view(request):
-    context={
-        'products':Products.objects.all().order_by('-id')[:12]
-    }
-    return render(request, 'product.html', context)
-
-
-def product5_view(request):
-    context={
-        'products':Products.objects.all().order_by('-id')[:3]
-    }
-    return render(request, 'product.html', context)
+    return render(request,'shop.html', context)
