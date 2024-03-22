@@ -1,3 +1,61 @@
-from django.db import models
+from account.models import *
 
-# Create your models here.
+class Category(models.Model):
+    name = models.CharField(max_length=255)
+
+    def related_model_count(self):
+        return Products.objects.filter(category=self).count()
+
+    def __str__(self):
+        return self.name
+
+
+class Products(models.Model):
+    image = models.ImageField(upload_to='product_photo/')
+    title = models.CharField(max_length=55)
+    price = models.IntegerField(default=0)
+    product_info = models.TextField(null=True, blank=True)
+    category = models.ForeignKey(to=Category, on_delete=models.CASCADE)
+    is_banner = models.BooleanField(default=False)
+    banner_title = models.CharField(max_length=100, null=True, blank=True)
+    banner_text = models.CharField(max_length=255, null=True, blank=True)
+    shop_collections = models.BooleanField(default=False)
+    featured_product = models.BooleanField(default=False)
+    is_advert = models.BooleanField(default=False)
+    advert_text = models.CharField(max_length=50, null=True, blank=True)
+    new_product = models.BooleanField(default=True)
+    product_create = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+
+class Basket(models.Model):
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE)
+    product = models.ForeignKey(to=Products, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    subject = models.CharField(max_length=200)
+    address = models.CharField(max_length=255)
+    phone_number = models.CharField(max_length=17, validators=[
+        RegexValidator(
+            regex='^[\+]9{2}8{1}[0-9]{9}$',
+            message="Telefon raqamingizni to'g'ri ko'rsating.",
+            code="Telefon raqam xato"
+        )
+    ])
+    message = models.TextField()
+
+    def __str__(self):
+        return self.name
+
+
+class TotalSum(models.Model):
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE)
+    products = models.TextField()
+    sub_total = models.DecimalField(max_digits=20, decimal_places=2, default=0)
+    tax = models.DecimalField(max_digits=20, decimal_places=2, default=0)
+    total_expenses = models.DecimalField(max_digits=20, decimal_places=2, default=0)
+
+    def __str__(self):
+        return f"{self.user.username} - {self.total_expenses}"
