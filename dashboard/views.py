@@ -26,6 +26,20 @@ def product2_view(request):
 
 def product3_view(request):
     context={
-        'products':Products.objects.all().order_by('-id')[:2]
+        'products':Products.objects.all().order_by('-id')[:3]
+    }
+    return render(request, 'product.html', context)
+
+
+def product4_view(request):
+    context={
+        'products':Products.objects.all().order_by('-id')[:12]
+    }
+    return render(request, 'product.html', context)
+
+
+def product5_view(request):
+    context={
+        'products':Products.objects.all().order_by('-id')[:3]
     }
     return render(request, 'product.html', context)
