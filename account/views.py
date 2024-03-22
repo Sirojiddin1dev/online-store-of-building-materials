@@ -35,7 +35,7 @@ def login_view(request):
 
 def my_profile_view(request):
     context = {
-        'profile': User.objects.last(),
+        'profile': request.user,
     }
     return render(request, 'account.html')
 
