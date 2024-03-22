@@ -59,3 +59,9 @@ class Blog(models.Model):
     category = models.ForeignKey(to='Category', on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag)
     date = models.DateTimeField(auto_now=True)
+
+
+class Comment(models.Model):
+    name = models.CharField(max_length=55)
+    email = models.EmailField()
+    comment = models.TextField()

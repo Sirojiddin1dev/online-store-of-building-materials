@@ -27,6 +27,16 @@ def single_blog_view(request, pk):
         'info': Info.objects.last(),
         'recent_posts': Blog.objects.all().order_by('-id')[:4]
     }
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        message = request.POST['message']
+        Contact.objects.create(
+            name=name,
+            email=email,
+            message=message,
+        )
+        return redirect("single_blog_url")
     return render(request, 'blog-details.html', context)
 
 

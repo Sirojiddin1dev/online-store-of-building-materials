@@ -111,43 +111,34 @@
                         <div class="blog-detail-contact">
                             <h3>Leave A Comment</h3>
                             <p class="text-capitalize mb-40">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                            <form id="contact-form" class="contact-form" action="mail.php" method="post">
-                                <div class="address-wrapper">
+                            <form id="comment-form" class="comment-form" action="{% url 'single_blog_url' %}" method="post">
+                            {% csrf_token %}
+                            <div class="address-wrapper">
                                 <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="address-fname">
-                                                <input type="text" name="name" placeholder="Name">
-                                            </div>
+                                    <div class="col-md-12">
+                                        <div class="address-fname">
+                                            <input type="text" name="name" placeholder="Name">
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="address-email">
-                                                <input type="email" name="email" placeholder="Email">
-                                            </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="address-email">
+                                            <input type="email" name="email" placeholder="Email">
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="address-web">
-                                                <input type="text" name="website" placeholder="Website">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="address-subject">
-                                                <input type="text" name="subject" placeholder="Subject">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="address-textarea">
-                                                <textarea name="message" placeholder="Type your Comments"></textarea>
-                                            </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="address-textarea">
+                                            <textarea name="message" placeholder="Write your message"></textarea>
                                         </div>
                                     </div>
                                 </div>
-                                <p class="form-message ml-15"></p>
-                                <div class="col-xs-12 footer-content mail-content">
-                                    <div class="send-email pull-right">
-                                        <input type="submit" value="Send" class="submit">
-                                    </div>
+                            </div>
+                            <p class="form-message ml-15"></p>
+                            <div class="col-xs-12 footer-content mail-content">
+                                <div class="send-email">
+                                    <input type="submit" value="Submit" class="submit">
                                 </div>
-                            </form>
+                            </div>
+                        </form>
                         </div>
                         <!-- Contact Email Area End -->
                     </div>
