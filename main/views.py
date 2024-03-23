@@ -33,11 +33,9 @@ def single_blog_view(request, pk):
     }
     if request.method == 'POST':
         name = request.POST['name']
-        date = request.POST['date']
         message = request.POST['message']
         Comment.objects.create(
             name=name,
-            date=date,
             message=message,
         )
         return redirect("single_blog_url")

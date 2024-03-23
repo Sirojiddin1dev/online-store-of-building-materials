@@ -67,11 +67,9 @@
                                 <!-- Single Blog Start -->
                                 {% for i in blog %}
                                 <div class="single-blog">
-                                    {% for i in blog.img.all %}
                                     <div class="blog-img">
-                                        <a href="{% url 'single_blog_url' i.pk %}"><img src="{{ i.img.url }}" alt="blog-image"></a>
+                                        <a href="{% url 'single_blog_url' i.pk %}"><img src="{{ i.imgage.url }}" alt="blog-image"></a>
                                     </div>
-                                    {% endfor %}
                                     <div class="blog-content">
                                             <h4 class="blog-title"><a href="{% url 'single_blog_url' i.pk %}">{{ i.title }}</a></h4>
                                         <div class="blog-meta">
