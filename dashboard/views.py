@@ -3,16 +3,17 @@ from .models import *
 
 
 def banner_view(request):
-    product = Products.objects.filter(is_banner=True)
+    product = Products.objects.filter(is_banner=True).order_by('-id')[:2]
     context = {
-        'banner': Products.objects.all().order_by('-id')[:2],
+        'banner': product
     }
     return render(request, 'product.html', context)
 
 
 def product1_view(request):
+    product = Products.objects.filter(featured_product = True).order_by('-id')[:2]
     context = {
-        "product1": Products.objects.all().order_by('-id')[:2],
+        "product1": product
     }
     return render(request, 'product.html', context)
 
@@ -47,6 +48,6 @@ def product5_view(request):
 
 def shopping_view(request):
     context={
-        'shop': Products.objects.all().order_by('-id')[:6]
+        'shop': Products.objects.all().order_by('-id')[:7]
     }
     return render(request,'shop.html', context)
