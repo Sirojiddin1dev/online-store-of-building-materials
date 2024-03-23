@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import *
 
 
-def product_view(request):
+def banner_view(request):
     product = Products.objects.filter(is_banner=True)
     context = {
         'banner': Products.objects.all().order_by('-id')[:2],
@@ -10,7 +10,7 @@ def product_view(request):
     return render(request, 'product.html', context)
 
 
-def product1_view1(request):
+def product1_view(request):
     context = {
         "product1": Products.objects.all().order_by('-id')[:2],
     }
