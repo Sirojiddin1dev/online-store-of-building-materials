@@ -3,7 +3,7 @@ from .models import *
 
 
 def about_view(request):
-    about = About.objects.all().order_by('-id')[:1]
+    about = About.objects.last()
     context = {
         'about': about
     }
