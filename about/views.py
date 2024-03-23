@@ -1,3 +1,12 @@
 from django.shortcuts import render
+from .models import *
 
-# Create your views here.
+
+def about_view(request):
+    about = About.objects.all().order_by('-id')
+    context = {
+        'about': about
+    }
+    return render(request, 'about.html', context)
+
+
