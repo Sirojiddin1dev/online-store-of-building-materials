@@ -36,7 +36,7 @@ def single_blog_view(request, pk):
         message = request.POST['message']
         Comment.objects.create(
             name=name,
-            email=email,
+            date=date,
             message=message,
         )
         return redirect("single_blog_url")
@@ -86,7 +86,7 @@ def cart_view(request):
 
 
 def checkout_view(request,):
-    basket = Basket.objects.filter(user_id=pk)
+    basket = Basket.objects.filter(user_id=request.user)
     subtotal = 0
     for i in basket:
         subtotal += i.product.price

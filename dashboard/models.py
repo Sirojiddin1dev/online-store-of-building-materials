@@ -51,12 +51,7 @@ class Checkout(models.Model):
             code="Telefon raqam xato"
         )
     ])
-    COUNTRY_CHOICES = (
-        ('Uzbekistan','Uzbekistan'),
-        ('Rusian','Rusian'),
-        ('English','English'),
-    )
-    country = models.CharField(max_length=255, choices=COUNTRY_CHOICES)
+    country = models.CharField(max_length=255)
 
     def __str__(self):
         return self.name
