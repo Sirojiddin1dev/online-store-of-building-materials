@@ -125,11 +125,8 @@
                             <div class="middle-menu pull-right">
                                 <nav>
                                     <ul class="middle-menu-list">
-<<<<<<< HEAD
                                         <li><a href="{% url 'about_url' %}">about us</a></li>
-=======
-                                        <li><a href="{% url 'about_url' %}">about us</a></li>
->>>>>>> 8018bdfac2851e23624ab007b4589cfd6ec02c8c
+
                                         <li><a href="{% url 'shop_url' %}">shop<i class="fa fa-angle-down"></i></a>
                                             <!-- Home Version Dropdown Start -->
                                             <ul class="ht-dropdown dropdown-style-two">
@@ -155,10 +152,6 @@
                                                 {% else %}
                                                     <a href="{% url 'login_url' %}">
                                                 {% endif %}
-<<<<<<< HEAD
-                                                <li><a href="{% url 'checkout_url' %}">Checkout Page</a></li>
-=======
->>>>>>> 92292049cb9d13b54b60fb4b6ec825edc020921f
                                                 <li><a href="wishlist.html">Wishlist Page</a></li>
                                             </ul>
                                             <!-- Home Version Dropdown End -->
@@ -224,11 +217,6 @@
                                                 <!-- Cart Footer Inner Start -->
                                                 <div class="cart-footer fix">
                                                     <h5>total :<span class="f-right">$698.00</span></h5>
-<<<<<<< HEAD
-                                                    <div class="cart-actions">
-                                                        <a class="checkout" href="{% url 'checkout_url' %}">Checkout</a>
-                                                    </div>
-=======
                                                     {% if user.is_authenticated %}
                                                          <div class="cart-actions">
                                                             <a class="checkout" href="{% url 'checkout_url' user.pk %}">Checkout</a>
@@ -236,7 +224,6 @@
                                                     {% else %}
                                                         <a href="{% url 'login_url' %}">  </a>
                                                     {% endif %}
->>>>>>> 92292049cb9d13b54b60fb4b6ec825edc020921f
                                                 </div>
                                                 <!-- Cart Footer Inner End -->
                                             </li>
@@ -338,15 +325,11 @@
                                 <div class="footer-content">
                                     <ul class="footer-list">
                                         <li><a href="{% url 'my_profile_url' %}">My account</a></li>
-<<<<<<< HEAD
-                                        <li><a href="{% url 'checkout_url' %}">Checkout</a></li>
-=======
                                         {% if user.is_authenticated %}
                                             <li><a href="{% url 'checkout_url' user.pk %}">Checkout Page</a></li>
                                        {% else %}
-                                        <a href="{% url 'login_url' %}"></a>
+                                            <a href="{% url 'login_url' %}"></a>
                                        {% endif %}
->>>>>>> 92292049cb9d13b54b60fb4b6ec825edc020921f
                                         <li><a href="{% url 'login_url' %}">Login</a></li>
                                         <li><a href="#">address</a></li>
                                         <li><a href="#">Order status</a></li>

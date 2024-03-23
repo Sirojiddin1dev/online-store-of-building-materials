@@ -102,14 +102,13 @@ def checkout_view(request, pk):
         'info': Info.objects.last()
     }
     if request.method == "POST":
-        user = request.POST['user']
         name = request.POST['name']
         email = request.POST['email']
         phone_number = request.POST['phone_number']
         address = request.POST['address']
         country = request.POST['country']
         Checkout.objects.create(
-            user_id=user,
+            user_id=request.user,
             name=name,
             email=email,
             phone_number=phone_number,
