@@ -122,3 +122,16 @@ def checkout_view(request, pk):
         )
         return HttpResponse('<h1>Sizning Arizangiz qabul qilindi!</h1>')
     return render(request, 'checkout.html', context)
+
+
+def add_basket(request, pk):
+    if request.user.is_authenticated:
+        user = request.user
+    else:
+        return redirect('login_url')
+    product = Products.objects.get(pk=pk)
+    Basket.objects.create(
+        user=user,
+        product=product,
+    )
+    return HttpResponse("Item added to basket successfully!")
