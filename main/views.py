@@ -33,10 +33,12 @@ def single_blog_view(request, pk):
     }
     if request.method == 'POST':
         name = request.POST['name']
+        email = request.POST['email']
         message = request.POST['message']
         Comment.objects.create(
             name=name,
             message=message,
+            email=email,
         )
         return redirect("single_blog_url")
     return render(request, 'blog-details.html', context)
