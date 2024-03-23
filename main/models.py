@@ -22,6 +22,7 @@ class Info(models.Model):
         return self.youtube
 
 
+
 class Contact(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()

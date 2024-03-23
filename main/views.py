@@ -41,7 +41,7 @@ def single_blog_view(request, pk):
             blog=blog,
             email=email,
         )
-        return redirect("single_blog_url")
+        return redirect("single_blog_url", pk=blog.id)
     return render(request, 'blog-details.html', context)
 
 
@@ -124,8 +124,8 @@ def checkout_view(request, pk):
     return render(request, 'checkout.html', context)
 
 
-def add_basket(request):
-    product = Products.objects.get(pk=request.user)
+def add_basket(request, pk):
+    product = Products.objects.get(pk=pk)
     Basket.objects.create(
         user=request.user,
         product=product,

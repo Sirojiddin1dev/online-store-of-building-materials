@@ -9,7 +9,7 @@
                         <div class="slider-wrapper theme-default">
                             <!-- Slider Background  Image Start-->
                             <div id="slider" class="nivoSlider">
-                                <a href="shop.html"> <img src="{{ i.img.url }}" data-thumb="img/slider/5.jpg" alt="" title="#slider-1-caption1"/></a>
+                                <a href="shop.html"> <img src="{{ i.image.url }}" data-thumb="img/slider/5.jpg" alt="" title="#slider-1-caption1"/></a>
                             </div>
                             <!-- Slider Background  Image Start-->
                             <div id="slider-1-caption1" class="nivo-html-caption nivo-caption">
@@ -17,7 +17,7 @@
                                     <div class="text-content">
                                         <h1 class="title1 wow bounceInRight text-white mb-16" data-wow-duration="2s" data-wow-delay="1s">{{ i.title }}</h1>
                                         <div class="banner-readmore wow bounceInUp mt-35" data-wow-duration="2s" data-wow-delay="2s">
-                                            <a class="button slider-btn" href="shop.html">Shop Now</a>                    
+                                            <a class="button slider-btn" href="shop.html">Shop Now</a>
                                         </div>
                                     </div>
                                 </div>
@@ -29,7 +29,7 @@
                          <!-- Single Banner Start -->
                         <div class="single-banner zoom mb-20">
                             {% for i in product1 %}
-                            <a href="#"><img src="{{ i.img.url }}" alt="slider-banner"></a>
+                            <a href="#"><img src="{{ i.image.url }}" alt="slider-banner"></a>
                             {% endfor %}
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                             <!-- Product Image Start -->
                             <div class="pro-img">
                                 <a href="product.html">
-                                    <img class="primary-img" src="{{ i.img.url }}" alt="single-product">
+                                    <img class="primary-img" src="{{ i.image.url }}" alt="single-product">
                                 </a>
                             </div>
                             <!-- Product Image End -->
@@ -59,7 +59,7 @@
                                 <div class="pro-actions">
                                     <div class="actions-secondary">
                                         <a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                        <a class="add-cart" href="cart.html" data-toggle="tooltip" title="Add to Cart">Add To Cart</a>
+                                        <a class="add-cart" href="{% url 'add_basket_url' i.pk %}" data-toggle="tooltip" title="Add to Cart">Add To Cart</a>
                                         <a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a>
                                     </div>
                                 </div>
@@ -81,15 +81,17 @@
                 </div>
                 <!-- Best Product Activation Start -->
 
-                <div class="best-seller-pro-active  owl-carousel slider-right-content">
+                <div class="product-area pt-30">
                     <!-- Double Product Start -->
-                    <div class="double-pro">
+                    <div class="container">
                         <div class="row">
                         <!-- Single Product Start -->
                         {% for i in product3 %}
                         <div class="single-product">
                             <div class="pro-img">
-                                <a href="product.html"><img class="img" src="{{ i.img.url }}" alt="product-image"></a>
+                                <a href="product.html">
+                                    <img class="primary-img" height="200" width="150" src="{{ i.image.url }}" alt="single-product">
+                                </a>
                             </div>
                             <div class="pro-content">
                                 <h4><a href="product.html">{{ i.title }}</a></h4>
