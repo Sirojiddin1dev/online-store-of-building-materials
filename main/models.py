@@ -66,4 +66,4 @@ class Comment(models.Model):
     name = models.CharField(max_length=155)
     email = models.EmailField()
     date = models.DateTimeField(auto_now=True)
-    comment = models.TextField()
+    message = models.TextField()
