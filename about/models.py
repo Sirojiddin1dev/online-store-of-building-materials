@@ -2,7 +2,7 @@ from django.db import models
 
 
 class About(models.Model):
-    text = models.TextFile()
+    text = models.TextField()
     title = models.CharField(max_length=255)
     img = models.ImageField(upload_to='about_photo/')
 
