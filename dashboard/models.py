@@ -40,7 +40,7 @@ class Basket(models.Model):
 
 class Checkout(models.Model):
     user = models.ForeignKey(to=User, on_delete=models.CASCADE)
-    product = models.ForeignKey(to=Products, on_delete=models.CASCADE)
+    product = models.TextField()
     name = models.CharField(max_length=100)
     email = models.EmailField()
     address = models.CharField(max_length=255)

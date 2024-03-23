@@ -101,6 +101,9 @@ def checkout_view(request, pk):
         'total': total,
         'info': Info.objects.last()
     }
+    products = ''
+    for i in basket:
+        products += f"Mahsulot nomi: {i.product.title}"
     if request.method == "POST":
         name = request.POST['name']
         email = request.POST['email']
@@ -108,8 +111,9 @@ def checkout_view(request, pk):
         address = request.POST['address']
         country = request.POST['country']
         Checkout.objects.create(
-            user_id=request.user,
+            user_id=request.user.id,
             name=name,
+            product=products,
             email=email,
             phone_number=phone_number,
             address=address,

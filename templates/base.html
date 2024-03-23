@@ -91,15 +91,6 @@
                                         </select>
                                         <input type="submit" value="Go">
                                     </form>
-                                    <!-- Currency Start -->
-                                    <li><a href="#">Currency:  USD <i class="fa fa-angle-down"></i></a>
-                                        <ul class="ht-dropdown">
-                                            <li><a href="#">USD</a></li>
-                                            <li><a href="#">GBP</a></li>
-                                            <li><a href="#">EUR</a></li>
-                                        </ul>
-                                    </li>
-                                    <!-- Currency End -->
                                 </ul>
                                 <!-- Header-list-menu End -->
                             </div>
@@ -131,19 +122,6 @@
                                             <!-- Home Version Dropdown Start -->
                                             <ul class="ht-dropdown dropdown-style-two">
                                                 <li><a href="{% url 'shop_url' %}">Shop</a>
-                                                    <!-- Start Two Step -->
-                                                    <ul class="ht-dropdown dropdown-style-two sub-menu">
-                                                        <li><a href="shop.html">Product Category Name</a>
-                                                            <!-- Start Three Step -->
-                                                            <ul class="ht-dropdown dropdown-style-two sub-menu">
-                                                                <li><a href="shop.html">Product Category Name</a></li>
-                                                                <li><a href="shop.html">Product Category Name</a></li>
-                                                                <li><a href="shop.html">Product Category Name</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li><a href="shop.html">Product Category Name</a></li>
-                                                        <li><a href="shop.html">Product Category Name</a></li>
-                                                    </ul>
                                                 </li>
                                                 <li><a href="compare.html">Compare Page</a></li>
                                                 {% if user.is_authenticated %}
