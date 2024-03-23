@@ -7,8 +7,7 @@ def banner_view(request):
     product1 = Products.objects.filter(featured_product = True).order_by('-id')[:2]
     product2 = Products.objects.all().order_by('-view')[:4]
     product3 = Products.objects.filter(is_advert=True)[:3]
-    product = Products.objects.all().order_by('-new_product')[:12]
-    product = Products.objects.all().order_by('-product_info')[:6]
+    product = Products.objects.filter(new_product=True).order_by('-id')[:12]
     context = {
         'banner': banner,
         "product1": product1,
