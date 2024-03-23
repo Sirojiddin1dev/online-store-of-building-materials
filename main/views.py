@@ -124,14 +124,10 @@ def checkout_view(request, pk):
     return render(request, 'checkout.html', context)
 
 
-def add_basket(request, pk):
-    if request.user.is_authenticated:
-        user = request.user
-    else:
-        return redirect('login_url')
-    product = Products.objects.get(pk=pk)
+def add_basket(request):
+    product = Products.objects.get(pk=request.user)
     Basket.objects.create(
-        user=user,
+        user=request.user,
         product=product,
     )
     return HttpResponse("Item added to basket successfully!")
