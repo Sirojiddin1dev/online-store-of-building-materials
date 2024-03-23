@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import *
 from django.http import HttpResponse
 from dashboard.models import *
+from django.contrib.auth.decorators import login_required
 
 
 def index_view(request):
@@ -61,10 +62,11 @@ def contact_view(request):
         return HttpResponse("Sizning so'rovingiz qabul qilindi! Sizga Tez orada Javob Berildi ")
     return render(request, 'contact.html', context)
 
+@login_required
 def remove_cart_product(request, pk):
     basket = Basket.objects.get(pk=pk)
     basket.delete()
-    return redirect('cart_url', pk=request.user.id)
+    return HttpResponse("1 ta obyekt o'chirildi!")
 
 
 def cart_view(request, id):
@@ -72,7 +74,6 @@ def cart_view(request, id):
     basket_count = Basket.objects.filter(user_id=id).count()
     subtotal = 0
     for item in basket:
-        print(item.product)
         subtotal += item.product.price
 
     total = subtotal
@@ -88,12 +89,12 @@ def cart_view(request, id):
     return render(request, 'cart.html', context)
 
 
-def checkout_view(request,):
-    basket = Basket.objects.filter(user_id=request.user)
+def checkout_view(request, pk):
+    basket = Basket.objects.filter(user_id=pk)
     subtotal = 0
     for i in basket:
         subtotal += i.product.price
-        total = subtotal
+    total = subtotal
     context = {
         'basket': basket,
         'subtotal': subtotal,
