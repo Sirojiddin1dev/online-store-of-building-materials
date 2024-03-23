@@ -73,7 +73,7 @@
         <!-- checkout-area start -->
         <div class="checkout-area pt-30  pb-60">
             <div class="container">
-                <form action="{% url 'checkout_url' %}" method="post" >
+                <form action="{% url 'checkout_url' user.pk %}" method="post" >
                     {% csrf_token %}
                     <div class="row">
                         <div class="col-lg-6 col-md-6">
