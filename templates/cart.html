@@ -34,17 +34,23 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    {% for i in basket %}
+                                        {% for item in basket %}
                                         <tr>
                                             <td class="product-thumbnail">
-                                                <a href="#"><img src="{{ i.product.img.url }}" alt="cart-image" /></a>
+                                                <a href="#"><img src="{{ item.product.img.url }}" alt="cart-image" /></a>
                                             </td>
-                                            <td class="product-name"><a href="#">{{ i.product.title }}</a></td>
-                                            <td class="product-price"><span class="amount">{{ i.product.price }}</span></td>
-                                            <td class="product-quantity"><input type="number" value="1" />{{ i.product.quantity }}</td>
-                                            <td class="product-remove"> <a href="{% url 'remove_cart_product_url' i.id %}"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                                            <td class="product-name"><a href="#">{{ item.product }}</a></td>
+                                            <td class="product-price"><span class="amount">{{ item.product.price }}</span></td>
+                                            <td class="product-quantity">
+                                                <input type="number" value="1" min="1" />
+                                            </td>
+                                            <td class="product-remove">
+                                                <a href="{% url 'remove_cart_product_url' item.id %}">
+                                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                                </a>
+                                            </td>
                                         </tr>
-                                    {% endfor %}
+                                        {% endfor %}
                                     </tbody>
                                 </table>
                             </div>
@@ -72,7 +78,7 @@
                                                 <tr class="order-total">
                                                     <th>Total</th>
                                                     <td>
-                                                        <strong><span class="amount">{{ totel }} So'm</span></strong>
+                                                        <strong><span class="amount">{{ tax }} So'm</span></strong>
                                                     </td>
                                                 </tr>
                                             </tbody>

@@ -145,7 +145,11 @@
                                                     </ul>
                                                 </li>
                                                 <li><a href="compare.html">Compare Page</a></li>
-                                                <li><a href="{% url 'cart_url' %}">Cart Page</a></li>
+                                                {% if user.is_authenticated %}
+                                                    <li><a href="{% url 'cart_url' user.id %}">Cart Page</a></li>
+                                                {% else %}
+                                                    <a href="{% url 'login_url' %}">
+                                                {% endif %}
                                                 <li><a href="{% url 'checkout_url' %}">Checkout Page</a></li>
                                                 <li><a href="wishlist.html">Wishlist Page</a></li>
                                             </ul>

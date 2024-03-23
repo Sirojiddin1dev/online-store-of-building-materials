@@ -29,12 +29,12 @@ class Products(models.Model):
 
 
 class Wishlist(models.Model):
-    product = models.ManyToManyField(Products)
+    product = models.ForeignKey(Products, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 class Basket(models.Model):
-    product = models.ManyToManyField(Products)
+    product = models.ForeignKey(Products, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 

@@ -67,13 +67,16 @@ def remove_cart_product(request, pk):
     return redirect('cart_url', pk=request.user.id)
 
 
-def cart_view(request):
-    basket = Basket.objects.filter(user_id=request.user)
-    basket_count = Basket.objects.filter(user_id=request.user).count()
+def cart_view(request, id):
+    basket = Basket.objects.filter(user_id=id)
+    basket_count = Basket.objects.filter(user_id=id).count()
     subtotal = 0
-    for i in basket:
-        subtotal += i.product.price
+    for item in basket:
+        print(item.product)
+        subtotal += item.product.price
+
     total = subtotal
+
     context = {
         'basket': basket,
         'basket_count': basket_count,
