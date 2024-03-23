@@ -3,4 +3,4 @@ from .models import *
 
 admin.site.register(About)
 admin.site.register(About1)
-admin.site.register(Brand)
+

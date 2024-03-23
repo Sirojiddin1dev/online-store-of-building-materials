@@ -20,5 +20,3 @@ class About1(models.Model):
         return self.text
 
 
-class Brand(models.Model):
-    logo = models.ImageField(upload_to='logo_brand/')
