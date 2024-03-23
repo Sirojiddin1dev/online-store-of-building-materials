@@ -22,6 +22,7 @@ class Products(models.Model):
     advert_text = models.CharField(max_length=50, null=True, blank=True)
     new_product = models.BooleanField(default=True)
     product_create = models.DateField(auto_now_add=True)
+    view = models.IntegerField(default = 0)
 
     def __str__(self):
         return self.title

@@ -19,29 +19,33 @@ def product1_view(request):
 
 
 def product2_view(request):
+    product = Products.objects.all().order_by('-view')[:4]
     context = {
-        'product2': Products.objects.all().order_by('-id')[:4],
+        'product2': product
     }
     return render(request, 'product.html', context)
 
 
 def product3_view(request):
+    product = Products.objects.filter(is_advert = True)[:3]
     context = {
-        'product3': Products.objects.all().order_by('-id')[:3],
+        'product3': product
     }
     return render(request, 'product.html', context)
 
 
 def product4_view(request):
+    product = Products.objects.all().order_by('-new_product')[:12]
     context = {
-        'product4': Products.objects.all().order_by('-id')[:12],
+        'product4': product
     }
     return render(request, 'product.html', context)
 
 
 def product5_view(request):
+    product = Products.objects.all().order_by('-product_info')[:6]
     context = {
-        'product5': Products.objects.all().order_by('-id')[:3],
+        'product5':product
     }
     return render(request, 'product.html', context)
 
