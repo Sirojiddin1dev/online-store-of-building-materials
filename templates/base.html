@@ -125,8 +125,13 @@
                             <div class="middle-menu pull-right">
                                 <nav>
                                     <ul class="middle-menu-list">
+<<<<<<< HEAD
                                         <li><a href="about.html">about us</a></li>
                                         <li><a href="{% url 'shop_url'%}">shop<i class="fa fa-angle-down"></i></a>
+=======
+                                        <li><a href="{% url 'about_url' %}">about us</a></li>
+                                        <li><a href="shop.html">shop<i class="fa fa-angle-down"></i></a>
+>>>>>>> d26253b6746dc6ab18057a3b2ad4e763e432f79f
                                             <!-- Home Version Dropdown Start -->
                                             <ul class="ht-dropdown dropdown-style-two">
                                                 <li><a href="shop.html">Shop</a>
@@ -276,7 +281,7 @@
                                             </ul>
                                             <!-- Mobile Menu Dropdown End -->
                                         </li>
-                                        <li><a href="about.html">about us</a></li>
+                                        <li><a href="{% url 'about_url'  %}">about us</a></li>
                                         <li><a href="contact.html">contact us</a></li>
                                     </ul>
                                 </nav>
