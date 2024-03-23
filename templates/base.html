@@ -151,10 +151,10 @@
                                                 <li><a href="compare.html">Compare Page</a></li>
                                                 {% if user.is_authenticated %}
                                                     <li><a href="{% url 'cart_url' user.id %}">Cart Page</a></li>
+                                                    <li><a href="{% url 'checkout_url' user.pk %}">Checkout Page</a></li>
                                                 {% else %}
                                                     <a href="{% url 'login_url' %}">
                                                 {% endif %}
-                                                <li><a href="{% url 'checkout_url' user.pk %}">Checkout Page</a></li>
                                                 <li><a href="wishlist.html">Wishlist Page</a></li>
                                             </ul>
                                             <!-- Home Version Dropdown End -->
@@ -220,9 +220,13 @@
                                                 <!-- Cart Footer Inner Start -->
                                                 <div class="cart-footer fix">
                                                     <h5>total :<span class="f-right">$698.00</span></h5>
-                                                    <div class="cart-actions">
-                                                        <a class="checkout" href="{% url 'checkout_url' user.pk %}">Checkout</a>
-                                                    </div>
+                                                    {% if user.is_authenticated %}
+                                                         <div class="cart-actions">
+                                                            <a class="checkout" href="{% url 'checkout_url' user.pk %}">Checkout</a>
+                                                        </div>
+                                                    {% else %}
+                                                        <a href="{% url 'login_url' %}">  </a>
+                                                    {% endif %}
                                                 </div>
                                                 <!-- Cart Footer Inner End -->
                                             </li>
@@ -324,7 +328,11 @@
                                 <div class="footer-content">
                                     <ul class="footer-list">
                                         <li><a href="{% url 'my_profile_url' %}">My account</a></li>
-                                        <li><a href="{% url 'checkout_url' user.pk %}">Checkout</a></li>
+                                        {% if user.is_authenticated %}
+                                            <li><a href="{% url 'checkout_url' user.pk %}">Checkout Page</a></li>
+                                       {% else %}
+                                        <a href="{% url 'login_url' %}"></a>
+                                       {% endif %}
                                         <li><a href="{% url 'login_url' %}">Login</a></li>
                                     </ul>
                                 </div>
