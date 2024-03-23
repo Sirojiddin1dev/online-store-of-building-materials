@@ -67,9 +67,9 @@ def remove_cart_product(request, pk):
     return redirect('cart_url', pk=request.user.id)
 
 
-def cart_view(request, pk):
-    basket = Basket.objects.filter(user_id=pk)
-    basket_count = Basket.objects.filter(user_id=pk).count()
+def cart_view(request):
+    basket = Basket.objects.filter(user_id=request.user)
+    basket_count = Basket.objects.filter(user_id=request.user).count()
     subtotal = 0
     for i in basket:
         subtotal += i.product.price
