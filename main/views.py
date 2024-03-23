@@ -38,6 +38,7 @@ def single_blog_view(request, pk):
         Comment.objects.create(
             name=name,
             message=message,
+            blog=blog,
             email=email,
         )
         return redirect("single_blog_url")
