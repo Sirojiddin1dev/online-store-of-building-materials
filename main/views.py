@@ -86,7 +86,7 @@ def cart_view(request):
 
 
 def checkout_view(request,):
-    basket = Basket.objects.filter(user_id=pk)
+    basket = Basket.objects.filter(user_id=request.user)
     subtotal = 0
     for i in basket:
         subtotal += i.product.price
