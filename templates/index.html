@@ -4,17 +4,18 @@
         <div class="slider-area slider-style-three">
             <div class="container">
                 <div class="row">
+                    {% for i in banner %}
                     <div class="col-md-8">
                         <div class="slider-wrapper theme-default">
                             <!-- Slider Background  Image Start-->
                             <div id="slider" class="nivoSlider">
-                                <a href="shop.html"> <img src="{{ banner.img.url }}" data-thumb="img/slider/5.jpg" alt="" title="#slider-1-caption1"/></a>
+                                <a href="shop.html"> <img src="{{ i.img.url }}" data-thumb="img/slider/5.jpg" alt="" title="#slider-1-caption1"/></a>
                             </div>
                             <!-- Slider Background  Image Start-->
                             <div id="slider-1-caption1" class="nivo-html-caption nivo-caption">
                                 <div class="text-content-wrapper">
                                     <div class="text-content">
-                                        <h1 class="title1 wow bounceInRight text-white mb-16" data-wow-duration="2s" data-wow-delay="1s">{{ banner.title }}</h1>
+                                        <h1 class="title1 wow bounceInRight text-white mb-16" data-wow-duration="2s" data-wow-delay="1s">{{ i.title }}</h1>
                                         <div class="banner-readmore wow bounceInUp mt-35" data-wow-duration="2s" data-wow-delay="2s">
                                             <a class="button slider-btn" href="shop.html">Shop Now</a>                    
                                         </div>
@@ -23,6 +24,7 @@
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
                     <div class="col-md-4">
                          <!-- Single Banner Start -->
                         <div class="single-banner zoom mb-20">
