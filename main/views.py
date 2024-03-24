@@ -9,7 +9,7 @@ def index_view(request):
     context = {
         'info': Info.objects.last()
     }
-    return render(request, 'index.html', context)
+    return render(request, 'base.html', context)
 
 
 def blog_view(request):

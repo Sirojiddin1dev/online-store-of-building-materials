@@ -23,3 +23,4 @@ def shopping_view(request):
         'shop': Products.objects.all().order_by('-id')[:7]
     }
     return render(request,'shop.html', context)
+
