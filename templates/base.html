@@ -138,8 +138,11 @@
                                             <!-- Home Version Dropdown Start -->
                                             <!-- Home Version Dropdown End -->
                                         </li>
-                                        <li><a href="{% url 'my_profile_url' user.pk %}">{% blocktrans %}Mening profilim{% endblocktrans %}</a>
-                                        </li>
+                                            {% if user.is_authenticated %}
+                                                <li><a href="{% url 'my_profile_url' user.pk %}">{% blocktrans %}Mening profilim{% endblocktrans %}</a></li>
+                                            {% else %}
+                                                <a href="{% url 'login_url' %}"></a>
+                                            {% endif %}
                                         <li><a href="{% url 'contact_url'  %}">{% blocktrans %}Biz bilan bog'lanish{% endblocktrans %}</a></li>
                                     </ul>
                                 </nav>
@@ -154,12 +157,16 @@
                                         <ul class="ht-dropdown">
                                             <li><a href="{% url 'login_url' %}">{% blocktrans %}Kirish{% endblocktrans %}</a></li>
                                             <li><a href="{% url 'register_url' %}">{% blocktrans %}Ro'yhadan{% endblocktrans %}</a></li>
-                                            <li><a href="{% url 'my_profile_url' user.pk %}">{% blocktrans %}Profil{% endblocktrans %}</a></li>
+                                            {% if user.is_authenticated %}
+                                                <li><a href="{% url 'my_profile_url' user.pk %}">{% blocktrans %}Mening profilim{% endblocktrans %}</a></li>
+                                            {% else %}
+                                                <a href="{% url 'login_url' %}"></a>
+                                            {% endif %}
                                         </ul>
                                     </li>
-                                    <li><a href="{% url 'wishlist_url' user.pk %}"><i class="fa fa-heart-o"></i></a></li>
-                                    <li><a href="{% url 'cart_url' user.id %}"><i class="fa fa-shopping-basket"></i><span class="cart-counter">{{ basket_count }}</span></a>
                                         {% if user.is_authenticated %}
+                                            <li><a href="{% url 'wishlist_url' user.pk %}"><i class="fa fa-heart-o"></i></a></li>
+                                            <li><a href="{% url 'cart_url' user.id %}"><i class="fa fa-shopping-basket"></i><span class="cart-counter">{{ basket_count }}</span></a>
                                         <ul class="ht-dropdown main-cart-box">
                                             <li>
                                                 {% for i in basket %}
@@ -211,10 +218,13 @@
                                                     </ul>
                                                 </li>
                                                 <li><a href="product.html">{% blocktrans %}Maxsulot haqida{% endblocktrans %}</a></li>
-                                                <li><a href="compare.html">{% blocktrans %}Solishtiring{% endblocktrans %}</a></li>
-                                                <li><a href="cart.html">{% blocktrans %}Carta{% endblocktrans %}</a></li>
-                                                <li><a href="checkout.html">{% blocktrans %}To'lov sahifasi{% endblocktrans %}</a></li>
-                                                <li><a href="wishlist.html">{% blocktrans %}Istaqlar sahifasi{% endblocktrans %}</a></li>
+                                                {% if user.is_authenticated %}
+                                                    <li><a href="{% url 'cart_url' user.id %}">{% blocktrans %}Sizning Kartangiz{% endblocktrans %}</a></li>
+                                                    <li><a href="{% url 'checkout_url' user.pk %}">{% blocktrans %}To'lov{% endblocktrans %}</a></li>
+                                                    <li><a href="{% url 'wishlist_url' user.pk %}">{% blocktrans %}Istaklar roʻyxati{% endblocktrans %}</a></li>
+                                                {% else %}
+                                                    <a href="{% url 'login_url' %}">
+                                                {% endif %}
                                             </ul>
                                             <!-- Mobile Menu Dropdown End -->
                                         </li>
@@ -271,8 +281,8 @@
                                 <h3 class="footer-title">{% blocktrans %}Profil{% endblocktrans %}</h3>
                                 <div class="footer-content">
                                     <ul class="footer-list">
-                                        <li><a href="{% url 'my_profile_url' user.pk  %}">{% blocktrans %}Mening profilim{% endblocktrans %}</a></li>
                                         {% if user.is_authenticated %}
+                                            <li><a href="{% url 'my_profile_url' user.pk  %}">{% blocktrans %}Mening profilim{% endblocktrans %}</a></li>
                                             <li><a href="{% url 'checkout_url' user.pk %}">{% blocktrans %}To'lov sahifasi{% endblocktrans %}</a></li>
                                        {% else %}
                                             <a href="{% url 'login_url' %}"></a>
@@ -289,7 +299,11 @@
                                 <h3 class="footer-title">{% blocktrans %}Moslashtirilgan xizmatlar{% endblocktrans %}</h3>
                                 <div class="footer-content">
                                     <ul class="footer-list">
-                                        <li><a href="{% url 'my_profile_url' user.pk %}">{% blocktrans %}Mening profilim{% endblocktrans %}</a></li>
+                                        {% if user.is_authenticated %}
+                                            <li><a href="{% url 'my_profile_url' user.pk %}">{% blocktrans %}Mening profilim{% endblocktrans %}</a></li>
+                                        {% else %}
+                                            <a href="{% url 'login_url' %}">
+                                        {% endif %}
                                         <li><a href="#">{% blocktrans %}Yangi{% endblocktrans %}</a></li>
                                         <li><a href="#">{% blocktrans %}Sovg'a kartasi{% endblocktrans %}</a></li>
                                         <li><a href="#">{% blocktrans %}Sizning Buyurtmanlaringiz{% endblocktrans %}</a></li>
@@ -304,8 +318,17 @@
                                 <h3 class="footer-title">Let Us Help You</h3>
                                 <div class="footer-content">
                                     <ul class="footer-list">
+<<<<<<< HEAD
                                         <li><a href="{% url 'my_profile_url' user.pk %}">{% blocktrans %}Sizning profilingiz{% endblocktrans %}</a></li>
                                         <li><a href="{% url 'cart_url' %}">{% blocktrans %}Sizning buyurmalaringiz{% endblocktrans %}</a></li>
+=======
+                                        {% if user.is_authenticated %}
+                                            <li><a href="{% url 'my_profile_url' user.pk %}">{% blocktrans %}Mening profilim{% endblocktrans %}</a></li>
+                                        {% else %}
+                                            <a href="{% url 'login_url' %}">
+                                        {% endif %}
+                                        <li><a href="{% url 'add_basket_url' basket.pk %}">{% blocktrans %}Sizning buyurmalaringiz{% endblocktrans %}</a></li>
+>>>>>>> 0e2a0cb02f30fca632c6f3e48cdfa1bd02eefc42
                                     </ul>
                                 </div>
                             </div>
