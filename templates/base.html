@@ -318,17 +318,16 @@
                                 <h3 class="footer-title">Let Us Help You</h3>
                                 <div class="footer-content">
                                     <ul class="footer-list">
-<<<<<<< HEAD
-                                        <li><a href="{% url 'my_profile_url' user.pk %}">{% blocktrans %}Sizning profilingiz{% endblocktrans %}</a></li>
-                                        <li><a href="{% url 'cart_url' %}">{% blocktrans %}Sizning buyurmalaringiz{% endblocktrans %}</a></li>
-=======
+
+
                                         {% if user.is_authenticated %}
+                                            <li><a href="{% url 'cart_url' user.pk %}">{% blocktrans %}Sizning buyurmalaringiz{% endblocktrans %}</a></li>
+
                                             <li><a href="{% url 'my_profile_url' user.pk %}">{% blocktrans %}Mening profilim{% endblocktrans %}</a></li>
                                         {% else %}
                                             <a href="{% url 'login_url' %}">
                                         {% endif %}
-                                        <li><a href="{% url 'add_basket_url' basket.pk %}">{% blocktrans %}Sizning buyurmalaringiz{% endblocktrans %}</a></li>
->>>>>>> 0e2a0cb02f30fca632c6f3e48cdfa1bd02eefc42
+
                                     </ul>
                                 </div>
                             </div>

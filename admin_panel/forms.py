@@ -1,5 +1,6 @@
 from django import forms
-from dashboard.models import Products
+from dashboard.models import *
+from main.models import *
 
 class ProductForm(forms.ModelForm):
     class Meta:
@@ -17,3 +18,9 @@ class BlogForm(forms.ModelForm):
     class Meta:
         model = Blog
         fields = ['title', 'description', 'image', 'category', 'tags']
+
+
+class BannerForm(forms.ModelForm):
+    class Meta:
+        model = Banner
+        fields = ['title', 'img']
