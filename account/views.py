@@ -3,6 +3,8 @@ from .models import User
 from django.contrib.auth import login, logout, authenticate
 from dashboard.models import Basket
 from main.models import Info
+from django.http import HttpResponse
+
 
 def create_user_view(request):
     if request.method == 'POST':
@@ -18,6 +20,24 @@ def create_user_view(request):
         )
         return redirect('login_url')
     return render(request, 'register.html')
+
+
+def create_staff_user_view(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        staff = request.POST.get('staff')
+        if staff == 'staff':
+            staff =True
+        else:
+            staff = False
+        User.objects.create_user(
+            username=username,
+            password=password,
+            is_staff=staff,
+        )
+        return HttpResponse('<h1>Sizning murojatingiz qabul qilindi</h1>')
+    return render(request, 'index_1.html')
 
 
 def login_view(request):
