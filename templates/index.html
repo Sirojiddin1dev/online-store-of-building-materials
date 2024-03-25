@@ -59,7 +59,7 @@
                                 <div class="pro-actions">
                                     <div class="actions-secondary">
                                         <a href="{% url 'add_wishlist_url' i.pk %}" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                        <a class="add-cart" href="{% url 'add_basket_url' i.pk %}" data-toggle="tooltip" title="Add to Cart">Add To Cart</a>
+                                        <a class="add-cart" href="{% url 'add_basket_url' i.pk %}" data-toggle="tooltip" title="Add to Cart">{% blocktrans %}Kartaga ko'shish{% endblocktrans %}</a>
                                     </div>
                                 </div>
                             </div>
@@ -76,7 +76,7 @@
         <div class="best-seller-product pb-40">
             <div class="container">
                 <div class="group-title">
-                    <h2>Best Seller Products</h2>
+                    <h2>{% blocktrans %}Eng ko'p sotilgan maxsulotlar{% endblocktrans %}</h2>
                 </div>
                 <!-- Best Product Activation Start -->
 
