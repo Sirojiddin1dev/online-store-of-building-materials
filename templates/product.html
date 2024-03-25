@@ -91,9 +91,9 @@
                         <h2>related product</h2>
                     </div>
                     <!-- Realted Product Activation Start -->
-                    <div class="row">
-                        {% for i in product2 %}
+
                         <div class="new-upsell-pro owl-carousel">
+                            {% for i in product2 %}
                             <div class="single-product">
                                 <!-- Product Image Start -->
                                 <div class="pro-img">
@@ -115,9 +115,8 @@
                                 </div>
                                 <!-- Product Content End -->
                             </div>
+                             {% endfor %}
                         </div>
-                        {% endfor %}
-                    </div>
                     <!-- Realted Product Activation End -->
                 </div>
             </div>
