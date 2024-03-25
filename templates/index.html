@@ -28,7 +28,7 @@
                          <!-- Single Banner Start -->
                         <div class="single-banner zoom mb-20">
                             {% for i in product1 %}
-                            <a href="#"><img src="{{ i.image.url }}" alt="slider-banner"></a>
+                            <a href="{% url 'single_product_url' i.pk %}"><img src="{{ i.image.url }}" alt="slider-banner"></a>
                             {% endfor %}
                         </div>
                     </div>
@@ -46,7 +46,7 @@
                         <div class="single-product">
                             <!-- Product Image Start -->
                             <div class="pro-img">
-                                <a href="product.html">
+                                <a href="{% url 'single_product_url' i.pk %}">
                                     <img class="primary-img" src="{{ i.image.url }}" alt="single-product">
                                 </a>
                             </div>
@@ -88,12 +88,12 @@
                         {% for i in product3 %}
                         <div class="single-product">
                             <div class="pro-img">
-                                <a href="product.html">
+                                <a href="{% url 'single_product_url' i.pk %}">
                                     <img class="primary-img" height="200" width="150" src="{{ i.image.url }}" alt="single-product">
                                 </a>
                             </div>
                             <div class="pro-content">
-                                <h4><a href="product.html">{{ i.title }}</a></h4>
+                                <h4><a href="{% url 'single_product_url' i.pk %}">{{ i.title }}</a></h4>
                                 <p><span class="price">{{ i.price }} so'm</span></p>
                             </div>
                         </div>

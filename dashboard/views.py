@@ -31,9 +31,11 @@ def shopping_view(request):
 
 def single_product(request, pk):
     product = Products.objects.get(pk=pk)
+    product2 = Products.objects.all().order_by('-view')[:4]
     product.view += 1
     product.save()
     context = {
-        'product': product
+        'product': product,
+        'product2': product2
     }
     return render(request, 'product.html', context)
