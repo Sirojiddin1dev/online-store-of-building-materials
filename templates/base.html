@@ -73,29 +73,6 @@
                             </div>
                         </div>
                         <!-- Search Box End -->
-                        <!-- Header Top Right Start -->
-                        <div class="col-lg-4 col-md-12">
-                            <div class="header-top-right">
-                                <ul class="header-list-menu f-right">
-                                    <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
-                                        <input name="next" type="hidden" value="{{ redirect_to }}">
-                                        <select name="language">
-                                            {% get_current_language as LANGUAGE_CODE %}
-                                            {% get_available_languages as LANGUAGES %}
-                                            {% get_language_info_list for LANGUAGES as languages %}
-                                            {% for language in languages %}
-                                                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
-                                                    {{ language.name_local }} ({{ language.code }})
-                                                </option>
-                                            {% endfor %}
-                                        </select>
-                                        <input type="submit" value="Go">
-                                    </form>
-                                </ul>
-                                <!-- Header-list-menu End -->
-                            </div>
-                        </div>
-                        <!-- Header Top Right End -->
                     </div>
                 </div>
                 <!-- Container End -->
@@ -165,47 +142,40 @@
                                         </ul>
                                     </li>
                                     <li><a href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-shopping-basket"></i><span class="cart-counter">2</span></a>
+                                    <li><a href="#"><i class="fa fa-shopping-basket"></i><span class="cart-counter">{{ basket_count }}</span></a>
+                                        {% if user.is_authenticated %}
                                         <ul class="ht-dropdown main-cart-box">
                                             <li>
+                                                {% for i in basket %}
                                                 <!-- Cart Box Start -->
                                                 <div class="single-cart-box">
                                                     <div class="cart-img">
-                                                        <a href="#"><img src="{% static 'img/menu/1.jpg' %}" alt="cart-image"></a>
+                                                        <a href="#"><img src="{{ i.product.image.url }}" alt="cart-image"></a>
                                                     </div>
                                                     <div class="cart-content">
-                                                        <h6><a href="product.html">Products Name</a></h6>
-                                                        <span>1 × $399.00</span>
+                                                        <h6><a href="product.html">{{ i.product.title }}</a></h6>
+                                                        <span>{{ i.product.price }}</span>
                                                     </div>
                                                     <a class="del-icone" href="#"><i class="fa fa-window-close-o"></i></a>
                                                 </div>
                                                 <!-- Cart Box End -->
-                                                <!-- Cart Box Start -->
-                                                <div class="single-cart-box">
-                                                    <div class="cart-img">
-                                                        <a href="#"><img src="{% static 'img/menu/2.jpg' %}" alt="cart-image"></a>
-                                                    </div>
-                                                    <div class="cart-content">
-                                                        <h6><a href="product.html">Products Name</a></h6>
-                                                        <span>2 × $299.00</span>
-                                                    </div>
-                                                    <a class="del-icone" href="#"><i class="fa fa-window-close-o"></i></a>
-                                                </div>
-                                                <!-- Cart Box End -->
+                                                {% endfor %}
                                                 <!-- Cart Footer Inner Start -->
                                                 <div class="cart-footer fix">
-                                                    <h5>total :<span class="f-right">$698.00</span></h5>
-                                                    {% if user.is_authenticated %}
+                                                    <h5>total :<span class="f-right">{{ total }}</span></h5>
+
                                                          <div class="cart-actions">
                                                             <a class="checkout" href="{% url 'checkout_url' user.pk %}">Checkout</a>
                                                         </div>
-                                                    {% else %}
-                                                        <a href="{% url 'login_url' %}">  </a>
-                                                    {% endif %}
+
                                                 </div>
                                                 <!-- Cart Footer Inner End -->
+
                                             </li>
                                         </ul>
+                                        {% else %}
+                                            <a href="{% url 'login_url' %}">  </a>
+                                        {% endif %}
                                     </li>
                                 </ul>
                             </div>

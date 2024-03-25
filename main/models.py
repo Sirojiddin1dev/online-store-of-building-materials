@@ -22,7 +22,6 @@ class Info(models.Model):
         return self.youtube
 
 
-
 class Contact(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
@@ -37,6 +36,14 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Banner(models.Model):
+    title = models.CharField(max_length=255)
+    img = models.ImageField(upload_to='banner_img')
+
+    def __str__(self):
+        return self.title
 
 
 class Image(models.Model):

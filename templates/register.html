@@ -1,76 +1,59 @@
-{% extends 'base.html' %}
-{% block content %}
-<!-- Breadcrumb Start -->
-        <div class="breadcrumb-area ptb-60 ptb-sm-30">
-            <div class="container">
-                <div class="breadcrumb">
-                    <ul>
-                        <li><a href="{% url 'index_url' %}">Home</a></li>
-                        <li><a href="{% url 'index_url' %}">Home</a></li>
-                        <li class="active"><a href="{% url 'register_url'%}">Register</a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- Container End -->
-        </div>
-        <!-- Breadcrumb End -->
-        <!-- Register Account Start -->
-        <div class="register-account pb-60">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="register-title">
-                            <h3 class="mb-10">REGISTER ACCOUNT</h3>
-                            <p class="mb-10">If you already have an account with us, please login at the login page.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Row End -->
-                <div class="row">
-                    <div class="col-sm-12">
-                        <form class="form-horizontal" action="{% url 'register_url' %}" method="post"  enctype="multipart/form-data">
-                            {% csrf_token %}
-                            <fieldset>
-                                <legend>Your Personal Details</legend>
-                                <div class="form-group">
-                                    <label class="control-label" for="f-name"><span class="require">*</span>Username</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="f-name" name="username" placeholder="Username" required>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label" for="email"><span class="require">*</span>Enter your email address here...</label>
-                                    <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email address here..." required>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label" for="number"><span class="require">*</span>Telephone</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="number" name="phone_number" placeholder="Telephone" required>
-                                    </div>
-                                </div>
-                            </fieldset>
-                            <fieldset>
-                                <legend>Your Password</legend>
-                                <div class="form-group">
-                                    <label class="control-label" for="pwd"><span class="require">*</span>Password:</label>
-                                    <div class="col-sm-10">
-                                        <input type="password" class="form-control" id="pwd" name="password" placeholder="Password" required>
-                                    </div>
-                                </div>
-                            </fieldset>
-                            <div class="buttons newsletter-input">
-                                <div class="pull-right">
-                                    <input type="submit" value="Continue">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <!-- Row End -->
-            </div>
-            <!-- Container End -->
-        </div>
-        <!-- Register Account End -->
-{% endblock %}
+{% load static %}
+<!doctype html>
+
+<html lang="en">
+
+ <head>
+
+  <meta charset="UTF-8">
+
+  <title>CodePen - Animated Login Form using Html &amp; CSS Only</title>
+
+  <link rel="stylesheet" href="{% static 'main.css' %}">
+
+ </head>
+
+ <body> <!-- partial:index.partial.html -->
+
+  <section> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+
+   <div class="signin">
+
+    <div class="content">
+
+     <h2>Ro'yxatdan o'tish</h2>
+        <form class="form" action="{% url 'register_url' %}" method="post">
+         {% csrf_token %}
+
+      <div class="inputBox">
+
+       <input type="text" name="username" required> <i>Username</i>
+
+      </div>
+
+      <div class="inputBox">
+
+       <input type="password" name="password" required> <i>Password</i>
+
+      </div>
+
+<div class="links"> <a href="{% url 'login_url' %}">Kirish</a>
+      </div>
+
+      <div class="inputBox">
+
+       <button type="submit">Ro'yxatdan o'tish</button>
+
+      </div>
+
+     </form>
+
+    </div>
+
+   </div>
+
+  </section> <!-- partial -->
+
+ </body>
+
+</html>

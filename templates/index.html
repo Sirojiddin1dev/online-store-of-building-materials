@@ -5,18 +5,17 @@
         <div class="slider-area slider-style-three">
             <div class="container">
                 <div class="row">
-                    {% for i in banner %}
                     <div class="col-md-8">
                         <div class="slider-wrapper theme-default">
                             <!-- Slider Background  Image Start-->
                             <div id="slider" class="nivoSlider">
-                                <a href="shop.html"> <img src="{{ i.image.url }}" data-thumb="img/slider/5.jpg" alt="" title="#slider-1-caption1"/></a>
+                                <a href="shop.html"> <img src="{{ banner.img.url }}" data-thumb="{{ banner.img.url }}" alt="" title="#slider-1-caption1"/></a>
                             </div>
                             <!-- Slider Background  Image Start-->
                             <div id="slider-1-caption1" class="nivo-html-caption nivo-caption">
                                 <div class="text-content-wrapper">
                                     <div class="text-content">
-                                        <h1 class="title1 wow bounceInRight text-white mb-16" data-wow-duration="2s" data-wow-delay="1s">{{ i.title }}</h1>
+                                        <h1 class="title1 wow bounceInRight text-white mb-16" data-wow-duration="2s" data-wow-delay="1s">{{ banner.title }}</h1>
                                         <div class="banner-readmore wow bounceInUp mt-35" data-wow-duration="2s" data-wow-delay="2s">
                                             <a class="button slider-btn" href="shop.html">Shop Now</a>
                                         </div>
@@ -25,7 +24,6 @@
                             </div>
                         </div>
                     </div>
-                    {% endfor %}
                     <div class="col-md-4">
                          <!-- Single Banner Start -->
                         <div class="single-banner zoom mb-20">
@@ -114,120 +112,29 @@
                 </div>
                  <!-- Popular Categorie Activation Start -->
                  <div class="blog-active owl-carousel">
-                    <!-- Single Blog Start -->
-                    <div class="single-blog">
-                        <div class="blog-img">
-                            <a href="blog-details.html"><img src="{% static 'img/blog/1.jpg' %}" alt="blog-image"></a>
-                        </div>
-                        <div class="blog-content">
-                                <h4 class="blog-title"><a href="blog-details.html">Lorem ipsum dolor sit amet, consectl adip elit, sed do eiusmod tempor</a></h4>
-                            <div class="blog-meta">
-                                <ul>
-                                    <li><span>By: </span> <a href="#">Jantrik,</a></li>
-                                    <li><span>On: </span> <a href="#">05 Nov, 2018</a></li>
-                                </ul>
+                     {% for i in blog %}
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-blog">
+                            <div class="blog-img">
+                                <a href="{% url 'single_blog_url' i.pk %}"><img src="{{ i.image.url }}" alt="blog-image"></a>
                             </div>
-                            <div class="readmore">
-                                <a href="blog-details.html">Read More.....</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Blog End -->
-                    <!-- Single Blog Start -->
-                    <div class="single-blog">
-                        <div class="blog-img">
-                            <a href="blog-details.html"><img src="{% static 'img/blog/2.jpg' %}" alt="blog-image"></a>
-                        </div>
-                        <div class="blog-content">
-                                <h4 class="blog-title"><a href="blog-details.html">Lorem ipsum dolor sit amet, consectl adip elit, sed do eiusmod tempor</a></h4>
-                            <div class="blog-meta">
-                                <ul>
-                                    <li><span>By </span> <a href="#">Jantrik, </a></li>
-                                    <li><span>On </span> <a href="#">05 Nov, 2018</a></li>
-                                </ul>
-                            </div>
-                            <div class="readmore">
-                                <a href="blog-details.html">Read More.....</a>
+                            <div class="blog-content">
+                                    <h4 class="blog-title"><a href="{% url 'single_blog_url' i.pk %}">{{ i.title }}</a></h4>
+                                <div class="blog-meta">
+                                    <ul>
+                                        <li><span>By: </span> <a href="#">{{ i.user.id }}</a></li>
+                                        <li><span>On: </span>{{ i.date }}</li>
+                                    </ul>
+                                </div>
+                                <div class="readmore">
+                                    <a href="{% url 'single_blog_url' i.pk %}">Read More.....</a>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
                     <!-- Single Blog End -->
-                    <!-- Single Blog Start -->
-                    <div class="single-blog">
-                        <div class="blog-img">
-                            <a href="blog-details.html"><img src="{% static 'img/blog/3.jpg' %}" alt="blog-image"></a>
-                        </div>
-                        <div class="blog-content">
-                                <h4 class="blog-title"><a href="blog-details.html">Lorem ipsum dolor sit amet, consectl adip elit, sed do eiusmod tempor</a></h4>
-                            <div class="blog-meta">
-                                <ul>
-                                    <li><span>By </span> <a href="#">Jantrik, </a></li>
-                                    <li><span>On </span> <a href="#">05 Nov, 2018</a></li>
-                                </ul>
-                            </div>
-                            <div class="readmore">
-                                <a href="blog-details.html">Read More.....</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Blog End -->
-                    <!-- Single Blog Start -->
-                    <div class="single-blog">
-                        <div class="blog-img">
-                            <a href="blog-details.html"><img src="{% static 'img/blog/1.jpg' %}" alt="blog-image"></a>
-                        </div>
-                        <div class="blog-content">
-                                <h4 class="blog-title"><a href="blog-details.html">Lorem ipsum dolor sit amet, consectl adip elit, sed do eiusmod tempor</a></h4>
-                            <div class="blog-meta">
-                                <ul>
-                                    <li><span>By </span> <a href="#">Jantrik, </a></li>
-                                    <li><span>On </span> <a href="#">05 Nov, 2018</a></li>
-                                </ul>
-                            </div>
-                            <div class="readmore">
-                                <a href="blog-details.html">Read More.....</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Blog End -->
-                    <!-- Single Blog Start -->
-                    <div class="single-blog">
-                        <div class="blog-img">
-                            <a href="blog-details.html"><img src="{% static 'img/blog/2.jpg' %}" alt="blog-image"></a>
-                        </div>
-                        <div class="blog-content">
-                                <h4 class="blog-title"><a href="blog-details.html">Lorem ipsum dolor sit amet, consectl adip elit, sed do eiusmod tempor</a></h4>
-                            <div class="blog-meta">
-                                <ul>
-                                    <li><span>By </span> <a href="#">Jantrik, </a></li>
-                                    <li><span>On </span> <a href="#">05 Nov, 2018</a></li>
-                                </ul>
-                            </div>
-                            <div class="readmore">
-                                <a href="blog-details.html">Read More.....</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Blog End -->
-                    <!-- Single Blog Start -->
-                    <div class="single-blog">
-                        <div class="blog-img">
-                            <a href="blog-details.html"><img src="{% static 'img/blog/3.jpg' %}" alt="blog-image"></a>
-                        </div>
-                        <div class="blog-content">
-                                <h4 class="blog-title"><a href="blog-details.html">Lorem ipsum dolor sit amet, consectl adip elit, sed do eiusmod tempor</a></h4>
-                            <div class="blog-meta">
-                                <ul>
-                                    <li><span>By </span> <a href="#">Jantrik, </a></li>
-                                    <li><span>On </span> <a href="#">05 Nov, 2018</a></li>
-                                </ul>
-                            </div>
-                            <div class="readmore">
-                                <a href="blog-details.html">Read More.....</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Blog End -->
+
                  </div>
                  <!-- Popular Categorie Activation End -->
             </div>

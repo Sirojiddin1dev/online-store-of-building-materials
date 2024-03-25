@@ -1,61 +1,59 @@
-{% extends 'base.html' %}
-{% block content %}
-        <!-- Breadcrumb Start -->
-        <div class="breadcrumb-area ptb-60 ptb-sm-30">
-            <div class="container">
-                <div class="breadcrumb">
-                    <ul>
-                        <li><a href="{% url 'index_url' %}">Home</a></li>
-                        <li class="active"><a href="{% url 'login_url' %}">Login</a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- Container End -->
-        </div>
-        <!-- Breadcrumb End -->
-        <!-- LogIn Page Start -->
-        <div class="log-in pb-60">
-            <div class="container">
-                <div class="row">
-                    <!-- New Customer Start -->
-                    <div class="col-sm-6">
-                        <div class="well">
-                            <div class="new-customer">
-                                <h3>NEW CUSTOMER</h3>
-                                <p class="mtb-10"><strong>Register</strong></p>
-                                <p>By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made</p>
-                                <a class="customer-btn" href="{% url 'register_url' %}">continue</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- New Customer End -->
-                    <!-- Returning Customer Start -->
-                    <div class="col-sm-6">
-                        <div class="well">
-                            <div class="return-customer">
-                                <h3 class="mb-10">RETURNING CUSTOMER</h3>
-                                <p class="mb-10"><strong>I am a returning customer</strong></p>
-                                <form action="{% url 'login_url' %}" class="form" method="post" enctype="multipart/form-data">
-                                    {% csrf_token %}
-                                    <div class="form-group">
-                                        <label class="control-label">Enter your username here...</label>
-                                        <input type="text" name="username" placeholder="Enter your username here...">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">Password</label>
-                                        <input type="text" name="password" placeholder="Password">
-                                    </div>
-                                    <button type="submit">Kirish</button>
+{% load static %}
+<!doctype html>
 
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Returning Customer End -->
-                </div>
-                <!-- Row End -->
-            </div>
-            <!-- Container End -->
-        </div>
-        <!-- LogIn Page End -->
-{% endblock %}
+<html lang="en">
+
+ <head>
+
+  <meta charset="UTF-8">
+
+  <title>CodePen - Animated Login Form using Html &amp; CSS Only</title>
+
+  <link rel="stylesheet" href="{% static 'main.css' %}">
+
+ </head>
+
+ <body> <!-- partial:index.partial.html -->
+
+  <section> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+
+   <div class="signin">
+
+    <div class="content">
+
+     <h2>Kirish</h2>
+        <form class="form" action="{% url 'login_url' %}" method="post">
+         {% csrf_token %}
+
+      <div class="inputBox">
+
+       <input type="text" name="username" required> <i>Username</i>
+
+      </div>
+
+      <div class="inputBox">
+
+       <input type="password" name="password" required> <i>Password</i>
+
+      </div>
+
+        <div class="links"> <a href="{% url 'register_url' %}">Ro'yxatdan o'tish</a>
+      </div>
+
+      <div class="inputBox">
+
+       <button type="submit">Kirish</button>
+
+      </div>
+
+     </form>
+
+    </div>
+
+   </div>
+
+  </section> <!-- partial -->
+
+ </body>
+
+</html>
