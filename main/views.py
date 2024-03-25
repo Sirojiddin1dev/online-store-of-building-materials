@@ -63,6 +63,7 @@ def contact_view(request):
         return HttpResponse("Sizning so'rovingiz qabul qilindi! Sizga Tez orada Javob Berildi ")
     return render(request, 'contact.html', context)
 
+
 @login_required
 def remove_cart_product(request, pk):
     basket = Basket.objects.get(pk=pk)
@@ -148,3 +149,10 @@ def wishlist_view(request, id):
         'info': Info.objects.last()
     }
     return render(request, 'wishlist.html', context)
+
+
+@login_required
+def remove_wishlist_product(request, pk):
+    wishlist = Wishlist.objects.get(pk=pk)
+    wishlist.delete()
+    return HttpResponse("1 ta obyekt o'chirildi!")
