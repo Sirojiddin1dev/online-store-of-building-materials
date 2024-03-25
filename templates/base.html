@@ -154,7 +154,7 @@
                                         <ul class="ht-dropdown">
                                             <li><a href="{% url 'login_url' %}">{% blocktrans %}Kirish{% endblocktrans %}</a></li>
                                             <li><a href="{% url 'register_url' %}">{% blocktrans %}Ro'yhadan{% endblocktrans %}</a></li>
-                                            <li><a href="{% url 'my_profile_url' user.pk %}">{% blocktrans %}Profil{% blocktrans %}</a></li>
+                                            <li><a href="{% url 'my_profile_url' user.pk %}">{% blocktrans %}Profil{% endblocktrans %}</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="{% url 'wishlist_url' user.pk %}"><i class="fa fa-heart-o"></i></a></li>

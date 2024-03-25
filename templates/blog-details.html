@@ -5,8 +5,8 @@
             <div class="container">
                 <div class="breadcrumb">
                     <ul>
-                        <li><a href="{% url 'index_url' %}">Home</a></li>
-                        <li><a href="{% url 'blog_url' %}">Blog</a></li>
+                        <li><a href="{% url 'index_url' %}">{% blocktrans %}Bosh Sahifasi{% endblocktrans %}</a></li>
+                        <li><a href="{% url 'blog_url' %}">{% blocktrans %}Blog{% endblocktrans %}</a></li>
                     </ul>
                 </div>
             </div>
@@ -90,7 +90,7 @@
                         <!-- Blog Realated Post Start -->
                         <!-- Comment Area Start -->
                         <div class="comment-area recent-post">
-                            <h3 class="sidebar-title">COMMENTS</h3>
+                            <h3 class="sidebar-title">{% blocktrans %}Xabar{% endblocktrans %}</h3>
                             <!-- Single Comment Start -->
                             {% for i in comment %}
                             <div class="single-comment">
@@ -164,7 +164,7 @@
                             <!-- Recent Post End -->
                             <!-- Category Post Start -->
                             <div class="categorie recent-post same-sidebar">
-                                 <h3 class="sidebar-title mt-40">categories</h3>
+                                 <h3 class="sidebar-title mt-40">{% blocktrans %}Toifalar{% endblocktrans %}</h3>
                                 {% for i in category %}
                                  <ul class="categorie-list">
                                      <li><a href="#">{{ i.name }}</a></li>
@@ -172,7 +172,7 @@
                                 {% endfor %}
                             </div>
                             <div class="categorie recent-post same-sidebar">
-                                 <h3 class="sidebar-title mt-40">Tags</h3>
+                                 <h3 class="sidebar-title mt-40">{% blocktrans %}Tags{% endblocktrans %}</h3>
                                 {% for i in tag %}
                                  <ul class="tag-list">
                                      <li><a href="#">{{ i.name }}</a></li>
