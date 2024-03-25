@@ -6,8 +6,8 @@ from django.contrib.auth.decorators import login_required
 
 
 def blog_view(request):
-    basket = Basket.objects.filter(user_id=id)
-    basket_count = Basket.objects.filter(user_id=id).count()
+    basket = Basket.objects.filter(user_id=request.user.id)
+    basket_count = Basket.objects.filter(user_id=request.user.id).count()
     subtotal = 0
     for item in basket:
         subtotal += item.product.price
@@ -26,8 +26,8 @@ def blog_view(request):
 
 def single_blog_view(request, pk):
     blog = Blog.objects.get(pk=pk)
-    basket = Basket.objects.filter(user_id=id)
-    basket_count = Basket.objects.filter(user_id=id).count()
+    basket = Basket.objects.filter(user_id=request.user.id)
+    basket_count = Basket.objects.filter(user_id=request.user.id).count()
     subtotal = 0
     for item in basket:
         subtotal += item.product.price
@@ -61,8 +61,8 @@ def single_blog_view(request, pk):
 
 
 def contact_view(request):
-    basket = Basket.objects.filter(user_id=id)
-    basket_count = Basket.objects.filter(user_id=id).count()
+    basket = Basket.objects.filter(user_id=request.user.id)
+    basket_count = Basket.objects.filter(user_id=request.user.id).count()
     subtotal = 0
     for item in basket:
         subtotal += item.product.price
@@ -98,8 +98,8 @@ def remove_cart_product(request, pk):
 
 
 def cart_view(request, id):
-    basket = Basket.objects.filter(user_id=id)
-    basket_count = Basket.objects.filter(user_id=id).count()
+    basket = Basket.objects.filter(user_id=request.user.id)
+    basket_count = Basket.objects.filter(user_id=request.user.id).count()
     subtotal = 0
     for item in basket:
         subtotal += item.product.price
@@ -117,7 +117,7 @@ def cart_view(request, id):
 
 
 def checkout_view(request, pk):
-    basket = Basket.objects.filter(user_id=pk)
+    basket = Basket.objects.filter(user_id=request.user.pk)
     subtotal = 0
     for i in basket:
         subtotal += i.product.price
@@ -169,7 +169,7 @@ def add_wishlist(request, pk):
 
 
 def wishlist_view(request, id):
-    wishlist = Wishlist.objects.filter(user_id=id)
+    wishlist = Wishlist.objects.filter(user_id=request.user.id)
     context = {
         'wishlist': wishlist,
         'info': Info.objects.last()

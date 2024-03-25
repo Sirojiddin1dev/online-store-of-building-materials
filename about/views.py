@@ -5,8 +5,8 @@ from main.models import Info
 
 
 def about_view(request):
-    basket = Basket.objects.filter(user_id=id)
-    basket_count = Basket.objects.filter(user_id=id).count()
+    basket = Basket.objects.filter(user_id=request.user.id)
+    basket_count = Basket.objects.filter(user_id=request.user.id).count()
     subtotal = 0
     for item in basket:
         subtotal += item.product.price
