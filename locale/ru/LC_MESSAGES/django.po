@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-25 17:19+0500\n"
+"POT-Creation-Date: 2024-03-25 17:30+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -112,7 +112,7 @@ msgid "To'lov"
 msgstr ""
 
 #: .\templates\base.html:129 .\templates\base.html:222
-msgid "Istaklar roʻyxati"
+msgid "Sizga yoqgan maxsullotlar"
 msgstr ""
 
 #: .\templates\base.html:137 .\templates\base.html:229
@@ -252,7 +252,7 @@ msgid "Contact"
 msgstr ""
 
 #: .\templates\index.html:21
-msgid "Shop now"
+msgid "Sizga yoqgan Maxsullotlar"
 msgstr ""
 
 #: .\templates\index.html:62 .\templates\wishlist.html:33
