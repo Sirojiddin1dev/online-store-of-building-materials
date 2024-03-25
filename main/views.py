@@ -130,4 +130,13 @@ def add_basket(request, pk):
         user=request.user,
         product=product,
     )
+    return HttpResponse("Item added to Wishlists successfully!")
+
+
+def add_wishlist(request, pk):
+    product = Products.objects.get(pk=pk)
+    Wishlist.objects.create(
+        user=request.user,
+        product=product,
+    )
     return HttpResponse("Item added to basket successfully!")
