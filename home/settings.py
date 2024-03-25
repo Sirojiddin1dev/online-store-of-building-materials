@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+from django.utils.translation import gettext_lazy as _
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,6 +40,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -49,7 +52,6 @@ INSTALLED_APPS = [
     'dashboard.apps.DashboardConfig',
     'about.apps.AboutConfig',
     'admin_panel.apps.AdminPanelConfig',
-    'modeltranslation',
 ]
 
 MIDDLEWARE = [
@@ -128,14 +130,13 @@ TIME_ZONE = 'Asia/Tashkent'
 USE_I18N = True
 
 USE_TZ = True
+gettext = lambda s: s
 
-from django.utils.translation import gettext_lazy as _
-
-LANGUAGES = [
-    ('uz', _('Uzbek')),
-    ('en', _('English')),
-    ('ru', _('Russian')),
-]
+LANGUAGES = (
+    ('uz', gettext('Uzbek')),
+    ('en', gettext('English')),
+    ('ru', gettext('Russian')),
+)
 
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'uz'
 
