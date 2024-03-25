@@ -84,7 +84,6 @@ def cart_view(request, id):
         'basket_count': basket_count,
         'subtotal': subtotal,
         'total': total,
-        'contact': Contact.objects.last(),
         'info': Info.objects.last()
     }
     return render(request, 'cart.html', context)
@@ -140,3 +139,12 @@ def add_wishlist(request, pk):
         product=product,
     )
     return HttpResponse("Item added to basket successfully!")
+
+
+def wishlist_view(request, id):
+    wishlist = Wishlist.objects.filter(user_id=id)
+    context = {
+        'wishlist': wishlist,
+        'info': Info.objects.last()
+    }
+    return render(request, 'wishlist.html', context)

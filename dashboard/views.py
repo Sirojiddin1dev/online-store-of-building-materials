@@ -31,6 +31,8 @@ def shopping_view(request):
 
 def single_product(request, pk):
     product = Products.objects.get(pk=pk)
+    product.view += 1
+    product.save()
     context = {
         'product': product
     }
