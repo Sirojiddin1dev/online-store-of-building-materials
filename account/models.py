@@ -5,7 +5,7 @@ from django.utils import timezone
 
 
 class User(AbstractUser):
-    bio = models.CharField(max_length=255)
+    bio = models.CharField(max_length=255, null=True, blank=True)
     phone_number = models.CharField(max_length=13, verbose_name='Telefon raqam', null=True, blank=True, validators=[
         RegexValidator(
             regex='^[\+]9{2}8{1}[0-9]{9}$',

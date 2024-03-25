@@ -101,66 +101,11 @@
 																		</div>
 																		<div class="modal-body" style="height: 500px;">
 																			<div class="modal-content">
-																				<form action="{% url 'create_house_url' %}" method="post" enctype="multipart/form-data">
+																				<h1>Create Product</h1>
+																				<form action="create_product" method="post" enctype="multipart/form-data">
 																					{% csrf_token %}
-
-																					<!-- Add input fields for each attribute of the Home model -->
-																					<label>Name:</label>
-																					<input type="text" name="name" required><br><br>
-
-																					<label>Home Image:</label>
-																					<input type="file" name="home_img" accept="image/*" required><br><br>
-
-																					<!-- Add input fields for the remaining attributes of the Home model -->
-																					<label>Price:</label>
-																					<input type="number" name="price" required><br><br>
-
-																					<label>User Image:</label>
-																					<input type="file" name="user_img" accept="image/*" required><br><br>
-
-																					<label>User Name:</label>
-																					<input type="text" name="user_name" required><br><br>
-
-																					<label>User Location:</label>
-																					<input type="text" name="user_location" required><br><br>
-
-																					<label>Status:</label>
-																					<select name="status" required>
-																						<option value="popular">Popular</option>
-																						<option value="new house">New House</option>
-																						<option value="best deals">Best Deals</option>
-																					</select><br><br>
-
-																					<label>Category:</label>
-																					<select name="category" required>
-																						<option value="House">House</option>
-																						<option value="Villa">Villa</option>
-																						<option value="Apartment">Apartment</option>
-																					</select><br><br>
-
-																					<label>Bathrooms:</label>
-																					<input type="number" name="bathrooms" required><br><br>
-
-																					<label>Bedrooms:</label>
-																					<input type="number" name="bedrooms" required><br><br>
-
-																					<label>Carports:</label>
-																					<input type="number" name="carports" required><br><br>
-
-																					<label>Floors:</label>
-																					<input type="number" name="floors" required><br><br>
-
-																					<label>Descriptions:</label>
-																					<textarea name="descriptions" rows="4" cols="50" required></textarea><br><br>
-
-																					<label>Created At:</label>
-																					<input type="date" name="created_at" required><br><br>
-
-
-																					<div class="modal-footer">
-																						<button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
-																						<button type="submit" class="btn btn-primary font-weight-bold">Save changes</button>
-																					</div>
+																					{{ form.as_p }}
+																					<button type="submit">Save</button>
 																				</form>
 																			</div>
 																		</div>
@@ -200,7 +145,7 @@
 																		<div class="modal-body" style="height: 500px width: 300px">
 																			<div class="modal-content">
 																				{% if user_.is_superuser == True %}
-																				<form action="{% url 'create_user_url' %}" class="form form--fit" style="background-color: #ffffff;
+																				<form action="{% url 'staff_create_url' %}" class="form form--fit" style="background-color: #ffffff;
 																																	border-radius: 8px;
 																																	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 																																	padding: 20px;
@@ -228,13 +173,13 @@
 																						box-sizing: border-box;
 																					" type="password" name="password" required><br><br><br>
 
-																					<label>Phone Number:</label>
+																					<label>Is staff:</label>
 																					<input style="
 																						width: 100%;
 																						padding: 10px;
 																						margin: 8px 0;
 																						box-sizing: border-box;
-																					" type="text" name="phone_number" required><br><br><br>
+																					" type="text" name="staff" required><br><br><br>
 
 																					<div class="modal-footer">
 																						<button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
@@ -276,20 +221,10 @@
 																		</div>
 																		<div class="modal-body" style="height: 300px;">
 																			<div class="modal-content">
-																				<form action="{% url 'create_brand_url' %}" method="post" enctype="multipart/form-data">
-																					{% csrf_token %}
-
-																					<!-- Add input fields for each attribute of the Home model -->
-																					<label>Name:</label>
-																					<input type="text" name="name" required><br><br>
-
-																					<label>Home Image:</label>
-																					<input type="file" name="img" accept="image/*" required><br><br>
-
-																					<div class="modal-footer">
-																						<button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
-																						<button type="submit" class="btn btn-primary font-weight-bold">Save changes</button>
-																					</div>
+																				<form action="{% url 'create_info' %}" method="post" enctype="multipart/form-data">
+																				  {% csrf_token %}
+																				  {{ form.as_p }}
+																				  <button type="submit">Saqlash</button>
 																				</form>
 																			</div>
 																		</div>
