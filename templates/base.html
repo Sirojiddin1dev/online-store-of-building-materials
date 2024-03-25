@@ -115,7 +115,7 @@
                                             <!-- Home Version Dropdown Start -->
                                             <!-- Home Version Dropdown End -->
                                         </li>
-                                        <li><a href="{% url 'my_profile_url' %}">My profile</a>
+                                        <li><a href="{% url 'my_profile_url' user.pk %}">My profile</a>
                                         </li>
                                         <li><a href="{% url 'contact_url'  %}">contact us</a></li>
                                     </ul>
@@ -131,7 +131,7 @@
                                         <ul class="ht-dropdown">
                                             <li><a href="{% url 'login_url' %}">Login</a></li>
                                             <li><a href="{% url 'register_url' %}">Register</a></li>
-                                            <li><a href="{% url 'my_profile_url' %}">Account</a></li>
+                                            <li><a href="{% url 'my_profile_url' user.pk %}">Account</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="{% url 'wishlist_url' user.pk %}"><i class="fa fa-heart-o"></i></a></li>
@@ -248,16 +248,13 @@
                                 <h3 class="footer-title">My Account</h3>
                                 <div class="footer-content">
                                     <ul class="footer-list">
-                                        <li><a href="{% url 'my_profile_url' %}">My account</a></li>
+                                        <li><a href="{% url 'my_profile_url' user.pk  %}">My account</a></li>
                                         {% if user.is_authenticated %}
                                             <li><a href="{% url 'checkout_url' user.pk %}">Checkout Page</a></li>
                                        {% else %}
                                             <a href="{% url 'login_url' %}"></a>
                                        {% endif %}
                                         <li><a href="{% url 'login_url' %}">Login</a></li>
-                                        <li><a href="#">address</a></li>
-                                        <li><a href="#">Order status</a></li>
-                                        <li><a href="#">Site Map</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -269,7 +266,7 @@
                                 <h3 class="footer-title">customer service</h3>
                                 <div class="footer-content">
                                     <ul class="footer-list">
-                                        <li><a href="{% url 'my_profile_url' %}">My account</a></li>
+                                        <li><a href="{% url 'my_profile_url' user.pk %}">My account</a></li>
                                         <li><a href="#">New</a></li>
                                         <li><a href="#">Gift Cards</a></li>
                                         <li><a href="#">Return Policy</a></li>
@@ -286,7 +283,7 @@
                                 <h3 class="footer-title">Let Us Help You</h3>
                                 <div class="footer-content">
                                     <ul class="footer-list">
-                                        <li><a href="{% url 'my_profile_url' %}">Your Account</a></li>
+                                        <li><a href="{% url 'my_profile_url' user.pk %}">Your Account</a></li>
                                         <li><a href="#">Your Orders</a></li>
                                     </ul>
                                 </div>
