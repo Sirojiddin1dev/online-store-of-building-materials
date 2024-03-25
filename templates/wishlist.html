@@ -4,8 +4,8 @@
             <div class="container">
                 <div class="breadcrumb">
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li class="active"><a href="wishlist.html">Wishlist</a></li>
+                        <li><a href="index.html">{% blocktrans %}Bosh sahifa{% endblocktrans %}</a></li>
+                        <li class="active"><a href="wishlist.html">{% blocktrans %}Istaklar{% endblocktrans %}</a></li>
                     </ul>
                 </div>
             </div>
@@ -16,7 +16,7 @@
         <div class="cart-main-area wish-list pb-60">
             <div class="container">
                 <!-- Section Title Start -->
-                <h2 class="text-capitalize sub-heading">Wishlist</h2>
+                <h2 class="text-capitalize sub-heading">{% blocktrans %}Istaqlar{% endblocktrans %}</h2>
                 <!-- Section Title Start End -->
                 <div class="row">
                     <div class="col-md-12">
@@ -27,12 +27,10 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th class="product-remove">Remove</th>
-                                            <th class="product-thumbnail">Image</th>
-                                            <th class="product-name">Product</th>
-                                            <th class="product-price">Unit Price</th>
-                                            <th class="product-quantity">Stock Status</th>
-                                            <th class="product-subtotal">add to cart</th>
+                                            <th class="product-thumbnail">{%  blocktrans %}Rasm{% endblocktrans %}</th>
+                                            <th class="product-name">{%  blocktrans %}Maxsulot{% endblocktrans %}</th>
+                                            <th class="product-price">{%  blocktrans %}Jami narx{% endblocktrans %}</th>
+                                            <th class="product-subtotal">{%  blocktrans %}Kartaga ko'shish{% endblocktrans %}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -45,7 +43,7 @@
                                             <td class="product-name"><a href="{% url 'single_product_url' i.pk %}">{{ i.product.title }}</a></td>
                                             <td class="product-price"><span class="amount">{{ i.product.price }} So'm</span></td>
                                             <td class="product-stock-status"><span>in stock</span></td>
-                                            <td class="product-add-to-cart"><a href="{% url 'add_basket_url' i.pk %}">add to cart</a></td>
+                                            <td class="product-add-to-cart"><a href="{% url 'add_basket_url' i.pk %}">{% blocktrans %}Kartaga ko'shish{% endblocktrans %}</a></td>
                                         </tr>
                                     {% endfor %}
                                     </tbody>
