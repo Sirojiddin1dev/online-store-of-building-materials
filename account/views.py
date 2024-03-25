@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import User
 from django.contrib.auth import login, logout, authenticate
-
+from dashboard.models import Basket
+from main.models import Info
 
 def create_user_view(request):
     if request.method == 'POST':
@@ -33,19 +34,13 @@ def login_view(request):
     return render(request, 'login.html')
 
 
-def my_profile_view(request):
-    context = {
-        'profile': request.user,
-    }
-    return render(request, 'account.html')
-
-
-def logout_view(request):
-    logout(request)
-    return redirect('login_url')
-
-
-def edit_user_view(request,pk):
+def my_profile_view(request, pk):
+    basket = Basket.objects.filter(user_id=id)
+    basket_count = Basket.objects.filter(user_id=id).count()
+    subtotal = 0
+    for item in basket:
+        subtotal += item.product.price
+    total = subtotal
     user= User.objects.get(pk=pk)
     if request.method == "POST":
         username=request.POST['username']
@@ -70,7 +65,18 @@ def edit_user_view(request,pk):
                 user.set_password(password)
         user.save()
         return redirect("my_profile_url", user.id)
-    context={
-        'user':user
+    context = {
+        'profile': request.user,
+        'info': Info.objects.last(),
+        'basket': basket,
+        'basket_count': basket_count,
+        'subtotal': subtotal,
+        'total': total,
+        'user': user
     }
-    return render(request,"edit.html",context)
+    return render(request, 'account.html', context)
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('login_url')

@@ -5,23 +5,34 @@ from dashboard.models import *
 from django.contrib.auth.decorators import login_required
 
 
-def index_view(request):
-    context = {
-        'info': Info.objects.last()
-    }
-    return render(request, 'base.html', context)
-
-
 def blog_view(request):
+    basket = Basket.objects.filter(user_id=id)
+    basket_count = Basket.objects.filter(user_id=id).count()
+    subtotal = 0
+    for item in basket:
+        subtotal += item.product.price
+
+    total = subtotal
     context = {
         'blog': Blog.objects.all().order_by('-id')[:9],
-        'info': Info.objects.last()
+        'info': Info.objects.last(),
+        'basket': basket,
+        'basket_count': basket_count,
+        'subtotal': subtotal,
+        'total': total,
     }
     return render(request, 'blog.html', context)
 
 
 def single_blog_view(request, pk):
     blog = Blog.objects.get(pk=pk)
+    basket = Basket.objects.filter(user_id=id)
+    basket_count = Basket.objects.filter(user_id=id).count()
+    subtotal = 0
+    for item in basket:
+        subtotal += item.product.price
+
+    total = subtotal
     context = {
         'single_blog': blog,
         'blog': Blog.objects.all().order_by('-id')[:2],
@@ -29,7 +40,11 @@ def single_blog_view(request, pk):
         'tag': Tag.objects.all(),
         'info': Info.objects.last(),
         'recent_posts': Blog.objects.all().order_by('-id')[:4],
-        'comment': Comment.objects.filter(blog=blog)
+        'comment': Comment.objects.filter(blog=blog),
+        'basket': basket,
+        'basket_count': basket_count,
+        'subtotal': subtotal,
+        'total': total,
     }
     if request.method == 'POST':
         name = request.POST['name']
@@ -46,8 +61,19 @@ def single_blog_view(request, pk):
 
 
 def contact_view(request):
+    basket = Basket.objects.filter(user_id=id)
+    basket_count = Basket.objects.filter(user_id=id).count()
+    subtotal = 0
+    for item in basket:
+        subtotal += item.product.price
+
+    total = subtotal
     context = {
-        'info': Info.objects.last()
+        'info': Info.objects.last(),
+        'basket': basket,
+        'basket_count': basket_count,
+        'subtotal': subtotal,
+        'total': total,
     }
     if request.method == 'POST':
         name = request.POST['name']
