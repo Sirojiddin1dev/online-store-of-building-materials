@@ -4,8 +4,8 @@
             <div class="container">
                 <div class="breadcrumb">
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li class="active"><a href="cart.html">Cart</a></li>
+                        <li><a href="index.html">{% blocktrans %}Bosh sihifa{% endblocktrans}</a></li>
+                        <li class="active"><a href="cart.html">{% blocktrans %}Karta{% endblocktrans %}</a></li>
                     </ul>
                 </div>
             </div>
@@ -15,7 +15,7 @@
         <!-- Cart Main Area Start -->
         <div class="cart-main-area pb-80 pb-sm-50">
             <div class="container">
-               <h2 class="text-capitalize sub-heading">cart</h2>
+               <h2 class="text-capitalize sub-heading">{% blocktrans %}kart{% endblocktrans %}</h2>
                 <div class="row">
                     <div class="col-md-12">
                         <!-- Form Start -->
@@ -25,10 +25,9 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th class="product-thumbnail">Image</th>
-                                            <th class="product-name">Product</th>
-                                            <th class="product-price">Price</th>
-                                            <th class="product-remove">Remove</th>
+                                            <th class="product-thumbnail">{% blocktrans %}Rasmal{% endblocktrans %}</th>
+                                            <th class="product-name">{% blocktrans %}Maxsulotlar{% endblocktrans %}</th>
+                                            <th class="product-price">{% blocktrans %}Narxlar{% endblocktrans %}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -54,14 +53,14 @@
                                <!-- Cart Button Start -->
                                 <div class="col-lg-8 col-md-7">
                                     <div class="buttons-cart">
-                                        <a href="#">Continue Shopping</a>
+                                        <a href="#">{% blocktrans %}Xarid kilishda davom eting{% endblocktrans %}</a>
                                     </div>
                                 </div>
                                 <!-- Cart Button Start -->
                                 <!-- Cart Totals Start -->
                                 <div class="col-lg-4 col-md-12">
                                     <div class="cart_totals">
-                                        <h2>Cart Totals</h2>
+                                        <h2>{% blocktrans %}Jami kartalar{% endblocktrans %}</h2>
                                         <br />
                                         <table>
                                             <tbody>
@@ -79,7 +78,7 @@
                                             </tbody>
                                         </table>
                                         <div class="wc-proceed-to-checkout">
-                                            <a href="{% url 'checkout_url' user.pk %}">Proceed to Checkout</a>
+                                            <a href="{% url 'checkout_url' user.pk %}">{% blocktrans %}To'lov{% endblocktrans %}</a>
                                         </div>
                                     </div>
                                 </div>

@@ -124,8 +124,8 @@
                                                 <li><a href="{% url 'shop_url' %}">{% blocktrans %}Do'kon{% endblocktrans %}</a>
                                                 </li>
                                                 {% if user.is_authenticated %}
-                                                    <li><a href="{% url 'cart_url' user.id %}">{% blocktrans %}Karta{% endblocktrans %}</a></li>
-                                                    <li><a href="{% url 'checkout_url' user.pk %}">{% blocktrans %}Ro'yhat{% endblocktrans %}</a></li>
+                                                    <li><a href="{% url 'cart_url' user.id %}">{% blocktrans %}Sizning Kartangiz{% endblocktrans %}</a></li>
+                                                    <li><a href="{% url 'checkout_url' user.pk %}">{% blocktrans %}To'lov{% endblocktrans %}</a></li>
                                                     <li><a href="{% url 'wishlist_url' user.pk %}">{% blocktrans %}Istaklar roʻyxati{% endblocktrans %}</a></li>
                                                 {% else %}
                                                     <a href="{% url 'login_url' %}">
