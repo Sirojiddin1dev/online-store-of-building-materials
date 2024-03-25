@@ -134,67 +134,36 @@
                                     <div class="register-form login-form clearfix">
                                         <form action="{% url 'account_details_url' %}" method="post">
                                             {% csrf_token %}
-                                            <div class="form-group row align-items-center">
-                                                <label class="col-lg-3 col-md-4 col-form-label">Social title</label>
-                                                <div class="col-lg-6 col-md-8">
-                                                    <span class="custom-radio"><input name="id_gender" value="1" type="radio"> Mr.</span>
-                                                    <span class="custom-radio"><input name="id_gender" value="1" type="radio"> Mrs.</span>
-                                                </div>
-                                            </div>
                                             <div class="form-group row">
-                                                <label for="f-name" class="col-lg-3 col-md-4 col-form-label">First Name</label>
+                                                <label for="f-name" class="col-lg-3 col-md-4 col-form-label" name="first_name">First Name</label>
                                                 <div class="col-lg-6 col-md-8">
                                                     <input type="text" class="form-control" id="f-name">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="l-name" class="col-lg-3 col-md-4 col-form-label">Last Name</label>
+                                                <label for="l-name" class="col-lg-3 col-md-4 col-form-label" name="last_name">Last Name</label>
                                                 <div class="col-lg-6 col-md-8">
                                                     <input type="text" class="form-control" id="l-name">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="email" class="col-lg-3 col-md-4 col-form-label">Email address</label>
+                                                <label for="email" class="col-lg-3 col-md-4 col-form-label" name="email">Email address</label>
                                                 <div class="col-lg-6 col-md-8">
                                                     <input type="text" class="form-control" id="email">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="inputpassword" class="col-lg-3 col-md-4 col-form-label">Current password</label>
-                                                <div class="col-lg-6 col-md-8">
-                                                    <input type="password" class="form-control" id="inputpassword">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="newpassword" class="col-lg-3 col-md-4 col-form-label">New password</label>
+                                                <label for="newpassword" class="col-lg-3 col-md-4 col-form-label" name="password">New password</label>
                                                 <div class="col-lg-6 col-md-8">
                                                     <input type="password" class="form-control" id="newpassword">
                                                     <button class="btn show-btn" type="button">Show</button>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="v-password" class="col-lg-3 col-md-4 col-form-label">Confirm password</label>
+                                                <label for="v-password" class="col-lg-3 col-md-4 col-form-label" name="confirm_password">Confirm password</label>
                                                 <div class="col-lg-6 col-md-8">
                                                     <input type="password" class="form-control" id="c-password">
-                                                    <button class="btn show-btn" type="button">Show</button>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="birth" class="col-lg-3 col-md-4 col-form-label">Birthdate</label>
-                                                <div class="col-lg-6 col-md-8">
-                                                    <input type="text" class="form-control" id="birth" placeholder="MM/DD/YYYY">
-                                                </div>
-                                            </div>
-                                            <div class="form-check row p-0 mt-20">
-                                                <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-4">
-                                                    <input class="form-check-input" value="#" id="offer" type="checkbox">
-                                                    <label class="form-check-label" for="offer">Receive offers from our partners</label>
-                                                </div>
-                                            </div>
-                                            <div class="form-check row p-0 mt-20">
-                                                <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-4">
-                                                    <input class="form-check-input" value="#" id="subscribe" type="checkbox">
-                                                    <label class="form-check-label" for="subscribe">Sign up for our newsletter<br>Subscribe to our newsletters now and stay up-to-date with new collections, the latest lookbooks and exclusive offers..</label>
+                                                    <button class="btn show-btn" type="submit">Show</button>
                                                 </div>
                                             </div>
                                             <div class="register-box mt-40">
