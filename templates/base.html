@@ -73,11 +73,34 @@
 <!--                            </div>-->
 <!--                        </div>-->
 <!--                        &lt;!&ndash; Search Box End &ndash;&gt;-->
+                        <div class="col-lg-4 col-md-12">
+                            <div class="header-top-right">
+                                <ul class="header-list-menu f-right">
+                                    <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                                        <input name="next" type="hidden" value="{{ redirect_to }}">
+                                        <select name="language">
+                                            {% get_current_language as LANGUAGE_CODE %}
+                                            {% get_available_languages as LANGUAGES %}
+                                            {% get_language_info_list for LANGUAGES as languages %}
+                                            {% for language in languages %}
+                                                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                                                    {{ language.name_local }} ({{ language.code }})
+                                                </option>
+                                            {% endfor %}
+                                        </select>
+                                        <input type="submit" value="Go">
+                                    </form>
+                                </ul>
+                                <!-- Header-list-menu End -->
+                            </div>
+                        </div>
+                        <!-- Header Top Right End -->
                     </div>
                 </div>
                 <!-- Container End -->
             </div>
             <!-- Header Top End -->
+
             <!-- Header Bottom Start -->
             <div class="header-bottom header-sticky">
                 <div class="container">

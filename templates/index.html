@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+{% load i18n %}
         <!-- Slider Area Start -->
         <div class="slider-area slider-style-three">
             <div class="container">
@@ -17,7 +18,7 @@
                                     <div class="text-content">
                                         <h1 class="title1 wow bounceInRight text-white mb-16" data-wow-duration="2s" data-wow-delay="1s">{{ banner.title }}</h1>
                                         <div class="banner-readmore wow bounceInUp mt-35" data-wow-duration="2s" data-wow-delay="2s">
-                                            <a class="button slider-btn" href="shop.html">Shop Now</a>
+                                            <a class="button slider-btn" href="shop.html">{% blocktrans %}Shop now{% endblocktrans %}</a>
                                         </div>
                                     </div>
                                 </div>
