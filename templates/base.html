@@ -153,7 +153,6 @@
                         <div class="col-lg-3 col-sm-7 col-7">
                             <div class="cart-box text-right">
                                 <ul>
-                                    <li><a href="compare.html"><i class="fa fa-cog"></i></a>
                                         <ul class="ht-dropdown">
                                             <li><a href="{% url 'login_url' %}">{% blocktrans %}Kirish{% endblocktrans %}</a></li>
                                             <li><a href="{% url 'register_url' %}">{% blocktrans %}Ro'yhadan o'tish{% endblocktrans %}</a></li>
@@ -163,7 +162,6 @@
                                                 <a href="{% url 'login_url' %}"></a>
                                             {% endif %}
                                         </ul>
-                                    </li>
                                         {% if user.is_authenticated %}
                                             <li><a href="{% url 'wishlist_url' user.pk %}"><i class="fa fa-heart-o"></i></a></li>
                                             <li><a href="{% url 'cart_url' user.id %}"><i class="fa fa-shopping-basket"></i><span class="cart-counter">{{ basket_count }}</span></a>
@@ -176,7 +174,7 @@
                                                         <a href="#"><img src="{{ i.product.image.url }}" alt="cart-image"></a>
                                                     </div>
                                                     <div class="cart-content">
-                                                        <h6><a href="product.html">{{ i.product.title }}</a></h6>
+                                                        <h6><a href="{% url 'single_product_url' i.pk %}">{{ i.product.title }}</a></h6>
                                                         <span>{{ i.product.price }}</span>
                                                     </div>
                                                     <a class="del-icone" href="#"><i class="fa fa-window-close-o"></i></a>
@@ -210,7 +208,7 @@
                                     <ul>
                                         <li><a href="{% url 'index_url' %}">{% blocktrans %}Bosh sahifa{% endblocktrans %}</a>
                                         </li>
-                                        <li><a href="shop.html">{% blocktrans %}Do'kon{% endblocktrans %}</a>
+                                        <li><a href="{% url 'shop_url' %}">{% blocktrans %}Do'kon{% endblocktrans %}</a>
                                             <!-- Mobile Menu Dropdown Start -->
                                             <ul>
                                                 <li><a href="product.html">{% blocktrans %}Do'kon{% endblocktrans %}</a>
@@ -238,8 +236,8 @@
                                             </ul>
                                             <!-- Mobile Menu Dropdown End -->
                                         </li>
-                                        <li><a href="about.html">{% blocktrans %}Biz haqimizda{% endblocktrans %}</a></li>
-                                        <li><a href="contact.html">{% blocktrans %}Biz bilan Bo'g'laning{% endblocktrans %}</a></li>
+                                        <li><a href="{% url 'about_url' %}">{% blocktrans %}Biz haqimizda{% endblocktrans %}</a></li>
+                                        <li><a href="{% url 'contact_url' %}">{% blocktrans %}Biz bilan Bo'g'laning{% endblocktrans %}</a></li>
                                     </ul>
                                 </nav>
                             </div>
