@@ -156,7 +156,7 @@
                                     <li><a href="compare.html"><i class="fa fa-cog"></i></a>
                                         <ul class="ht-dropdown">
                                             <li><a href="{% url 'login_url' %}">{% blocktrans %}Kirish{% endblocktrans %}</a></li>
-                                            <li><a href="{% url 'register_url' %}">{% blocktrans %}Ro'yhadan{% endblocktrans %}</a></li>
+                                            <li><a href="{% url 'register_url' %}">{% blocktrans %}Ro'yhadan o'tish{% endblocktrans %}</a></li>
                                             {% if user.is_authenticated %}
                                                 <li><a href="{% url 'my_profile_url' user.pk %}">{% blocktrans %}Mening profilim{% endblocktrans %}</a></li>
                                             {% else %}
