@@ -24,7 +24,7 @@ def banner_view(request):
 
 def shopping_view(request):
     context={
-        'shop': Products.objects.all().order_by('-id')[:7]
+        'shop': Products.objects.all().order_by('-id')[:10]
     }
     return render(request,'shop.html', context)
 
