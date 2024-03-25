@@ -130,7 +130,7 @@ def add_basket(request, pk):
         user=request.user,
         product=product,
     )
-    return HttpResponse("Item added to Wishlists successfully!")
+    return HttpResponse("Item added to Cart successfully!")
 
 
 def add_wishlist(request, pk):
@@ -139,7 +139,7 @@ def add_wishlist(request, pk):
         user=request.user,
         product=product,
     )
-    return HttpResponse("Item added to basket successfully!")
+    return HttpResponse("Item added to Wishlist successfully!")
 
 
 def wishlist_view(request, id):
