@@ -144,7 +144,7 @@
 																		</div>
 																		<div class="modal-body" style="height: 500px width: 300px">
 																			<div class="modal-content">
-																				{% if user_.is_superuser == True %}
+																				{% if request.user.is_superuser == True %}
 																				<form action="{% url 'staff_create_url' %}" class="form form--fit" style="background-color: #ffffff;
 																																	border-radius: 8px;
 																																	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
