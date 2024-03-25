@@ -90,33 +90,34 @@
                     <div class="group-title">
                         <h2>related product</h2>
                     </div>
-                    <!-- Realted Product Activation Start -->                    
-                    {% for i in product2 %}
-                    <div class="new-upsell-pro owl-carousel">
-                        <div class="single-product">
-                            <!-- Product Image Start -->
-                            <div class="pro-img">
-                                <a href="{% url 'single_product_url' i.pk %}">
-                                    <img class="primary-img" src="{{ i.image.url }}" alt="single-product">
-                                </a>
-                            </div>
-                            <!-- Product Image End -->
-                            <!-- Product Content Start -->
-                            <div class="pro-content">
-                                <h4><a href="product.html">{{ i.title }}</a></h4>
-                                <p><span class="price">{{ i.price }} so'm</span></p>
-                                <div class="pro-actions">
-                                    <div class="actions-secondary">
-                                        <a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                        <a class="add-cart" href="{% url 'add_basket_url' i.pk %}" data-toggle="tooltip" title="Add to Cart">Add To Cart</a>
-                                        <a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a>
+                    <!-- Realted Product Activation Start -->
+                    <div class="row">
+                        {% for i in product2 %}
+                        <div class="new-upsell-pro owl-carousel">
+                            <div class="single-product">
+                                <!-- Product Image Start -->
+                                <div class="pro-img">
+                                    <a href="{% url 'single_product_url' i.pk %}">
+                                        <img class="primary-img" src="{{ i.image.url }}" alt="single-product">
+                                    </a>
+                                </div>
+                                <!-- Product Image End -->
+                                <!-- Product Content Start -->
+                                <div class="pro-content">
+                                    <h4><a href="{% url 'single_product_url' i.pk %}">{{ i.title }}</a></h4>
+                                    <p><span class="price">{{ i.price }} so'm</span></p>
+                                    <div class="pro-actions">
+                                        <div class="actions-secondary">
+                                            <a href="{% url 'wishlist_url' i.pk %}" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
+                                            <a class="add-cart" href="{% url 'add_basket_url' i.pk %}" data-toggle="tooltip" title="Add to Cart">Add To Cart</a>
+                                        </div>
                                     </div>
                                 </div>
+                                <!-- Product Content End -->
                             </div>
-                            <!-- Product Content End -->
                         </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
                     <!-- Realted Product Activation End -->
                 </div>
             </div>
