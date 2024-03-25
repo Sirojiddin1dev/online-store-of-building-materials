@@ -5,8 +5,8 @@
             <div class="container">
                 <div class="breadcrumb">
                     <ul>
-                        <li><a href="{% url 'index_url' %}">Home</a></li>
-                        <li class="active"><a href="{% url 'my_profile_url' %}">Account</a></li>
+                        <li><a href="{% url 'index_url' %}">{% blocktrans %}Bosh sahifa{% endblocktrans %}</a></li>
+                        <li class="active"><a href="{% url 'my_profile_url' %}">{% blocktrans %}Profil{% endblocktrans %}</a></li>
                     </ul>
                 </div>
             </div>
@@ -22,7 +22,7 @@
                            <div class="col-lg-3 col-md-6">
                                <div class="d-single-info">
                                    <p class="user-name">Hello <span>{{ profile.username }}</span></p>
-                                   <p><a href="{% url 'logout_url' %}">Log Out</a>)</p>
+                                   <p><a href="{% url 'logout_url' %}">{% blocktrans %}Chiqish{% endblocktrans %}</a>)</p>
                                </div>
                            </div>
                            <div class="col-lg-3 col-md-6">
@@ -46,23 +46,23 @@
                         <div class="col-lg-2">
                             <!-- Nav tabs -->
                             <ul class="nav flex-column dashboard-list" role="tablist">
-                                <li><a class="active" data-toggle="tab" href="#dashboard">Dashboard</a></li>
-                                <li><a data-toggle="tab" href="#">Orders</a></li>
-                                <li><a data-toggle="tab" href="#">Downloads</a></li>
-                                <li><a data-toggle="tab" href="#">Addresses</a></li>
-                                <li><a data-toggle="tab" href="#">Account details</a></li>
-                                <li><a href="login.html" href="{% url 'logout_url' %}">logout</a></li>
+                                <li><a class="active" data-toggle="tab" href="#dashboard">{% blocktrans %}Boshqaruv sahifasi{% endblocktrans %}</a></li>
+                                <li><a data-toggle="tab" href="#">{% blocktrans %}Buyurtmalar{% endblocktrans %}</a></li>
+                                <li><a data-toggle="tab" href="#">{% blocktrans %}Yuqlamalar{% endblocktrans %}</a></li>
+                                <li><a data-toggle="tab" href="#">{% blocktrans %}Joylashuv{% endblocktrans %}</a></li>
+                                <li><a data-toggle="tab" href="#">{% blocktrans %}Hisob{% endblocktrans %} details</a></li>
+                                <li><a href="login.html" href="{% url 'logout_url' %}">{% blocktrans %}Chiqish{% endblocktrans %}</a></li>
                             </ul>
                         </div>
                         <div class="col-lg-10">
                             <!-- Tab panes -->
                             <div class="tab-content dashboard-content mt-all-40">
                                 <div id="dashboard" class="tab-pane active">
-                                    <h3>Dashboard </h3>
+                                    <h3>{% blocktrans %}Boshqaruv sahifasi{% endblocktrans %}</h3>
                                     <p>From your account dashboard. you can easily check & view your <a href="#">recent orders</a>, manage your <a href="#">shipping and billing addresses</a> and <a href="#">edit your password and account details.</a></p>
                                 </div>
                                 <div id="orders" class="tab-pane fade">
-                                    <h3>Orders</h3>
+                                    <h3>{% blocktrans %}Buyurtmalar{% endblocktrans %}</h3>
                                     <div class="table-responsive">
                                         <table class="table">
                                             <thead>
@@ -124,7 +124,7 @@
                                 </div>
                                 <div id="address" class="tab-pane">
                                     <p>The following addresses will be used on the checkout page by default.</p>
-                                    <h4 class="billing-address">Billing address</h4>
+                                    <h4 class="billing-address">{% blocktrans %}Bino manzili{% endblocktrans %}</h4>
                                     <a class="view" href="#">edit</a>
                                     <p>steven smith</p>
                                     <p>Australia</p>   
@@ -167,7 +167,7 @@
                                                 </div>
                                             </div>
                                             <div class="register-box mt-40">
-                                                <button type="submit" class="return-customer-btn f-right">Save</button>
+                                                <button type="submit" class="return-customer-btn f-right">{% blocktrans %}Saqlash{% endblocktrans %}</button>
                                             </div>
                                         </form>
                                     </div>
