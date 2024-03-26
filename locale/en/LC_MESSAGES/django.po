@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-26 10:07+0500\n"
+"POT-Creation-Date: 2024-03-26 10:23+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -94,6 +94,10 @@ msgstr "Building address"
 msgid "Saqlash"
 msgstr "Save"
 
+#: .\templates\base.html:9
+msgid "Qurilish Mollar savdosi"
+msgstr ""
+
 #: .\templates\base.html:124 .\templates\base.html:211
 #: .\templates\base.html:214 .\templates\product.html:10
 #: .\templates\shop.html:10
@@ -157,6 +161,14 @@ msgstr "Contact us"
 #: .\templates\base.html:265
 msgid "Biz bilan boglaning"
 msgstr "Contact us"
+
+#: .\templates\base.html:269
+msgid "Mail Us :"
+msgstr ""
+
+#: .\templates\base.html:270
+msgid " Phone:"
+msgstr ""
 
 #: .\templates\base.html:284
 msgid "To'lov sahifasi"
