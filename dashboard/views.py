@@ -92,3 +92,27 @@ def all_products(request):
         'product': PegenatorPage(product, 10, request)
     }
     return render(request, 'apartment.html', context)
+
+
+def all_info(request):
+    info = Info.objects.last()
+    context = {
+        'info':info
+    }
+    return render(request, 'best_deals.html', context)
+
+
+def all_checkout(request):
+    checkout = Checkout.objects.all()
+    context = {
+        'checkout':PegenatorPage(checkout, 10, request)
+    }
+    return render(request, 'home_page.html',context)
+
+
+def all_banner(request):
+    banner = Banner.objects.last()
+    context = {
+        'banner':banner
+    }
+    return render(request, 'house.html', context)

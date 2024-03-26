@@ -158,7 +158,7 @@
 															  <ul class="pagination">
 																{% if product.has_previous %}
 																  <li class="page-item">
-																	<a class="page-link" href="?page={{ a.previous_page_number }}">
+																	<a class="page-link" href="?page={{ product.previous_page_number }}">
 																	  Previous
 																	</a>
 																  </li>
@@ -174,7 +174,7 @@
 																{% endfor %}
 																{% if product.has_next %}
 																<li class="page-item">
-																  <a class="page-link" href="?page={{ a.next_page_number }}">
+																  <a class="page-link" href="?page={{ product.next_page_number }}">
 																	Next
 																  </a>
 																</li>
