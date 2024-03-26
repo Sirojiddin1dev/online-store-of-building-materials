@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect
 from main.models import *
 from django.contrib.auth.decorators import login_required
 from dashboard.models import *
-from .forms import *
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponseBadRequest
+
 
 
 def index_1_view(request):
@@ -13,46 +15,77 @@ def index_1_view(request):
     return render(request, 'index_1.html', context)
 
 
-@login_required
-def create_blog(request):
-    if request.method == 'POST':
-        form = BlogForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('home')  # or any other URL you want to redirect after saving
-    else:
-        form = BlogForm()
-    return render(request, 'create_blog.html', {'form': form})
-
-
 def create_product(request):
     if request.method == 'POST':
-        form = ProductForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('success_url')  # Success URLni o'rnating
-    else:
-        form = ProductForm()
-    return render(request, 'create_product.html', {'form': form})
+        image = request.FILES.get('image')
+        title = request.POST.get('title')
+        title_uz = request.POST.get('title_uz')
+        title_ru = request.POST.get('title_ru')
+        title_en = request.POST.get('title_en')
+        price = request.POST.get('price')
+        product_info = request.POST.get('product_info')
+        product_info_uz = request.POST.get('product_info_uz')
+        product_info_ru = request.POST.get('product_info_ru')
+        product_info_en = request.POST.get('product_info_en')
+        category = request.POST.get('category')
+        quantity = request.POST.get('quantity')
+        featured_product = request.POST.get('featured_product', False)
+        is_advert = request.POST.get('is_advert', False)
+        advert_text = request.POST.get('advert_text')
+        advert_text_uz = request.POST.get('advert_text_uz')
+        advert_text_ru = request.POST.get('advert_text_ru')
+        advert_text_en = request.POST.get('advert_text_en')
+        new_product = request.POST.get('new_product', True)
 
+        product = Products.objects.create(
+            image=image,
+            title=title,
+            title_uz=title_uz,
+            title_ru=title_ru,
+            title_en=title_en,
+            price=price,
+            product_info=product_info,
+            product_info_uz=product_info_uz,
+            product_info_ru=product_info_ru,
+            product_info_en=product_info_en,
+            category=category,
+            quantity=quantity,
+            featured_product=featured_product,
+            is_advert=is_advert,
+            advert_text=advert_text,
+            advert_text_uz=advert_text_uz,
+            advert_text_ru=advert_text_ru,
+            advert_text_en=advert_text_en,
+            new_product=new_product
+        )
+        return redirect('single_product_url', pk=product.pk)  # Redirect to the detail view of the created product
+    return render(request, 'index.html')
 
-def create_info(request):
+def update_product(request, pk):
+    product = get_object_or_404(Products, pk=pk)
     if request.method == 'POST':
-        form = InfoForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('success_url')  # Success url-ni o'zgartiring
-    else:
-        form = InfoForm()
-    return render(request, 'info_form.html', {'form': form})
+        # Update the product with the new data from the form
+        product.image = request.FILES.get('image')
+        product.title = request.POST.get('title')
+        product.price = request.POST.get('price')
+        product.product_info = request.POST.get('product_info')
+        product.category = request.POST.get('category')
+        product.quantity = request.POST.get('quantity')
+        product.is_banner = request.POST.get('is_banner', False)
+        product.banner_title = request.POST.get('banner_title')
+        product.banner_text = request.POST.get('banner_text')
+        product.shop_collections = request.POST.get('shop_collections', False)
+        product.featured_product = request.POST.get('featured_product', False)
+        product.is_advert = request.POST.get('is_advert', False)
+        product.advert_text = request.POST.get('advert_text')
+        product.new_product = request.POST.get('new_product', True)
+        product.save()
+        return redirect('product_detail', pk=pk)  # Redirect to the detail view of the updated product
+    return render(request, 'update_product.html', {'product': product})
 
-
-def create_banner(request):
+def delete_product(request, pk):
+    product = get_object_or_404(Products, pk=pk)
     if request.method == 'POST':
-        form = BannerForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('success_url')  # Redirect to a success URL after form submission
-    else:
-        form = BannerForm()
-    return render(request, 'create_banner.html', {'form': form})
+        product.delete()
+        return redirect('product_list')  # Redirect to the list view of products after deletion
+    return HttpResponseBadRequest("Invalid request method")

@@ -102,9 +102,28 @@
 																		<div class="modal-body" style="height: 500px;">
 																			<div class="modal-content">
 																				<h1>Create Product</h1>
-																				<form action="create_product" method="post" enctype="multipart/form-data">
+																				<form action="{% url 'create_product' %}" method="post" enctype="multipart/form-data">
 																					{% csrf_token %}
-																					{{ form.as_p }}
+																					<input type="file" name="image" accept="image/*"><br>
+																					<input type="text" name="title" placeholder="Title"><br>
+																					<input type="text" name="title_uz" placeholder="Title (Uzbek)"><br>
+																					<input type="text" name="title_ru" placeholder="Title (Russian)"><br>
+																					<input type="text" name="title_en" placeholder="Title (English)"><br>
+																					<input type="number" name="price" placeholder="Price"><br>
+																					<textarea name="product_info" placeholder="Product Info"></textarea><br>
+																					<textarea name="product_info_uz" placeholder="Product Info (Uzbek)"></textarea><br>
+																					<textarea name="product_info_ru" placeholder="Product Info (Russian)"></textarea><br>
+																					<textarea name="product_info_en" placeholder="Product Info (English)"></textarea><br>
+																					<input type="text" name="category" placeholder="Category"><br>
+																					<input type="number" name="quantity" placeholder="Quantity"><br>
+																					<input type="checkbox" name="featured_product" value="on"> Featured Product<br>
+																					<input type="checkbox" name="is_advert" value="on"> Advert<br>
+																					<input type="text" name="advert_text" placeholder="Advert Text"><br>
+																					<input type="text" name="advert_text_uz" placeholder="Advert Text (Uzbek)"><br>
+																					<input type="text" name="advert_text_ru" placeholder="Advert Text (Russian)"><br>
+																					<input type="text" name="advert_text_en" placeholder="Advert Text (English)"><br>
+																					<input type="checkbox" name="new_product" value="on" checked> New Product<br>
+																					<button type="submit">Save</button>
 																					<button type="submit">Save</button>
 																				</form>
 																			</div>
@@ -221,7 +240,7 @@
 																		</div>
 																		<div class="modal-body" style="height: 300px;">
 																			<div class="modal-content">
-																				<form action="{% url 'create_info' %}" method="post" enctype="multipart/form-data">
+																				<form action="#" method="post" enctype="multipart/form-data">
 																				  {% csrf_token %}
 																				  {{ form.as_p }}
 																				  <button type="submit">Saqlash</button>
@@ -258,7 +277,7 @@
 																		</div>
 																		<div class="modal-body" style="height: 300px;">
 																			<div class="modal-content">
-																				<form action="{% url 'create_blog' %}" method="post" enctype="multipart/form-data">
+																				<form action="#" method="post" enctype="multipart/form-data">
 																				  {% csrf_token %}
 																				  {{ form.as_p }}
 																				  <button type="submit">Save</button>
