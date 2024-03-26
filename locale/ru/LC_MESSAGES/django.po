@@ -166,11 +166,11 @@ msgstr "связаться с нами"
 
 #: .\templates\base.html:269
 msgid "Bizga xat yuboring :"
-msgstr ""
+msgstr "Отправить нам письмо"
 
 #: .\templates\base.html:270
 msgid " Telefon:"
-msgstr ""
+msgstr "Телефон:"
 
 #: .\templates\base.html:284
 msgid "To'lov sahifasi"

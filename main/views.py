@@ -182,3 +182,5 @@ def remove_wishlist_product(request, pk):
     wishlist = Wishlist.objects.get(pk=pk)
     wishlist.delete()
     return HttpResponse("1 ta obyekt o'chirildi!")
+
+

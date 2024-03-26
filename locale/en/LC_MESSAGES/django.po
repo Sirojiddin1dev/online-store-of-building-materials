@@ -164,11 +164,11 @@ msgstr "Contact us"
 
 #: .\templates\base.html:269
 msgid "Bizga xat yuboring :"
-msgstr ""
+msgstr "Mail Us :"
 
 #: .\templates\base.html:270
 msgid " Telefon:"
-msgstr ""
+msgstr "Phone:"
 
 #: .\templates\base.html:284
 msgid "To'lov sahifasi"
