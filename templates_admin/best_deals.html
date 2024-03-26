@@ -137,7 +137,7 @@
 																					</form>
 																				</div>
 																</div>
-														</td>
+														 </td>
 													<td>
 														<!-- Button trigger modal-->
 														<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete{{ info.id }}">
@@ -159,7 +159,7 @@
 																	</div>
 																	<div class="modal-footer">
 																		<button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
-																		<button type="button" class="btn btn-light"><a href="#" class="btn btn-light-danger font-weight-bold mr-2">Delete</a></button>
+																		<button type="button" class="btn btn-light"><a href="{% url 'delete-info' info.pk %}" class="btn btn-light-danger font-weight-bold mr-2">Delete</a></button>
 																	</div>
 																</div>
 															</div>
