@@ -46,26 +46,13 @@ class Banner(models.Model):
         return self.title
 
 
-class Image(models.Model):
-    img = models.ImageField(upload_to='blog_img/')
-
-
-class Tag(models.Model):
-    name = models.CharField(max_length=55)
-
-
-class Category(models.Model):
-    name = models.CharField(max_length=55)
-
-
 class Blog(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=55)
-    img = models.ManyToManyField(Image)
     image = models.ImageField(upload_to='blog_img/')
     description = models.TextField()
-    category = models.ForeignKey(to='Category', on_delete=models.CASCADE)
-    tags = models.ManyToManyField(Tag)
+    category = models.CharField(max_length=255)
+    tags = models.CharField(max_length=255)
     date = models.DateTimeField(auto_now=True)
 
 

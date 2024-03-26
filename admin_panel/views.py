@@ -165,8 +165,17 @@ def info_delete(request, pk):
 def create_banner(request):
     if request.method == 'POST':
         title = request.POST['title']
+        title_uz = request.POST['title_uz']
+        title_ru = request.POST['title_ru']
+        title_en = request.POST['title_en']
         img = request.FILES['img']
-        Banner.objects.create(title=title, img=img)
+        Banner.objects.create(
+            title=title,
+            title_uz=title_uz,
+            title_ru=title_ru,
+            title_en=title_en,
+            img=img
+        )
         return redirect('all_banner_url')  # Redirect to a URL that lists all banners
     return render(request, 'index_1.html')
 
@@ -175,6 +184,9 @@ def update_banner(request, banner_id):
     banner = Banner.objects.get(pk=banner_id)
     if request.method == 'POST':
         banner.title = request.POST['title']
+        banner.title_uz = request.POST['title_uz']
+        banner.title_ru = request.POST['title_ru']
+        banner.title_en = request.POST['title_ne']
         if 'img' in request.FILES:
             banner.img = request.FILES['img']
         banner.save()
@@ -188,5 +200,29 @@ def delete_banner(request, banner_id):
     return redirect('house.html')
 
 
+def create_blog(request):
+    if request.method == 'POST':
+        user = request.user
+        title = request.POST['title']
+        title_uz = request.POST['title_uz']
+        title_ru = request.POST['title_ru']
+        title_en = request.POST['title']
+        description = request.POST['description']
+        category = request.POST['category']
+        image = request.FILES.get('image')
+        tags = request.POST('tags')  # List of tag IDs
 
+        blog = Blog.objects.create(
+            user=user,
+            title=title,
+            description=description,
+            category=category,
+            image=image,
+            tags=tags
+        )
+        return redirect('all_blog_url', blog_id=blog.id)
+    else:
+        categories = Category.objects.all()
+        tags = Tag.objects.all()
+        return render(request, '.html', {'categories': categories, 'tags': tags})
 
