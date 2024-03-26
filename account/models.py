@@ -1,10 +1,11 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, UserManager
 from django.core.validators import RegexValidator
 from django.utils import timezone
 
 
 class User(AbstractUser):
+    objects = UserManager()
     bio = models.CharField(max_length=255, null=True, blank=True)
     img = models.ImageField(upload_to='user_img',null=True, blank=True)
     phone_number = models.CharField(max_length=13, verbose_name='Telefon raqam', null=True, blank=True, validators=[
