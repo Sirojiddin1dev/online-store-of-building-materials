@@ -188,6 +188,6 @@ def search_view(request):
     query = request.GET.get('title')
     shop = []
     if shop:
-        shop = Products.objects.filter(title__icontains=query, title_ru__icontains=query, title_uz__icontains=query, title_en__icontains=query)
+        shop = Products.objects.filter(title__icontains=query or title_ru__icontains=query or title_uz__icontains=query or title_en__icontains=query)
     return render(request, 'shop.html', {'query': query, 'shop': shop})
 
