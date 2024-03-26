@@ -3,6 +3,7 @@ from .models import *
 from django.http import HttpResponse
 from dashboard.models import *
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
 
 def blog_view(request):
@@ -187,7 +188,12 @@ def remove_wishlist_product(request, pk):
 def search_view(request):
     query = request.GET.get('title')
     shop = []
-    if shop:
-        shop = Products.objects.filter(title__icontains=query or title_ru__icontains=query or title_uz__icontains=query or title_en__icontains=query)
+    if query:  # Check if query is not empty
+        shop = Products.objects.filter(
+            Q(title__icontains=query) |
+            Q(title_ru__icontains=query) |
+            Q(title_uz__icontains=query) |
+            Q(title_en__icontains=query)
+        )
     return render(request, 'shop.html', {'query': query, 'shop': shop})
 

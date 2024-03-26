@@ -59,16 +59,15 @@
                         <!-- Header Top left Start -->
                         <div class="col-lg-4 col-md-12 d-center">
                             <div class="header-top-left">
-                                <img src="{% static 'img/icon/call.png' %}" alt="">Call Us : {{ info.phone_number }}
+                                <img src="{% static 'img/icon/call.png' %}" alt="">{% blocktrans %}Bizga qo'ng'iroq qiling{% endblocktrans %} : {{ info.phone_number }}
                             </div>
                         </div>
-                         Header Top left End
                         <!-- Search Box Start -->
                         <div class="col-lg-4 col-md-6 ml-auto mr-auto">
                             <div class="search-box-view">
                                 <form action="{% url 'search_url' %}" method="GET">
                                     {% csrf_token %}
-                                    <input type="text" class="title" placeholder="Search Your Product" name="title">
+                                    <input type="text" class="email" placeholder="Search Your Product" name="title">
                                     <button type="submit" class="submit"></button>
                                 </form>
                             </div>
@@ -144,7 +143,7 @@
                                             {% else %}
                                                 <a href="{% url 'login_url' %}"></a>
                                             {% endif %}
-                                        <li><a href="{% url 'contact_url'  %}">{% blocktrans %}Biz bilan bog'lanish{% endblocktrans %}</a></li>
+                                        <li><a href="{% url 'contact_url'  %}">{% blocktrans %}Kontakt{% endblocktrans %}</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -267,8 +266,8 @@
                                 <div class="footer-content">
                                     <div class="loc-address">
                                         <span><i class="fa fa-map-marker"></i>{{ info.address }}</span>
-                                        <span><i class="fa fa-envelope-o"></i>{% blocktrans %}Bizga xat yuboring :{% endblocktrans %}{{ info.email }}</span>
-                                        <span><i class="fa fa-phone"></i>{% blocktrans %} Telefon:{% endblocktrans %} {{ info.phone_number }}</span>
+                                        <span><i class="fa fa-envelope-o"></i>{% blocktrans %}Bizga xat yuboring {% endblocktrans %}: {{ info.email }}</span>
+                                        <span><i class="fa fa-phone"></i>{% blocktrans %} Telefon{% endblocktrans %}: {{ info.phone_number }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -314,7 +313,7 @@
                         <!-- Single Footer Start -->
                         <div class="col-lg-2 col-md-4 col-sm-6 footer-full">
                             <div class="single-footer">
-                                <h3 class="footer-title">Let Us Help You</h3>
+                                <h3 class="footer-title">{% blocktrans %}Keling, sizga yordam beraylik{% endblocktrans %}</h3>
                                 <div class="footer-content">
                                     <ul class="footer-list">
 

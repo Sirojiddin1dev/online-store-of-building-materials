@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-26 10:36+0500\n"
+"POT-Creation-Date: 2024-03-26 11:03+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -96,7 +96,11 @@ msgstr "Save"
 
 #: .\templates\base.html:9
 msgid "Qurilish Mollar savdosi"
-msgstr ""
+msgstr "Construction Trade in goods"
+
+#: .\templates\base.html:62
+msgid "Bizga qo'ng'iroq qiling"
+msgstr "Call Us"
 
 #: .\templates\base.html:124 .\templates\base.html:211
 #: .\templates\base.html:214 .\templates\product.html:10
@@ -130,8 +134,10 @@ msgid "Mening profilim"
 msgstr "My profile"
 
 #: .\templates\base.html:146
-msgid "Biz bilan bog'lanish"
-msgstr "contact us"
+#, fuzzy
+#| msgid "Contact"
+msgid "Kontakt"
+msgstr "Contact"
 
 #: .\templates\base.html:157 .\templates\base.html:288
 #: .\templates\login.html:46 .\templates\register.html:41
@@ -163,12 +169,16 @@ msgid "Biz bilan boglaning"
 msgstr "Contact us"
 
 #: .\templates\base.html:269
-msgid "Bizga xat yuboring :"
-msgstr "Mail Us :"
+#, fuzzy
+#| msgid "Bizga xat yuboring :"
+msgid "Bizga xat yuboring "
+msgstr "Mail Us "
 
 #: .\templates\base.html:270
-msgid " Telefon:"
-msgstr "Phone:"
+#, fuzzy
+#| msgid " Telefon:"
+msgid " Telefon"
+msgstr "Phone"
 
 #: .\templates\base.html:284
 msgid "To'lov sahifasi"
@@ -189,6 +199,10 @@ msgstr "Your card"
 #: .\templates\base.html:307
 msgid "Sizning Buyurtmanlaringiz"
 msgstr "Your Orders"
+
+#: .\templates\base.html:316
+msgid "Keling, sizga yordam beraylik"
+msgstr "Let us help you"
 
 #: .\templates\base.html:322
 msgid "Sizning buyurmalaringiz"
@@ -258,7 +272,7 @@ msgstr "Product"
 msgid "Jami"
 msgstr "Total"
 
-#: .\templates\contact.html:9
+#: .\templates\contact.html:9 .\templates\contact.html:19
 msgid "Contact"
 msgstr "Contact"
 
@@ -1524,3 +1538,6 @@ msgstr ""
 #: .\venv\Lib\site-packages\modeltranslation\widgets.py:24
 msgid "None"
 msgstr ""
+
+#~ msgid "Biz bilan bog'lanish"
+#~ msgstr "contact us"
