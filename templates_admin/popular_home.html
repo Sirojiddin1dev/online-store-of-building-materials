@@ -39,87 +39,42 @@
 											<div class="btn btn-light-primary font-weight-bold mr-2">
 
 
-												<a href="#" style="margin-top: 50px;" data-toggle="modal" data-target="#exampleModalScrollable">New Home</a>
+												<a href="#" style="margin-top: 50px;" data-toggle="modal" data-target="#exampleModalScrollable">New Blog</a>
 
 												<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
 													<div class="modal-dialog modal-dialog-scrollable" role="document">
 														<div class="modal-content">
 															<div class="modal-header">
-																<h5 class="modal-title" id="exampleModalLabel">Create house</h5>
+																<h5 class="modal-title" id="exampleModalLabel">Create Blog</h5>
 																<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 																	<i aria-hidden="true" class="ki ki-close"></i>
 																</button>
 															</div>
 															<div class="modal-body" style="height: 600px;">
-
-																<form action="#" method="post" enctype="multipart/form-data">
-																					{% csrf_token %}
-
-																					<!-- Add input fields for each attribute of the Home model -->
-																					<label>Name:</label>
-																					<input type="text" name="name" required><br><br>
-
-																					<label>Home Image:</label>
-																					<input type="file" name="home_img" accept="image/*" required><br><br>
-
-																					<!-- Add input fields for the remaining attributes of the Home model -->
-																					<label>Price:</label>
-																					<input type="number" name="price" required><br><br>
-
-																					<label>User Image:</label>
-																					<input type="file" name="user_img" accept="image/*" required><br><br>
-
-																					<label>User Name:</label>
-																					<input type="text" name="user_name" required><br><br>
-
-																					<label>User Location:</label>
-																					<input type="text" name="user_location" required><br><br>
-
-																					<label>Status:</label>
-																					<select name="status" required>
-																						<option value="popular">Popular</option>
-																						<option value="new house">New House</option>
-																						<option value="best deals">Best Deals</option>
-																					</select><br><br>
-
-																					<label>Category:</label>
-																					<select name="category" required>
-																						<option value="House">House</option>
-																						<option value="Villa">Villa</option>
-																						<option value="Apartment">Apartment</option>
-																					</select><br><br>
-
-																					<label>Bathrooms:</label>
-																					<input type="number" name="bathrooms" required><br><br>
-
-																					<label>Bedrooms:</label>
-																					<input type="number" name="bedrooms" required><br><br>
-
-																					<label>Carports:</label>
-																					<input type="number" name="carports" required><br><br>
-
-																					<label>Floors:</label>
-																					<input type="number" name="floors" required><br><br>
-
-																					<label>Descriptions:</label>
-																					<textarea name="descriptions" rows="4" cols="50" required></textarea><br><br>
-
-																					<label>Created At:</label>
-																					<input type="date" name="created_at" required><br><br>
-
-
-																					<div class="modal-footer">
-																						<button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
-																						<button type="submit" class="btn btn-primary font-weight-bold">Save changes</button>
-																					</div>
-																				</form>
-
+																<form action="{% url 'create_blog' %}" method="post" enctype="multipart/form-data">
+																	{% csrf_token %}
+																	<!-- Add input fields for each attribute of the Home model -->
+																	<label>Title:</label>
+																	<input type="text" name="title" required><br><br>
+																	<label>Description:</label>
+																	<input type="file" name="description" accept="" required><br><br>
+																	<!-- Add input fields for the remaining attributes of the Home model -->
+																	<label>Category:</label>
+																	<input type="text" name="category" required><br><br>
+																	<label>Image:</label>
+																	<input type="file" name="image" accept="image/*" required><br><br>
+																	<label>Tags</label>
+																	<input type="text" name="tags" required><br><br>
+																	<div class="modal-footer">
+																		<button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
+																		<button type="submit" class="btn btn-primary font-weight-bold">Save changes</button>
+																	</div>
+																</form>
 															</div>
 														</div>
 													</div>
 												</div>
 											</div>
-
 										</div>
 									</div>
 
@@ -152,7 +107,6 @@
 													<button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#UpdateHome{{ i.id }}">
 														Update
 													</button>
-
 													<!-- Modal-->
 													<div class="modal fade" id="UpdateHome{{ i.id }}" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
 														<div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -172,32 +126,21 @@
 																			<div class="card card-custom card-sticky" id="kt_page_sticky_card">
 																				<div class="card-body">
 																					<!--begin::Form-->
-																					<form action="#" method="post" enctype="multipart/form-data">
+																					<form action="{% url 'update_blog' i.pk %}" method="post" enctype="multipart/form-data">
 																						{% csrf_token %}
-
 																						<!-- Add input fields with initial values for each attribute of the Home model -->
-																						<label>Name:</label>
-																						<input type="text" value="{{ i.name }}" name="name"  required><br><br>
-
-																						<label>Home Image:</label>
-																						<input type="file" name="home_img" accept="image/*"><br><br>
-
+																						<label>Title:</label>
+																						<input type="text" value="{{ i.title }}" name="name"  required><br><br>
+																						<label>Description:</label>
+																						<input type="text" name="description" value="{{ i.description }}" required><br><br>
 																						<!-- ... (previous form fields) ... -->
-
-																						<label>Price:</label>
-																						<input type="number" name="price" value="{{ i.price }}" required><br><br>
-
-																						<label>User Image:</label>
-																						<input type="file" name="user_img" accept="image/*"><br><br>
-
-																						<label>User Name:</label>
-																						<input type="text" name="user_name" value="{{ i.user_name }}" required><br><br>
-
-																						<label>User Location:</label>
-																						<input type="text" name="user_location" value="{{ i.user_location }}" required><br><br>
-
+																						<label>Category:</label>
+																						<input type="text" name="category" value="{{ i.category }}" required><br><br>
+																						<label>Image:</label>
+																						<input type="file" name="image" accept="image/*"><br><br>
+																						<label>Tags:</label>
+																						<input type="text" name="tags" value="{{ i.tags }}" required><br><br>
 																						<!-- ... (remaining form fields) ... -->
-
 																						<button type="submit">Update Home</button>
 																					</form>
 																				</div>
@@ -208,7 +151,6 @@
 														<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#DeleteHome{{ i.id }}">
 															Delete
 														</button>
-
 														<!-- Modal-->
 														<div class="modal fade" id="DeleteHome{{ i.id }}" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
 															<div class="modal-dialog" role="document">
@@ -224,7 +166,7 @@
 																	</div>
 																	<div class="modal-footer">
 																		<button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
-																		<button type="button" class="btn btn-light"><a href="#" class="btn btn-light-danger font-weight-bold mr-2">Delete</a></button>
+																		<button type="button" class="btn btn-light"><a href="{% url 'delete_blog' i.pk %}" class="btn btn-light-danger font-weight-bold mr-2">Delete</a></button>
 																	</div>
 																</div>
 															</div>
