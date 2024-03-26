@@ -116,3 +116,21 @@ def all_banner(request):
         'banner':banner
     }
     return render(request, 'house.html', context)
+
+
+def all_blog(request):
+    blog = Blog.objects.all()
+    context = {
+        'blog': blog
+    }
+    return render(request,'popular_home.html', context)
+
+
+def all_contact(request):
+    contact = Contact.objects.all()
+    context = {
+        'contact': contact
+    }
+    return render(request,'villa.html', context)
+
+

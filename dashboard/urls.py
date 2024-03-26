@@ -10,4 +10,6 @@ urlpatterns = [
     path('all_info/', views.all_info, name="all_info_url"),
     path('all_checkout/', views.all_checkout, name="all_checkout_url"),
     path('all_banner/', views.all_banner, name="all_banner_url"),
+    path('all_blog/', views.all_blog, name="all_blog_url"),
+    path('all_contact/', views.all_contact, name="all_contact_url"),
 ]
