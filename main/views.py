@@ -187,6 +187,7 @@ def remove_wishlist_product(request, pk):
 
 def search_view(request):
     query = request.GET.get('title')
+    info = Info.objects.last()
     shop = []
     if query:  # Check if query is not empty
         shop = Products.objects.filter(
@@ -195,5 +196,5 @@ def search_view(request):
             Q(title_uz__icontains=query) |
             Q(title_en__icontains=query)
         )
-    return render(request, 'shop.html', {'query': query, 'shop': shop})
+    return render(request, 'shop.html', {'query': query, 'infi': info , 'shop': shop})
 

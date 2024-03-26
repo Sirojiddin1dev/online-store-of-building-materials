@@ -8,7 +8,7 @@
                 <div class="breadcrumb">
                     <ul>
                         <li><a href="{% url 'index_url' %}">{% blocktrans %}Bosh sahifa{% endblocktrans %}</a></li>
-                        <li class="active"><a href="{% url 'my_profile_url' %}">{% blocktrans %}Profil{% endblocktrans %}</a></li>
+                        <li class="active"><a href="{% url 'my_profile_url' user.pk %}">{% blocktrans %}Profil{% endblocktrans %}</a></li>
                     </ul>
                 </div>
             </div>
@@ -29,17 +29,17 @@
                            </div>
                            <div class="col-lg-3 col-md-6">
                                <div class="d-single-info">
-                                   <p>{{ profile.email }}</p>
+                                   <p>{{ user.email }}</p>
                                </div>
                            </div>
                            <div class="col-lg-3 col-md-6">
                                <div class="d-single-info">
-                                   <p>{{ profile.phone_number }}</p>
+                                   <p>{{ user.phone_number }}</p>
                                </div>
                            </div>
                            <div class="col-lg-3 col-md-6">
                                <div class="d-single-info text-center">
-                                   <a class="view-cart" href="cart.html"><i class="fa fa-cart-plus" aria-hidden="true"></i>view cart</a>
+                                   <a class="view-cart" href="{% url 'add_cart_url' user.pk %}"><i class="fa fa-cart-plus" aria-hidden="true"></i>view cart</a>
                                </div>
                            </div>
                        </div>
@@ -61,75 +61,9 @@
                             <div class="tab-content dashboard-content mt-all-40">
                                 <div id="dashboard" class="tab-pane active">
                                     <h3>{% blocktrans %}Boshqaruv sahifasi{% endblocktrans %}</h3>
-                                    <p>From your account dashboard. you can easily check & view your <a href="#">recent orders</a>, manage your <a href="#">shipping and billing addresses</a> and <a href="#">edit your password and account details.</a></p>
-                                </div>
-                                <div id="orders" class="tab-pane fade">
-                                    <h3>{% blocktrans %}Buyurtmalar{% endblocktrans %}</h3>
-                                    <div class="table-responsive">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th>Order</th>
-                                                    <th>Date</th>
-                                                    <th>Status</th>
-                                                    <th>Total</th>
-                                                    <th>Actions</th>	 	 	 	
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>May 10, 2018</td>
-                                                    <td>Processing</td>
-                                                    <td>$25.00 for 1 item </td>
-                                                    <td><a class="view" href="cart.html">view</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>May 10, 2018</td>
-                                                    <td>Processing</td>
-                                                    <td>$17.00 for 1 item </td>
-                                                    <td><a class="view" href="cart.html">view</a></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <div id="downloads" class="tab-pane fade">
-                                    <h3>Downloads</h3>
-                                    <div class="table-responsive">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th>Product</th>
-                                                    <th>Downloads</th>
-                                                    <th>Expires</th>
-                                                    <th>Download</th>	 	 	 	
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Proecut Name Here</td>
-                                                    <td>May 10, 2018</td>
-                                                    <td>never</td>
-                                                    <td><a class="view" href="#">Click Here To Download Your File</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Proecut Name Here</td>
-                                                    <td>Sep 11, 2018</td>
-                                                    <td>never</td>
-                                                    <td><a class="view" href="#">Click Here To Download Your File</a></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
                                 </div>
                                 <div id="address" class="tab-pane">
-                                    <p>The following addresses will be used on the checkout page by default.</p>
                                     <h4 class="billing-address">{% blocktrans %}Bino manzili{% endblocktrans %}</h4>
-                                    <a class="view" href="#">edit</a>
-                                    <p>steven smith</p>
-                                    <p>Australia</p>   
                                 </div>
                                 <div id="account-details" class="tab-pane fade">
                                     <h3>Account details </h3>
