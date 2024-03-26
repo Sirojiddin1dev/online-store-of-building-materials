@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import *
 from main.admin import *
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 
 
 def banner_view(request):
@@ -71,3 +73,22 @@ def single_product(request, pk):
         'total': total,
     }
     return render(request, 'product.html', context)
+
+def PegenatorPage(List, num, request):
+    paginator = Paginator(List, num)
+    pages = request.GET.get('page')
+    try:
+        list = paginator.page(pages)
+    except PageNotAnInteger:
+        list = paginator.page(1)
+    except EmptyPage:
+        list = paginator.page(paginator.num_pages)
+    return list
+
+
+def all_products(request):
+    product = Products.objects.all()
+    context={
+        'product': PegenatorPage(product, 10, request)
+    }
+    return render(request, 'apartment.html', context)

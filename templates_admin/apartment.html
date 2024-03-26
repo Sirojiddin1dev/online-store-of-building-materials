@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base_1.html' %}
 {% block content %}
 <!--begin::Entry-->
 						<div class="d-flex flex-column-fluid">
@@ -33,159 +33,7 @@
 													<path d="M3.95709826,8.41510662 L11.47855,3.81866389 C11.7986624,3.62303967 12.2013376,3.62303967 12.52145,3.81866389 L20.0429,8.41510557 C20.6374094,8.77841684 21,9.42493654 21,10.1216692 L21,19.0000642 C21,20.1046337 20.1045695,21.0000642 19,21.0000642 L4.99998155,21.0000673 C3.89541205,21.0000673 2.99998155,20.1046368 2.99998155,19.0000673 L2.99999828,10.1216672 C2.99999935,9.42493561 3.36258984,8.77841732 3.95709826,8.41510662 Z M10,13 C9.44771525,13 9,13.4477153 9,14 L9,17 C9,17.5522847 9.44771525,18 10,18 L14,18 C14.5522847,18 15,17.5522847 15,17 L15,14 C15,13.4477153 14.5522847,13 14,13 L10,13 Z" fill="#000000"/>
 												</g>
 											</svg><!--end::Svg Icon--></span>
-											<h3 class="card-label">Apartment Houses</h3>
-										</div>
-										<div class="card-toolbar">
-											<!--begin::Dropdown-->
-											<div class="dropdown dropdown-inline mr-2">
-												<button type="button" class="btn btn-light-primary font-weight-bolder dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-												<span class="svg-icon svg-icon-md">
-													<!--begin::Svg Icon | path:assets/media/svg/icons/Design/PenAndRuller.svg-->
-													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-															<rect x="0" y="0" width="24" height="24" />
-															<path d="M3,16 L5,16 C5.55228475,16 6,15.5522847 6,15 C6,14.4477153 5.55228475,14 5,14 L3,14 L3,12 L5,12 C5.55228475,12 6,11.5522847 6,11 C6,10.4477153 5.55228475,10 5,10 L3,10 L3,8 L5,8 C5.55228475,8 6,7.55228475 6,7 C6,6.44771525 5.55228475,6 5,6 L3,6 L3,4 C3,3.44771525 3.44771525,3 4,3 L10,3 C10.5522847,3 11,3.44771525 11,4 L11,19 C11,19.5522847 10.5522847,20 10,20 L4,20 C3.44771525,20 3,19.5522847 3,19 L3,16 Z" fill="#000000" opacity="0.3" />
-															<path d="M16,3 L19,3 C20.1045695,3 21,3.8954305 21,5 L21,15.2485298 C21,15.7329761 20.8241635,16.200956 20.5051534,16.565539 L17.8762883,19.5699562 C17.6944473,19.7777745 17.378566,19.7988332 17.1707477,19.6169922 C17.1540423,19.602375 17.1383289,19.5866616 17.1237117,19.5699562 L14.4948466,16.565539 C14.1758365,16.200956 14,15.7329761 14,15.2485298 L14,5 C14,3.8954305 14.8954305,3 16,3 Z" fill="#000000" />
-														</g>
-													</svg>
-													<!--end::Svg Icon-->
-												</span>Export</button>
-												<!--begin::Dropdown Menu-->
-												<div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
-													<!--begin::Navigation-->
-													<ul class="navi flex-column navi-hover py-2">
-														<li class="navi-header font-weight-bolder text-uppercase font-size-sm text-primary pb-2">Choose an option:</li>
-														<li class="navi-item">
-															<a href="#" class="navi-link">
-																<span class="navi-icon">
-																	<i class="la la-print"></i>
-																</span>
-																<span class="navi-text">Print</span>
-															</a>
-														</li>
-														<li class="navi-item">
-															<a href="#" class="navi-link">
-																<span class="navi-icon">
-																	<i class="la la-copy"></i>
-																</span>
-																<span class="navi-text">Copy</span>
-															</a>
-														</li>
-														<li class="navi-item">
-															<a href="#" class="navi-link">
-																<span class="navi-icon">
-																	<i class="la la-file-excel-o"></i>
-																</span>
-																<span class="navi-text">Excel</span>
-															</a>
-														</li>
-														<li class="navi-item">
-															<a href="#" class="navi-link">
-																<span class="navi-icon">
-																	<i class="la la-file-text-o"></i>
-																</span>
-																<span class="navi-text">CSV</span>
-															</a>
-														</li>
-														<li class="navi-item">
-															<a href="#" class="navi-link">
-																<span class="navi-icon">
-																	<i class="la la-file-pdf-o"></i>
-																</span>
-																<span class="navi-text">PDF</span>
-															</a>
-														</li>
-													</ul>
-													<!--end::Navigation-->
-												</div>
-												<!--end::Dropdown Menu-->
-											</div>
-											<!--end::Dropdown-->
-											<!--begin::Button-->
-											<div class="btn btn-light-primary font-weight-bold mr-2">
-
-
-												<a href="#" style="margin-top: 50px;" data-toggle="modal" data-target="#exampleModalScrollable">New Home</a>
-
-												<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
-													<div class="modal-dialog modal-dialog-scrollable" role="document">
-														<div class="modal-content">
-															<div class="modal-header">
-																<h5 class="modal-title" id="exampleModalLabel">Create house</h5>
-																<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-																	<i aria-hidden="true" class="ki ki-close"></i>
-																</button>
-															</div>
-															<div class="modal-body" style="height: 600px;">
-
-																<form action="{% url 'create_house_url' %}" method="post" enctype="multipart/form-data">
-																					{% csrf_token %}
-
-																					<!-- Add input fields for each attribute of the Home model -->
-																					<label>Name:</label>
-																					<input type="text" name="name" required><br><br>
-
-																					<label>Home Image:</label>
-																					<input type="file" name="home_img" accept="image/*" required><br><br>
-
-																					<!-- Add input fields for the remaining attributes of the Home model -->
-																					<label>Price:</label>
-																					<input type="number" name="price" required><br><br>
-
-																					<label>User Image:</label>
-																					<input type="file" name="user_img" accept="image/*" required><br><br>
-
-																					<label>User Name:</label>
-																					<input type="text" name="user_name" required><br><br>
-
-																					<label>User Location:</label>
-																					<input type="text" name="user_location" required><br><br>
-
-																					<label>Status:</label>
-																					<select name="status" required>
-																						<option value="popular">Popular</option>
-																						<option value="new house">New House</option>
-																						<option value="best deals">Best Deals</option>
-																					</select><br><br>
-
-																					<label>Category:</label>
-																					<select name="category" required>
-																						<option value="House">House</option>
-																						<option value="Villa">Villa</option>
-																						<option value="Apartment">Apartment</option>
-																					</select><br><br>
-
-																					<label>Bathrooms:</label>
-																					<input type="number" name="bathrooms" required><br><br>
-
-																					<label>Bedrooms:</label>
-																					<input type="number" name="bedrooms" required><br><br>
-
-																					<label>Carports:</label>
-																					<input type="number" name="carports" required><br><br>
-
-																					<label>Floors:</label>
-																					<input type="number" name="floors" required><br><br>
-
-																					<label>Descriptions:</label>
-																					<textarea name="descriptions" rows="4" cols="50" required></textarea><br><br>
-
-																					<label>Created At:</label>
-																					<input type="date" name="created_at" required><br><br>
-
-
-																					<div class="modal-footer">
-																						<button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
-																						<button type="submit" class="btn btn-primary font-weight-bold">Save changes</button>
-																					</div>
-																				</form>
-
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-
+											<h3 class="card-label">Hamma Maxsulotlar</h3>
 										</div>
 									</div>
 
@@ -194,37 +42,28 @@
 										<table class="table table-bordered table-checkable" id="kt_datatable" style="margin-top: 13px !important">
 											<thead>
 												<tr>
-													<th>Home ID</th>
-													<th>User Avatar</th>
-													<th>User Name</th>
-													<th>User Address</th>
-													<th>Price</th>
-													<th>Status</th>
-													<th>Bathrooms</th>
-													<th>Bedrooms</th>
-													<th>Car ports</th>
-													<th>Floors</th>
-													<th>Home Image</th>
-													<th>Created at</th>
-													<th>Update Home</th>
-													<th>Delete Home</th>
+													<th>Product ID</th>
+													<th>image</th>
+													<th>title</th>
+													<th>price</th>
+													<th>advert_text</th>
+													<th>category</th>
+													<th>quantity</th>
+													<th>product_create</th>
+													<th>view</th>
 												</tr>
 											</thead>
 											<tbody>
-											{% for i in a %}
+											{% for i in product %}
 												<tr>
 													<td>{{ i.id }}</td>
-													<td><img height="50" width="100" src="{{ i.user_img.url }}"></td>
-													<td>{{ i.user_name }}</td>
-													<td>{{ i.user_location }}</td>
+													<td><img height="50" width="100" src="{{ i.image.url }}"></td>
+													<td>{{ i.title }}</td>
 													<td>{{ i.price }}</td>
-													<td>{{ i.status }}</td>
-													<td>{{ i.bathrooms }}</td>
-													<td>{{ i.bedrooms }}</td>
-													<td>{{ i.carports }}</td>
-													<td>{{ i.floors }}</td>
-													<td><img height="50" width="100" src="{{ i.home_img.url }}"></td>
-													<td>{{ i.created_at }}</td>
+													<td>{{ i.product_info }}</td>
+													<td>{{ i.category }}</td>
+													<td>{{ i.quantity }}</td>
+													<td>{{ i.advert_text }}</td>
 													<td>
 														<!-- Button trigger modal-->
 													<button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#update{{ i.id }}">
@@ -250,7 +89,7 @@
 																			<div class="card card-custom card-sticky" id="kt_page_sticky_card">
 																				<div class="card-body">
 																					<!--begin::Form-->
-																					<form action="{% url 'update_house_url' i.pk %}" method="post" enctype="multipart/form-data">
+																					<form action="#" method="post" enctype="multipart/form-data">
 																						{% csrf_token %}
 
 																						<!-- Add input fields with initial values for each attribute of the Home model -->
@@ -274,38 +113,6 @@
 																						<label>User Location:</label>
 																						<input type="text" name="user_location" value="{{ i.user_location }}" required><br><br>
 
-																						<label>Status:</label>
-																						<select name="status" required>
-																							<option value="popular" {% if i.status == "popular" %}selected{% endif %}>Popular</option>
-																							<option value="new house" {% if i.status == "new house" %}selected{% endif %}>New House</option>
-																							<option value="best deals" {% if i.status == "best deals" %}selected{% endif %}>Best Deals</option>
-																						</select><br><br>
-
-																						<label>Category:</label>
-																						<select name="category" required>
-																							<option value="House" {% if i.category == "House" %}selected{% endif %}>House</option>
-																							<option value="Villa" {% if i.category == "Villa" %}selected{% endif %}>Villa</option>
-																							<option value="Apartment" {% if i.category == "Apartment" %}selected{% endif %}>Apartment</option>
-																						</select><br><br>
-
-																						<label>Bathrooms:</label>
-																						<input type="number" name="bathrooms" value="{{ i.bathrooms }}" required><br><br>
-
-																						<label>Bedrooms:</label>
-																						<input type="number" name="bedrooms" value="{{ i.bedrooms }}" required><br><br>
-
-																						<label>Carports:</label>
-																						<input type="number" name="carports" value="{{ i.carports }}" required><br><br>
-
-																						<label>Floors:</label>
-																						<input type="number" name="floors" value="{{ i.floors }}" required><br><br>
-
-																						<label>Descriptions:</label>
-																						<textarea name="descriptions" rows="4" cols="50" required>{{ i.descriptions }}</textarea><br><br>
-
-																						<label>Created At:</label>
-																						<input type="date" name="created_at" value="{{ i.created_at }}" required><br><br>
-
 																						<!-- ... (remaining form fields) ... -->
 
 																						<button type="submit">Update Home</button>
@@ -316,7 +123,7 @@
 													<td>
 														<!-- Button trigger modal-->
 														<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete{{ i.id }}">
-															Delete
+															O'chirish
 														</button>
 
 														<!-- Modal-->
@@ -345,27 +152,27 @@
 											</tbody>
 										</table>
 										<!--end: Datatable-->
-										{% if a.paginator.num_pages > 1 %}
+										{% if product.paginator.num_pages > 1 %}
 											<div class="card-footer d-flex justify-content-end">
 															<nav aria-label="Page navigation">
 															  <ul class="pagination">
-																{% if a.has_previous %}
+																{% if product.has_previous %}
 																  <li class="page-item">
 																	<a class="page-link" href="?page={{ a.previous_page_number }}">
 																	  Previous
 																	</a>
 																  </li>
 																{% endif %}
-																{% for num in a.paginator.page_range %}
-																{% if num == a.number %}
+																{% for num in product.paginator.page_range %}
+																{% if num == product.number %}
 																<li class="page-item active">
 																  <a class="page-link" href="#" tabindex="-1">{{ num }}</a>
 																</li>
-																{% elif num > a.number|add:'-2' and num < a.number|add:'2' %}
+																{% elif num > product.number|add:'-2' and num < a.number|add:'2' %}
 																<li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
 																{% endif %}
 																{% endfor %}
-																{% if a.has_next %}
+																{% if product.has_next %}
 																<li class="page-item">
 																  <a class="page-link" href="?page={{ a.next_page_number }}">
 																	Next
