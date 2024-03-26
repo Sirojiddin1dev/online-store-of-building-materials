@@ -26,24 +26,15 @@ def create_staff_user_view(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-        is_staff = request.POST.get('staff')  # Assuming staff input is a checkbox or select field
-
-        # Convert is_staff to a boolean value
-        is_staff = is_staff in ['True', 'true', True]
-
-        # Create user
+        is_staff = request.POST.get('is_staff', 'false') == 'true'
+        print(is_staff)
         user = User.objects.create_user(
             username=username,
             password=password,
             is_staff=is_staff,
         )
-
-        # Save the user to the database
         user.save()
-
-        # Redirect to a success page
         return HttpResponse("Sizning so'rovingiz qabul qilindi! Sizga Tez orada Javob Berildi ")
-
     return render(request, 'index_1.html')
 
 

@@ -29,13 +29,13 @@ def create_product(request):
         product_info_en = request.POST.get('product_info_en')
         category = request.POST.get('category')
         quantity = request.POST.get('quantity')
-        featured_product = request.POST.get('featured_product', False)
-        is_advert = request.POST.get('is_advert', False)
+        featured_product = request.POST.get('featured_product', False) == 'on'
+        is_advert = request.POST.get('is_advert', False) == 'on'
         advert_text = request.POST.get('advert_text')
         advert_text_uz = request.POST.get('advert_text_uz')
         advert_text_ru = request.POST.get('advert_text_ru')
         advert_text_en = request.POST.get('advert_text_en')
-        new_product = request.POST.get('new_product', True)
+        new_product = request.POST.get('new_product', True) == 'on'
 
         product = Products.objects.create(
             image=image,
@@ -64,28 +64,99 @@ def create_product(request):
 def update_product(request, pk):
     product = get_object_or_404(Products, pk=pk)
     if request.method == 'POST':
-        # Update the product with the new data from the form
-        product.image = request.FILES.get('image')
-        product.title = request.POST.get('title')
-        product.price = request.POST.get('price')
-        product.product_info = request.POST.get('product_info')
-        product.category = request.POST.get('category')
-        product.quantity = request.POST.get('quantity')
-        product.is_banner = request.POST.get('is_banner', False)
-        product.banner_title = request.POST.get('banner_title')
-        product.banner_text = request.POST.get('banner_text')
-        product.shop_collections = request.POST.get('shop_collections', False)
-        product.featured_product = request.POST.get('featured_product', False)
-        product.is_advert = request.POST.get('is_advert', False)
-        product.advert_text = request.POST.get('advert_text')
-        product.new_product = request.POST.get('new_product', True)
+        image = request.FILES.get('image')
+        title = request.POST.get('title')
+        title_uz = request.POST.get('title_uz')
+        title_ru = request.POST.get('title_ru')
+        title_en = request.POST.get('title_en')
+        price = request.POST.get('price')
+        product_info = request.POST.get('product_info')
+        product_info_uz = request.POST.get('product_info_uz')
+        product_info_ru = request.POST.get('product_info_ru')
+        product_info_en = request.POST.get('product_info_en')
+        category = request.POST.get('category')
+        quantity = request.POST.get('quantity')
+        featured_product = request.POST.get('featured_product', False) == 'on'
+        is_advert = request.POST.get('is_advert', False) == 'on'
+        advert_text = request.POST.get('advert_text')
+        advert_text_uz = request.POST.get('advert_text_uz')
+        advert_text_ru = request.POST.get('advert_text_ru')
+        advert_text_en = request.POST.get('advert_text_en')
+        new_product = request.POST.get('new_product', True) == 'on'
+
+        # Update the product object with the new data
+        product.image = image
+        product.title = title
+        product.title_uz = title_uz
+        product.title_ru = title_ru
+        product.title_en = title_en
+        product.price = price
+        product.product_info = product_info
+        product.product_info_uz = product_info_uz
+        product.product_info_ru = product_info_ru
+        product.product_info_en = product_info_en
+        product.category = category
+        product.quantity = quantity
+        product.featured_product = featured_product
+        product.is_advert = is_advert
+        product.advert_text = advert_text
+        product.advert_text_uz = advert_text_uz
+        product.advert_text_ru = advert_text_ru
+        product.advert_text_en = advert_text_en
+        product.new_product = new_product
+
+        # Save the updated product
         product.save()
-        return redirect('product_detail', pk=pk)  # Redirect to the detail view of the updated product
+
+        return redirect('single_product_url', pk=product.pk)  # Redirect to the detail view of the updated product
     return render(request, 'update_product.html', {'product': product})
+
 
 def delete_product(request, pk):
     product = get_object_or_404(Products, pk=pk)
+    product.delete()
+    return redirect('product_list')
+
+
+def info_create(request):
     if request.method == 'POST':
-        product.delete()
-        return redirect('product_list')  # Redirect to the list view of products after deletion
-    return HttpResponseBadRequest("Invalid request method")
+        logo = request.FILES.get('logo')
+        address = request.POST.get('address')
+        email = request.POST.get('email')
+        phone_number = request.POST.get('phone_number')
+        facebook = request.POST.get('facebook')
+        youtube = request.POST.get('youtube')
+        twitter = request.POST.get('twitter')
+
+        Info.objects.create(
+            logo=logo,
+            address=address,
+            email=email,
+            phone_number=phone_number,
+            facebook=facebook,
+            youtube=youtube,
+            twitter=twitter
+        )
+        return redirect('index_1_url')  # Redirect to the detail view of the created Info object
+    return render(request, 'info_create.html')
+
+
+def info_update(request, pk):
+    info = get_object_or_404(Info, pk=pk)
+    if request.method == 'POST':
+        info.logo = request.FILES.get('logo', info.logo)
+        info.address = request.POST.get('address', info.address)
+        info.email = request.POST.get('email', info.email)
+        info.phone_number = request.POST.get('phone_number', info.phone_number)
+        info.facebook = request.POST.get('facebook', info.facebook)
+        info.youtube = request.POST.get('youtube', info.youtube)
+        info.twitter = request.POST.get('twitter', info.twitter)
+        info.save()
+        return redirect('info_detail', pk=info.pk)  # Redirect to the detail view of the updated Info object
+    return render(request, 'info_update.html', {'info': info})
+
+
+def info_delete(request, pk):
+    info = get_object_or_404(Info, pk=pk)
+    info.delete()
+    return redirect('info_list')  # Redirect to a list view after deletion
