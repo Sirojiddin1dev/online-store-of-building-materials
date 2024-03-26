@@ -35,23 +35,18 @@
                                     </ul>
                                 </div>
                                 <p class="mb-20">{{ single_blog.description }}</p>
-                                <div class="blog-img blog-single-img">
-                                    <div class="row">
-                                        {% for img in single_blog.img.all %}
-                                        <div class="col-sm-4">
-                                            <img src="{{ img.img.url }}" alt="blog-image">
-                                        </div>
-                                        {% endfor %}
-                                    </div>
-                                </div>
                                 <!--  Blog-Share Start  -->
                                 <div class="blog-share mtb-50">
                                     <div class="row">
                                         <div class="col-lg-4 col-md-5 col-sm-6">
                                             <span class="pull-left category-text">{% blocktrans %}Toifalar:{% endblocktrans %}</span>
                                             <ul class="list-inline">
-                                                <li><a href="#"> {{ single_blog.category.name }}</a></li>
+                                                <li><a href="#"> {{ single_blog.category }}</a></li>
                                             </ul>
+                                            <ul class="list-inline">
+                                                <li><a href="#"> {{ single_blog.tag }}</a></li>
+                                            </ul>
+
                                         </div>
                                     </div>
                                     <!-- End of Row -->
@@ -162,25 +157,6 @@
                                     {% endfor %}
                                 </ul>
                             </div>
-                            <!-- Recent Post End -->
-                            <!-- Category Post Start -->
-                            <div class="categorie recent-post same-sidebar">
-                                 <h3 class="sidebar-title mt-40">{% blocktrans %}Toifalar{% endblocktrans %}</h3>
-                                {% for i in category %}
-                                 <ul class="categorie-list">
-                                     <li><a href="#">{{ i.name }}</a></li>
-                                 </ul>
-                                {% endfor %}
-                            </div>
-                            <div class="categorie recent-post same-sidebar">
-                                 <h3 class="sidebar-title mt-40">{% blocktrans %}Tags{% endblocktrans %}</h3>
-                                {% for i in tag %}
-                                 <ul class="tag-list">
-                                     <li><a href="#">{{ i.name }}</a></li>
-                                 </ul>
-                                {% endfor %}
-                            </div>
-                            <!-- Meta Post End -->
                         </div>
                     </div>
                     <!-- Sidebar Main Blog End -->
