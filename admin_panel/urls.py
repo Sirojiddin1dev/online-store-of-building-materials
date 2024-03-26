@@ -9,4 +9,7 @@ urlpatterns = [
     path('create-info/', info_create, name='create_info'),
     path('update-info/', info_update, name='update_info'),
     path('delete-info/', info_delete, name='delete_info'),
+    path('create/', create_banner, name='create_banner'),
+    path('update/<int:banner_id>/', update_banner, name='update_banner'),
+    path('delete/<int:banner_id>/', delete_banner, name='delete_banner'),
 ]

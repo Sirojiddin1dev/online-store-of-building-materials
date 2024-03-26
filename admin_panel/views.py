@@ -59,7 +59,7 @@ def create_product(request):
             new_product=new_product
         )
         return redirect('single_product_url', pk=product.pk)  # Redirect to the detail view of the created product
-    return render(request, 'index.html')
+    return render(request, 'index_1.html')
 
 def update_product(request, pk):
     product = get_object_or_404(Products, pk=pk)
@@ -109,13 +109,13 @@ def update_product(request, pk):
         product.save()
 
         return redirect('single_product_url', pk=product.pk)  # Redirect to the detail view of the updated product
-    return render(request, 'update_product.html', {'product': product})
+    return render(request, 'apartment.html', {'product': product})
 
 
 def delete_product(request, pk):
     product = get_object_or_404(Products, pk=pk)
     product.delete()
-    return redirect('product_list')
+    return redirect('all_products_url')
 
 
 def info_create(request):
@@ -137,8 +137,8 @@ def info_create(request):
             youtube=youtube,
             twitter=twitter
         )
-        return redirect('index_1_url')  # Redirect to the detail view of the created Info object
-    return render(request, 'info_create.html')
+        return redirect('all_info_url')  # Redirect to the detail view of the created Info object
+    return render(request, 'index_1-.html')
 
 
 def info_update(request, pk):
@@ -152,11 +152,41 @@ def info_update(request, pk):
         info.youtube = request.POST.get('youtube', info.youtube)
         info.twitter = request.POST.get('twitter', info.twitter)
         info.save()
-        return redirect('info_detail', pk=info.pk)  # Redirect to the detail view of the updated Info object
-    return render(request, 'info_update.html', {'info': info})
+        return redirect('all_info_url')
+    return render(request, 'best-deals.html', {'info': info})
 
 
 def info_delete(request, pk):
     info = get_object_or_404(Info, pk=pk)
     info.delete()
-    return redirect('info_list')  # Redirect to a list view after deletion
+    return redirect('all_info_url')  # Redirect to a list view after deletion
+
+
+def create_banner(request):
+    if request.method == 'POST':
+        title = request.POST['title']
+        img = request.FILES['img']
+        Banner.objects.create(title=title, img=img)
+        return redirect('all_banner_url')  # Redirect to a URL that lists all banners
+    return render(request, 'index_1.html')
+
+
+def update_banner(request, banner_id):
+    banner = Banner.objects.get(pk=banner_id)
+    if request.method == 'POST':
+        banner.title = request.POST['title']
+        if 'img' in request.FILES:
+            banner.img = request.FILES['img']
+        banner.save()
+        return redirect('banner_list')
+    return render(request, 'house.html', {'banner': banner})
+
+
+def delete_banner(request, banner_id):
+    banner = Banner.objects.get(pk=banner_id)
+    banner.delete()
+    return redirect('house.html')
+
+
+
+
