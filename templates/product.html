@@ -44,11 +44,11 @@
                                 <p><span class="in-stock">IN STOCK</span><span class="sku">{{ product.quantity }}</span></p>
                             </div>
                             <div class="box-quantity">
-                                    <a class="add-cart" href="{% url 'add_basket_url' product.pk %}">{% blocktrans %}KArtaga Ko'shish{% endblocktrans %}</a>
+                                    <a class="add-cart" href="{% url 'add_basket_url' product.pk %}">{% blocktrans %}Kartaga Ko'shish{% endblocktrans %}</a>
                             </div>
                             <div class="product-link">
                                 <ul class="list-inline">
-                                    <li><a href="{% url 'add_wishlist_url' product.pk %}">{% blocktrans %}Istaqlar ro'yhati{% endblocktrans %}</a></li>
+                                    <li><a href="{% url 'add_wishlist_url' product.pk %}">{% blocktrans %}Istaklarga qo'shish{% endblocktrans %}</a></li>
                                 </ul>
                             </div>
                             <p class="ptb-20">{{ product.advert_text }}</p>
