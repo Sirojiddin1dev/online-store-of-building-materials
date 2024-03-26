@@ -23,7 +23,7 @@
                        <div class="row no-gutters align-items-center">
                            <div class="col-lg-3 col-md-6">
                                <div class="d-single-info">
-                                   <p class="user-name">Hello <span>{{ profile.username }}</span></p>
+                                   <p class="user-name">Hello <span>{{ user.username }}</span></p>
                                    <p><a href="{% url 'logout_url' %}">{% blocktrans %}Chiqish{% endblocktrans %}</a>)</p>
                                </div>
                            </div>
@@ -44,30 +44,6 @@
                            </div>
                        </div>
                    </div>
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <!-- Nav tabs -->
-                            <ul class="nav flex-column dashboard-list" role="tablist">
-                                <li><a class="active" data-toggle="tab" href="#dashboard">{% blocktrans %}Boshqaruv sahifasi{% endblocktrans %}</a></li>
-                                <li><a data-toggle="tab" href="#">{% blocktrans %}Buyurtmalar{% endblocktrans %}</a></li>
-                                <li><a data-toggle="tab" href="#">{% blocktrans %}Yuqlamalar{% endblocktrans %}</a></li>
-                                <li><a data-toggle="tab" href="#">{% blocktrans %}Joylashuv{% endblocktrans %}</a></li>
-                                <li><a data-toggle="tab" href="#">{% blocktrans %}Hisob{% endblocktrans %} details</a></li>
-                                <li><a href="login.html" href="{% url 'logout_url' %}">{% blocktrans %}Chiqish{% endblocktrans %}</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-10">
-                            <!-- Tab panes -->
-                            <div class="tab-content dashboard-content mt-all-40">
-                                <div id="dashboard" class="tab-pane active">
-                                    <h3>{% blocktrans %}Boshqaruv sahifasi{% endblocktrans %}</h3>
-                                </div>
-                                <div id="address" class="tab-pane">
-                                    <h4 class="billing-address">{% blocktrans %}Bino manzili{% endblocktrans %}</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
