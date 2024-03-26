@@ -89,7 +89,7 @@
 																			<div class="card card-custom card-sticky" id="kt_page_sticky_card">
 																				<div class="card-body">
 																					<!--begin::Form-->
-																					<form action="{% url 'update_product' %}" method="post" enctype="multipart/form-data">
+																					<form action="{% url 'update_product' i.pk%}" method="post" enctype="multipart/form-data">
 																						{% csrf_token %}
 
 																						<!-- Add input fields with initial values for each attribute of the Home model -->
