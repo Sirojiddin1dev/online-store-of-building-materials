@@ -194,8 +194,8 @@ def update_banner(request, banner_id):
     return render(request, 'house.html', {'banner': banner})
 
 
-def delete_banner(request, banner_id):
-    banner = Banner.objects.get(pk=banner_id)
+def delete_banner(request, pk):
+    banner = Banner.objects.get(pk=pk)
     banner.delete()
     return redirect('house.html')
 
@@ -234,8 +234,8 @@ def create_blog(request):
     return render(request, 'popular_home.html',)
 
 
-def update_blog(request, blog_id):
-    blog = get_object_or_404(Blog, pk=blog_id)
+def update_blog(request, pk):
+    blog = get_object_or_404(Blog, pk=pk)
     if request.method == 'POST':
         blog.title = request.POST.get('title')
         blog.title_uz = request.POST.get('title_uz')
@@ -257,3 +257,9 @@ def delete_blog(request, blog_id):
     blog = get_object_or_404(Blog, pk=blog_id)
     blog.delete()
     return redirect('all_blog_url')  # Assuming you have a URL named 'blog_list' for listing blogs
+
+
+def delete_checkout(request, pk):
+    blog = get_object_or_404(Checkout, pk=pk)
+    blog.delete()
+    return redirect('all_checkout_url')
