@@ -12,7 +12,7 @@ urlpatterns = [
     path('create/', create_banner, name='create_banner'),
     path('update/<int:pk>/', update_banner, name='update_banner'),
     path('delete/<int:pk>/', delete_banner, name='delete_banner'),
-    path('create-blog/', views.create_blog, name='create_blog'),
-    path('update-blog/<int:pk>/', views.update_blog, name='update_blog'),
-    path('delete-blog/<int:pk>/', views.delete_blog, name='delete_blog'),
+    path('create-blog/', create_blog, name='create_blog'),
+    path('update-blog/<int:pk>/', update_blog, name='update_blog'),
+    path('delete-blog/<int:pk>/', delete_blog, name='delete_blog'),
 ]
