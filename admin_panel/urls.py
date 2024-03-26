@@ -15,4 +15,5 @@ urlpatterns = [
     path('create-blog/', create_blog, name='create_blog'),
     path('update-blog/<int:pk>/', update_blog, name='update_blog'),
     path('delete-blog/<int:pk>/', delete_blog, name='delete_blog'),
+    path('delete-checkout/<int:pk>/', delete_checkout, name='delete_checkout'),
 ]
