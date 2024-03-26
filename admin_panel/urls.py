@@ -10,6 +10,9 @@ urlpatterns = [
     path('update-info/<int:pk>/', info_update, name='update_info'),
     path('delete-info/<int:pk>/', info_delete, name='delete_info'),
     path('create/', create_banner, name='create_banner'),
-    path('update/<int:banner_id>/', update_banner, name='update_banner'),
-    path('delete/<int:banner_id>/', delete_banner, name='delete_banner'),
+    path('update/<int:pk>/', update_banner, name='update_banner'),
+    path('delete/<int:pk>/', delete_banner, name='delete_banner'),
+    path('create-blog/', views.create_blog, name='create_blog'),
+    path('update-blog/<int:pk>/', views.update_blog, name='update_blog'),
+    path('delete-blog/<int:pk>/', views.delete_blog, name='delete_blog'),
 ]

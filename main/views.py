@@ -37,8 +37,6 @@ def single_blog_view(request, pk):
     context = {
         'single_blog': blog,
         'blog': Blog.objects.all().order_by('-id')[:2],
-        'category': Category.objects.all(),
-        'tag': Tag.objects.all(),
         'info': Info.objects.last(),
         'recent_posts': Blog.objects.all().order_by('-id')[:4],
         'comment': Comment.objects.filter(blog=blog),

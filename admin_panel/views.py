@@ -206,8 +206,11 @@ def create_blog(request):
         title = request.POST['title']
         title_uz = request.POST['title_uz']
         title_ru = request.POST['title_ru']
-        title_en = request.POST['title']
+        title_en = request.POST['title_en']
         description = request.POST['description']
+        description_uz = request.POST['description_uz']
+        description_ru = request.POST['description_ru']
+        description_en = request.POST['description_en']
         category = request.POST['category']
         image = request.FILES.get('image')
         tags = request.POST('tags')  # List of tag IDs
@@ -215,14 +218,42 @@ def create_blog(request):
         blog = Blog.objects.create(
             user=user,
             title=title,
+            title_uz=title_uz,
+            title_ru=title_ru,
+            title_en=title_en,
             description=description,
+            description_uz=description_uz,
+            description_ru=description_ru,
+            description_en=description_en,
             category=category,
             image=image,
             tags=tags
         )
-        return redirect('all_blog_url', blog_id=blog.id)
-    else:
-        categories = Category.objects.all()
-        tags = Tag.objects.all()
-        return render(request, '.html', {'categories': categories, 'tags': tags})
+        return redirect('all_blog_url')
 
+    return render(request, 'popular_home.html',)
+
+
+def update_blog(request, blog_id):
+    blog = get_object_or_404(Blog, pk=blog_id)
+    if request.method == 'POST':
+        blog.title = request.POST.get('title')
+        blog.title_uz = request.POST.get('title_uz')
+        blog.title_ru = request.POST.get('title_ru')
+        blog.title_en = request.POST.get('title_en')
+        blog.image = request.FILES.get('image')
+        blog.description = request.POST.get('description')
+        blog.description_uz = request.POST.get('description_uz')
+        blog.description_ru = request.POST.get('description_ru')
+        blog.description_en = request.POST.get('description_en')
+        blog.category = request.POST.get('category')
+        blog.tags = request.POST.get('tags')
+        blog.save()
+        return redirect('all_blog_url')  # Assuming you have a URL named 'blog_detail' for viewing blog details
+    return render(request, 'popular_home.html',)
+
+
+def delete_blog(request, blog_id):
+    blog = get_object_or_404(Blog, pk=blog_id)
+    blog.delete()
+    return redirect('all_blog_url')  # Assuming you have a URL named 'blog_list' for listing blogs
