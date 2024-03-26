@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Qurilish Mollar savdosi</title>
+    <title>{% blocktrans %}Qurilish Mollar savdosi{% endblocktrans %}</title>
     <meta name="description" content="Default Description">
     <meta name="keywords" content="E-commerce" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -266,8 +266,8 @@
                                 <div class="footer-content">
                                     <div class="loc-address">
                                         <span><i class="fa fa-map-marker"></i>{{ info.address }}</span>
-                                        <span><i class="fa fa-envelope-o"></i>Mail Us : {{ info.email }}</span>
-                                        <span><i class="fa fa-phone"></i>Phone: {{ info.phone_number }}</span>
+                                        <span><i class="fa fa-envelope-o"></i>{% blocktrans %}Mail Us :{% endblocktrans %}{{ info.email }}</span>
+                                        <span><i class="fa fa-phone"></i>{% blocktrans %} Phone:{% endblocktrans %} {{ info.phone_number }}</span>
                                     </div>
                                 </div>
                             </div>

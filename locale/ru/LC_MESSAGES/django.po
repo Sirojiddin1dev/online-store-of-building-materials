@@ -125,11 +125,11 @@ msgstr "Блог"
 #: .\templates\base.html:283 .\templates\base.html:301
 #: .\templates\base.html:324
 msgid "Mening profilim"
-msgstr ""
+msgstr "Мой профайл"
 
 #: .\templates\base.html:146
 msgid "Biz bilan bog'lanish"
-msgstr "Мой профайл"
+msgstr "Связаться с нами"
 
 #: .\templates\base.html:157 .\templates\base.html:288
 #: .\templates\login.html:46 .\templates\register.html:41
