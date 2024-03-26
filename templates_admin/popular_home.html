@@ -134,6 +134,8 @@
 																						<input type="text" value="{{ i.title }}" name="title_uz"  required><br><br>
 																						<input type="text" value="{{ i.title }}" name="title_ru"  required><br><br>
 																						<input type="text" value="{{ i.title }}" name="title_en"  required><br><br>
+																						<label>Image:</label>
+																						<input type="file" name="image" required>
 																						<label>Description:</label>
 																						<input type="text" name="description" value="{{ i.description }}" required><br><br>
 																						<input type="text" name="description" value="{{ i.description_uz }}" required><br><br>
@@ -147,7 +149,7 @@
 																						<label>Tags:</label>
 																						<input type="text" name="tags" value="{{ i.tags }}" required><br><br>
 																						<!-- ... (remaining form fields) ... -->
-																						<button type="submit">Update Home</button>
+																						<button type="submit">Save</button>
 																					</form>
 																				</div>
 																</div>
