@@ -57,6 +57,43 @@
 													<td><img height="50" width="100" src="{{ banner.img.url }}"></td>
 													<td>
 
+													<button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#update{{ banner.id }}">
+														Update
+													</button>
+
+													<!-- Modal-->
+													<div class="modal fade" id="update{{ banner.id }}" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
+														<div class="modal-dialog modal-dialog-scrollable" role="document">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<h5 class="modal-title" id="exampleModalLabel">Modal Title</h5>
+																	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																		<i aria-hidden="true" class="ki ki-close"></i>
+																	</button>
+																</div>
+																<div class="modal-body" style="height: 800px;">
+																	<!--begin::Entry-->
+																	<div class="d-flex flex-column-fluid">
+																		<!--begin::Container-->
+																		<div class="container">
+																			<!--begin::Card-->
+																			<div class="card card-custom card-sticky" id="kt_page_sticky_card">
+																				<div class="card-body">
+																					<!--begin::Form-->
+																					<form action="{% url 'update_banner' banner.pk %}" method="post" enctype="multipart/form-data">
+																						{% csrf_token %}
+
+																						<!-- Add input fields with initial values for each attribute of the Home model -->
+																						<label>Title:</label>
+																						<input type="text" name="title"><br><br>
+																						<input type="text" name="title (Uzbek)"><br><br>
+																						<input type="text" name="title (Russian)"><br><br>
+																						<input type="text" name="title (English)"><br><br>
+																						<label> Imge:</label>
+																						<input type="file" name="img">
+																						<button type="submit">Save</button>
+																					</form>
+
 													<!-- Modal-->
 													<td>
 														<!-- Button trigger modal-->
