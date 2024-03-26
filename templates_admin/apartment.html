@@ -93,10 +93,13 @@
 																						{% csrf_token %}
 
 																						<!-- Add input fields with initial values for each attribute of the Home model -->
-																						<label>Name:</label>
+																						<label>Title:</label>
 																						<input type="text" name="title" value="{{ i.title }}" required><br><br>
+																						<input type="text" name="title_uz" placeholder="Title (Uzbek)"><br>
+																						<input type="text" name="title_ru" placeholder="Title (Russian)"><br>
+																						<input type="text" name="title_en" placeholder="Title (English)"><br>
 
-																						<label>Home Image:</label>
+																						<label>Product Image:</label>
 																						<input type="file" name="image" accept="image/*"><br><br>
 
 																						<!-- ... (previous form fields) ... -->
@@ -104,13 +107,33 @@
 																						<label>Price:</label>
 																						<input type="number" name="price" value="{{ i.price }}" required><br><br>
 
-																						<!-- ... (remaining form fields) ... -->
-
-																						<button type="submit">Update Product</button>
+																						<label>Product Info:</label>
+																						<textarea name="product_info" placeholder="Product Info"></textarea><br>
+																						<textarea name="product_info_uz" placeholder="Product Info (Uzbek)"></textarea><br>
+																						<textarea name="product_info_ru" placeholder="Product Info (Russian)"></textarea><br>
+																						<textarea name="product_info_en" placeholder="Product Info (English)"></textarea><br>
+																						<select name="category">
+																							<option value="Fasad">Fasad</option>
+																							<option value="Tiokliya">Tiokliya</option>
+																							<option value="Qoliplik">Qoliplik</option>
+																						</select><br>
+																						<label>Quantiti:</label>
+																						<input type="number" name="quantity" placeholder="Quantity"><br>
+																						<label>Featured Product:</label>
+																						<input type="checkbox" name="featured_product" value="on"> Featured Product<br>
+																						<label>Advert:</label>
+																						<input type="checkbox" name="is_advert" value="on"> Advert<br>
+																						<input type="text" name="advert_text" placeholder="Advert Text"><br>
+																						<input type="text" name="advert_text_uz" placeholder="Advert Text (Uzbek)"><br>
+																						<input type="text" name="advert_text_ru" placeholder="Advert Text (Russian)"><br>
+																						<input type="text" name="advert_text_en" placeholder="Advert Text (English)"><br>
+																						<label>New product:</label>
+																						<input type="checkbox" name="new_product" value="on" checked> New Product<br>
+																						<button type="submit">Save</button>
 																					</form>
 																				</div>
 																</div>
-															 </td>
+															  </td>
 													<td>
 														<!-- Button trigger modal-->
 														<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete{{ i.id }}">
@@ -132,7 +155,7 @@
 																	</div>
 																	<div class="modal-footer">
 																		<button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
-																		<button type="button" class="btn btn-light"><a href="#" class="btn btn-light-danger font-weight-bold mr-2">Delete</a></button>
+																		<button type="button" class="btn btn-light"><a href="{% url 'delete-product' i.pk %}" class="btn btn-light-danger font-weight-bold mr-2">Delete</a></button>
 																	</div>
 																</div>
 															</div>
