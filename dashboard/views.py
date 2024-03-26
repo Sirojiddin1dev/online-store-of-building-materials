@@ -116,3 +116,11 @@ def all_banner(request):
         'banner':banner
     }
     return render(request, 'house.html', context)
+
+
+def all_blog(request):
+    blog = Blog.objects.all()
+    context = {
+        'blog': blog
+    }
+    return render(request,'popular_home.html', context)
