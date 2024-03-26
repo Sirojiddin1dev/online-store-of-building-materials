@@ -121,7 +121,7 @@ def all_banner(request):
 def all_blog(request):
     blog = Blog.objects.all()
     context = {
-        'blog': blog
+        'blog': PegenatorPage(blog, 10, request)
     }
     return render(request,'popular_home.html', context)
 
@@ -129,7 +129,7 @@ def all_blog(request):
 def all_contact(request):
     contact = Contact.objects.all()
     context = {
-        'contact': contact
+        'contact': PegenatorPage(contact, 10, request)
     }
     return render(request,'villa.html', context)
 
