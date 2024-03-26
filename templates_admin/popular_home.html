@@ -130,14 +130,20 @@
 																						{% csrf_token %}
 																						<!-- Add input fields with initial values for each attribute of the Home model -->
 																						<label>Title:</label>
-																						<input type="text" value="{{ i.title }}" name="name"  required><br><br>
+																						<input type="text" value="{{ i.title }}" name="title"  required><br><br>
+																						<input type="text" value="{{ i.title }}" name="title_uz"  required><br><br>
+																						<input type="text" value="{{ i.title }}" name="title_ru"  required><br><br>
+																						<input type="text" value="{{ i.title }}" name="title_en"  required><br><br>
 																						<label>Description:</label>
 																						<input type="text" name="description" value="{{ i.description }}" required><br><br>
+																						<input type="text" name="description" value="{{ i.description_uz }}" required><br><br>
+																						<input type="text" name="description" value="{{ i.description_ru }}" required><br><br>
+																						<input type="text" name="description" value="{{ i.description_en }}" required><br><br>
 																						<!-- ... (previous form fields) ... -->
 																						<label>Category:</label>
-																						<input type="text" name="category" value="{{ i.category }}" required><br><br>
+																						<input type="text" name="category">
 																						<label>Image:</label>
-																						<input type="file" name="image" accept="image/*"><br><br>
+																						<input type="file" name="image" accept="image/*" required><br><br>
 																						<label>Tags:</label>
 																						<input type="text" name="tags" value="{{ i.tags }}" required><br><br>
 																						<!-- ... (remaining form fields) ... -->
