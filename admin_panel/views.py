@@ -186,7 +186,7 @@ def update_banner(request, banner_id):
         banner.title = request.POST['title']
         banner.title_uz = request.POST['title_uz']
         banner.title_ru = request.POST['title_ru']
-        banner.title_en = request.POST['title_ne']
+        banner.title_en = request.POST['title_en']
         if 'img' in request.FILES:
             banner.img = request.FILES['img']
         banner.save()
