@@ -70,31 +70,7 @@ def my_profile_view(request, pk):
         subtotal += item.product.price
     total = subtotal
     user= User.objects.get(pk=pk)
-    if request.method == "POST":
-        username=request.POST['username']
-        first_name=request.POST.get('first_name')
-        last_name=request.POST.get('last_name')
-        email=request.POST.get('email')
-        bio=request.POST.get('bio')
-        img=request.POST.get('img')
-        login_count = request.POST.get('login_count')
-        last_login = request.POST.get('last_login')
-        phone_number=request.POST.get('phone_number')
-        password=request.POST.get('password')
-        confirm_password=request.POST.get('cofirm_password')
-        user.username=username
-        user.first_name=first_name
-        user.last_name=last_name
-        user.email =email
-        user.bio=bio
-        user.phone_number = phone_number
-        if password is not None:
-            if password == confirm_password:
-                user.set_password(password)
-        user.save()
-        return redirect("my_profile_url", user.id)
     context = {
-        'profile': request.user,
         'info': Info.objects.last(),
         'basket': basket,
         'basket_count': basket_count,
