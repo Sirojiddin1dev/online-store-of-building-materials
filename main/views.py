@@ -184,3 +184,10 @@ def remove_wishlist_product(request, pk):
     return HttpResponse("1 ta obyekt o'chirildi!")
 
 
+def search_view(request):
+    query = request.GET.get('title')
+    shop = []
+    if shop:
+        shop = Products.objects.filter(title__icontains=query)
+    return render(request, 'shop.html', {'query': query, 'shop': shop})
+

@@ -62,17 +62,18 @@
                                 <img src="{% static 'img/icon/call.png' %}" alt="">Call Us : {{ info.phone_number }}
                             </div>
                         </div>
-                        <!-- Header Top left End -->
-<!--                        &lt;!&ndash; Search Box Start &ndash;&gt;-->
-<!--                        <div class="col-lg-4 col-md-6 ml-auto mr-auto">-->
-<!--                            <div class="search-box-view">-->
-<!--                                <form action="#">-->
-<!--                                    <input type="text" class="email" placeholder="Search Your Product" name="product">-->
-<!--                                    <button type="submit" class="submit"></button>-->
-<!--                                </form>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        &lt;!&ndash; Search Box End &ndash;&gt;-->
+                         Header Top left End
+                        <!-- Search Box Start -->
+                        <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+                            <div class="search-box-view">
+                                <form action="{% url 'search_url' %}" method="GET">
+                                    {% csrf_token %}
+                                    <input type="text" class="title" placeholder="Search Your Product" name="title">
+                                    <button type="submit" class="submit"></button>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Search Box End -->
                         <div class="col-lg-4 col-md-12">
                             <div class="header-top-right">
                                 <ul class="header-list-menu f-right">
