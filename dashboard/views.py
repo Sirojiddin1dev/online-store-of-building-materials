@@ -124,3 +124,13 @@ def all_blog(request):
         'blog': blog
     }
     return render(request,'popular_home.html', context)
+
+
+def all_contact(request):
+    contact = Contact.objects.all()
+    context = {
+        'contact': contact
+    }
+    return render(request,'villa.html', context)
+
+
