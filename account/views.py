@@ -69,14 +69,13 @@ def my_profile_view(request, pk):
     for item in basket:
         subtotal += item.product.price
     total = subtotal
-    user= User.objects.get(pk=pk)
     context = {
         'info': Info.objects.last(),
         'basket': basket,
         'basket_count': basket_count,
         'subtotal': subtotal,
         'total': total,
-        'user': user
+        'user': request.user
     }
     return render(request, 'account.html', context)
 
