@@ -218,8 +218,7 @@ def create_blog(request):
         category = request.POST['category']
         image = request.FILES.get('image')
         tags = request.POST('tags')  # List of tag IDs
-
-        blog = Blog.objects.create(
+        Blog.objects.create(
             user=user,
             title=title,
             title_uz=title_uz,
