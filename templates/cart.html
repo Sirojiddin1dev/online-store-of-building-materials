@@ -1,18 +1,6 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% block content %}
-        <div class="breadcrumb-area pt-60 pb-55 pt-sm-30 pb-sm-20">
-            <div class="container">
-                <div class="breadcrumb">
-                    <ul>
-                        <li><a href="index.html">{% blocktrans %}Bosh sihifa{% endblocktrans %}</a></li>
-                        <li class="active"><a href="cart.html">{% blocktrans %}Karta{% endblocktrans %}</a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- Container End -->
-        </div>
-        <!-- Breadcrumb End -->
         <!-- Cart Main Area Start -->
         <div class="cart-main-area pb-80 pb-sm-50">
             <div class="container">
@@ -35,9 +23,9 @@
                                         {% for item in basket %}
                                         <tr>
                                             <td class="product-thumbnail">
-                                                <a href="#"><img src="{{ item.product.image.url }}" alt="cart-image" /></a>
+                                                <a href="{% url 'single_product_url' item.product.pk %}"><img src="{{ item.product.image.url }}" alt="cart-image" /></a>
                                             </td>
-                                            <td class="product-name"><a href="#">{{ item.product }}</a></td>
+                                            <td class="product-name"><a href="{% url 'single_product_url' item.product.pk %}">{{ item.product }}</a></td>
                                             <td class="product-price"><span class="amount">{{ item.product.price }}</span></td>
                                             <td class="product-remove">
                                                 <a href="{% url 'remove_cart_product_url' item.pk %}">
@@ -54,7 +42,7 @@
                                <!-- Cart Button Start -->
                                 <div class="col-lg-8 col-md-7">
                                     <div class="buttons-cart">
-                                        <a href="#">{% blocktrans %}Xarid kilishda davom eting{% endblocktrans %}</a>
+                                        <a href="{% url 'shop_url' %}">{% blocktrans %}Xarid kilishda davom eting{% endblocktrans %}</a>
                                     </div>
                                 </div>
                                 <!-- Cart Button Start -->

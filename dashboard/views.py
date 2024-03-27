@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import *
 from main.admin import *
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+from django.http import HttpResponse
 
 
 def banner_view(request):
@@ -53,13 +53,17 @@ def shopping_view(request):
 
 
 def single_product(request, pk):
+    try:
+        product = Products.objects.get(pk=pk)
+    except Products.DoesNotExist:
+        return HttpResponse("Product does not exist")
+
     basket = Basket.objects.filter(user_id=request.user.id)
     basket_count = Basket.objects.filter(user_id=request.user.id).count()
     subtotal = 0
     for item in basket:
         subtotal += item.product.price
     total = subtotal
-    product = Products.objects.get(pk=pk)
     product2 = Products.objects.all().order_by('-view')[:4]
     product.view += 1
     product.save()
@@ -73,6 +77,7 @@ def single_product(request, pk):
         'total': total,
     }
     return render(request, 'product.html', context)
+
 
 def PegenatorPage(List, num, request):
     paginator = Paginator(List, num)

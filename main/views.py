@@ -150,26 +150,43 @@ def checkout_view(request, pk):
 
 
 def add_basket(request, pk):
-    product = Products.objects.get(pk=pk)
-    Basket.objects.create(
-        user=request.user,
-        product=product,
-    )
-    return HttpResponse("Item added to Cart successfully!")
+    if request.user.is_authenticated:
+        product = Products.objects.get(pk=pk)
+        Basket.objects.create(
+            user=request.user,
+            product=product,
+        )
+        return HttpResponse("Item added to Cart successfully!")
+    else:
+        return redirect('login_url')
 
 
 def add_wishlist(request, pk):
-    product = Products.objects.get(pk=pk)
-    Wishlist.objects.create(
-        user=request.user,
-        product=product,
-    )
-    return HttpResponse("Item added to Wishlist successfully!")
+    if request.user.is_authenticated:
+        product = Products.objects.get(pk=pk)
+        Wishlist.objects.create(
+            user=request.user,
+            product=product,
+        )
+        return HttpResponse("Item added to Wishlist successfully!")
+    else:
+        return redirect('login_url')
 
 
 def wishlist_view(request, id):
     wishlist = Wishlist.objects.filter(user_id=request.user.id)
+    basket = Basket.objects.filter(user_id=request.user.id)
+    basket_count = Basket.objects.filter(user_id=request.user.id).count()
+    subtotal = 0
+    for item in basket:
+        subtotal += item.product.price
+
+    total = subtotal
     context = {
+        'basket': basket,
+        'basket_count': basket_count,
+        'subtotal': subtotal,
+        'total': total,
         'wishlist': wishlist,
         'info': Info.objects.last()
     }
@@ -187,6 +204,13 @@ def search_view(request):
     query = request.GET.get('title')
     info = Info.objects.last()
     shop = []
+    basket = Basket.objects.filter(user_id=request.user.id)
+    basket_count = Basket.objects.filter(user_id=request.user.id).count()
+    subtotal = 0
+    for item in basket:
+        subtotal += item.product.price
+
+    total = subtotal
     if query:  # Check if query is not empty
         shop = Products.objects.filter(
             Q(title__icontains=query) |
@@ -194,5 +218,14 @@ def search_view(request):
             Q(title_uz__icontains=query) |
             Q(title_en__icontains=query)
         )
-    return render(request, 'shop.html', {'query': query, 'infi': info , 'shop': shop})
+    context = {
+        'basket': basket,
+        'basket_count': basket_count,
+        'subtotal': subtotal,
+        'total': total,
+        'query': query,
+        'info': info ,
+        'shop': shop,
+    }
+    return render(request, 'shop.html', context)
 

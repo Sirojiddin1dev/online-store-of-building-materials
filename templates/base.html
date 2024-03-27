@@ -118,7 +118,7 @@
                                     <ul class="middle-menu-list">
                                         <li><a href="{% url 'about_url' %}">{% blocktrans %}Biz haqimizda{% endblocktrans %}</a></li>
 
-                                        <li><a href="#">shop<i class="fa fa-angle-down"></i></a>
+                                        <li><a href="{% url 'shop_url' %}">shop<i class="fa fa-angle-down"></i></a>
                                             <!-- Home Version Dropdown Start -->
                                             <ul class="ht-dropdown dropdown-style-two">
                                                 <li><a href="{% url 'shop_url' %}">{% blocktrans %}Do'kon{% endblocktrans %}</a>
@@ -144,7 +144,7 @@
                                                 <a href="{% url 'login_url' %}"></a>
                                             {% endif %}
                                         <li><a href="{% url 'contact_url'  %}">{% blocktrans %}Kontakt{% endblocktrans %}</a></li>
-                                        <li><a href="{% url 'login_url' %}">Login</a></li>
+
 
                                     </ul>
                                 </nav>
@@ -155,6 +155,7 @@
                         <div class="col-lg-3 col-sm-7 col-7">
                             <div class="cart-box text-right">
                                 <ul>
+                                    <li><a href="{% url 'login_url' %}">Login</a></li>
                                         <ul class="ht-dropdown">
                                             <li><a href="{% url 'login_url' %}">{% blocktrans %}Kirish{% endblocktrans %}</a></li>
                                             <li><a href="{% url 'register_url' %}">{% blocktrans %}Ro'yhadan o'tish{% endblocktrans %}</a></li>
@@ -173,13 +174,13 @@
                                                 <!-- Cart Box Start -->
                                                 <div class="single-cart-box">
                                                     <div class="cart-img">
-                                                        <a href="#"><img src="{{ i.product.image.url }}" alt="cart-image"></a>
+                                                        <a href="{% url 'single_product_url' i.product.pk %}"><img src="{{ i.product.image.url }}" alt="cart-image"></a>
                                                     </div>
                                                     <div class="cart-content">
-                                                        <h6><a href="{% url 'single_product_url' i.pk %}">{{ i.product.title }}</a></h6>
+                                                        <h6><a href="{% url 'single_product_url' i.product.pk %}">{{ i.product.title }}</a></h6>
                                                         <span>{{ i.product.price }}</span>
                                                     </div>
-                                                    <a class="del-icone" href="#"><i class="fa fa-window-close-o"></i></a>
+                                                    <a class="del-icone" href="{% url 'remove_cart_product_url' i.pk %}"><i class="fa fa-window-close-o"></i></a>
                                                 </div>
                                                 <!-- Cart Box End -->
                                                 {% endfor %}
