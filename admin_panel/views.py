@@ -217,7 +217,7 @@ def create_blog(request):
         description_en = request.POST['description_en']
         category = request.POST['category']
         image = request.FILES.get('image')
-        tags = request.POST('tags')  # List of tag IDs
+        tags = request.POST['tags']  # List of tag IDs
         Blog.objects.create(
             user=user,
             title=title,
@@ -256,8 +256,8 @@ def update_blog(request, pk):
     return render(request, 'popular_home.html',)
 
 
-def delete_blog(request, blog_id):
-    blog = get_object_or_404(Blog, pk=blog_id)
+def delete_blog(request, pk):
+    blog = get_object_or_404(Blog, pk=pk)
     blog.delete()
     return redirect('all_blog_url')  # Assuming you have a URL named 'blog_list' for listing blogs
 

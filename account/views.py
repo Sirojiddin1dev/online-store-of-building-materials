@@ -26,14 +26,14 @@ def create_staff_user_view(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-        is_staff = request.POST.get('is_staff', 'false') == 'true'
-        print(is_staff)
-        user = User.objects.create_user(
+        is_staff = request.POST.get('is_staff', True) == 'on'
+        if is_staff:
+            is_staff = True
+        User.objects.create_user(
             username=username,
             password=password,
             is_staff=is_staff,
         )
-        user.save()
         return HttpResponse("Sizning so'rovingiz qabul qilindi! Sizga Tez orada Javob Berildi ")
     return render(request, 'index_1.html')
 
