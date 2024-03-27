@@ -84,13 +84,16 @@
 																						{% csrf_token %}
 
 																						<!-- Add input fields with initial values for each attribute of the Home model -->
-																						<label>Title:</label>
-																						<input type="text" name="title" required><br><br>
-																						<input type="text" name="title_uz" required><br><br>
-																						<input type="text" name="title_ru" required><br><br>
-																						<input type="text" name="title_en" required><br><br>
-																						<label> Imge:</label>
-																						<input type="file" name="img" required>
+																						<label for="Title" >Title:</label>
+																						<input id="Title" type="text" name="title" required><br><br>
+																						<label for="Title_uz" >Title uz</label>
+																						<input type="text" id="Title_uz" name="title_uz" required><br><br>
+																						<label for="Title_ru" >Title_ru</label>
+																						<input type="text" id="Title_ru" name="title_ru" required><br><br>
+																						<label for="Title_en" >Title_en</label>
+																						<input type="text" id="Title_en" name="title_en" required><br><br>
+																						<label for="Image" > Image:</label>
+																						<input type="file" id="Image" name="img" required>
 																						<button type="submit">Save</button>
 																					</form>
 

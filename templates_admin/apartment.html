@@ -92,42 +92,53 @@
 																						{% csrf_token %}
 
 																						<!-- Add input fields with initial values for each attribute of the Home model -->
-																						<label>Title:</label>
-																						<input type="text" name="title" value="{{ i.title }}" required><br><br>
-																						<input type="text" name="title_uz" placeholder="Title (Uzbek)" required><br>
-																						<input type="text" name="title_ru" placeholder="Title (Russian)" required><br>
-																						<input type="text" name="title_en" placeholder="Title (English)" required><br>
+																						<label for="Title" >Title:</label>
+																						<input type="text" id="Title" name="title" value="{{ i.title }}" required><br><br>
+																						<label for="Title_uz" >Title uz</label>
+																						<input type="text" id="Title_uz" name="title_uz" placeholder="Title (Uzbek)" required><br>
+																						<label for="Title_ru">Title ru</label>
+																						<input type="text" id="Title_ru" name="title_ru" placeholder="Title (Russian)" required><br>
+																						<label for="Title_en"> Title en </label>
+																						<input type="text" id="Title_en" name="title_en" placeholder="Title (English)" required><br>
 
-																						<label>Product Image:</label>
-																						<input type="file" name="image" accept="image/*" required><br><br>
+																						<label for="Image" >Product Image:</label>
+																						<input type="file" id="Image" name="image" accept="image/*" required><br><br>
 
 																						<!-- ... (previous form fields) ... -->
 
-																						<label>Price:</label>
-																						<input type="number" name="price" value="{{ i.price }}" required><br><br>
+																						<label for="Price" >Price:</label>
+																						<input type="number" id="Price" name="price" value="{{ i.price }}" required><br><br>
 
-																						<label>Product Info:</label>
-																						<textarea name="product_info" placeholder="Product Info" required></textarea><br>
-																						<textarea name="product_info_uz" placeholder="Product Info (Uzbek)" required></textarea><br>
-																						<textarea name="product_info_ru" placeholder="Product Info (Russian)" required></textarea><br>
-																						<textarea name="product_info_en" placeholder="Product Info (English)" required></textarea><br>
-																						<select name="category" required>
+																						<label for="Info" >Product Info:</label>
+																						<textarea name="product_info" id="Info" placeholder="Product Info" required></textarea><br>
+																						<label for="Info_uz" >Product Info Uz:</label>
+																						<textarea name="product_info_uz" id="Info_uz" placeholder="Product Info (Uzbek)" required></textarea><br>
+																						<label for="Info_ru" > Product Info Ru: </label>
+																						<textarea name="product_info_ru" id="Info_ru" placeholder="Product Info (Russian)" required></textarea><br>
+																						<label for="Info_en"> Product Info En: </label>
+																						<textarea name="product_info_en" id="Info_en" placeholder="Product Info (English)" required></textarea><br>
+																						<label for="Category" >Category:</label>
+																						<select id="Category" name="category" required>
 																							<option value="Fasad">Fasad</option>
 																							<option value="Tiokliya">Tiokliya</option>
 																							<option value="Qoliplik">Qoliplik</option>
 																						</select><br>
-																						<label>Quantiti:</label>
-																						<input type="number" name="quantity" placeholder="Quantity" required><br>
-																						<label>Featured Product:</label>
-																						<input type="checkbox" name="featured_product" value="on" required> Featured Product<br>
-																						<label>Advert:</label>
-																						<input type="checkbox" name="is_advert" value="on" required> Advert<br>
-																						<input type="text" name="advert_text" placeholder="Advert Text" required><br>
-																						<input type="text" name="advert_text_uz" placeholder="Advert Text (Uzbek)" required><br>
-																						<input type="text" name="advert_text_ru" placeholder="Advert Text (Russian)" required><br>
-																						<input type="text" name="advert_text_en" placeholder="Advert Text (English)" required><br>
-																						<label>New product:</label>
-																						<input type="checkbox" name="new_product" value="on" checked required> New Product<br>
+																						<label for="Quantity" >Quantity:</label>
+																						<input type="number" id="Quantity" name="quantity" placeholder="Quantity" required><br>
+																						<label for="Featured" >Featured Product:</label>
+																						<input type="checkbox" id="Featured" name="featured_product" value="on" required> Featured Product<br>
+																						<label for="Advert" >Advert:</label>
+																						<input type="checkbox" id="Advert" name="is_advert" value="on" required><br>
+																						<label for="Advert_text">Advert Text</label>
+																						<input type="text" id="Advert_text" name="advert_text" placeholder="Advert Text" required><br>
+																						<label for="Advert_text_uz" >Advert Text Uz</label>
+																						<input type="text" id=Advert_text_uz" name="advert_text_uz" placeholder="Advert Text (Uzbek)" required><br>
+																						<label for="Advert_text_ru" >Advert Text Ru</label>
+																						<input type="text" id="Advert_text_ru" name="advert_text_ru" placeholder="Advert Text (Russian)" required><br>
+																						<label for="Advert_text_en" >Advert Text En</label>
+																						<input type="text" id="Advert_text_en" name="advert_text_en" placeholder="Advert Text (English)" required><br>
+																						<label for="New_product" >New product:</label>
+																						<input type="checkbox" id="New_product" name="new_product" value="on" checked required> New Product<br>
 																						<button type="submit">Save</button>
 																					</form>
 																				</div>
