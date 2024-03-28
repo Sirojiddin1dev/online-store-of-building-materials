@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-28 14:40+0500\n"
+"POT-Creation-Date: 2024-03-28 15:28+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,18 +49,18 @@ msgid "Russian"
 msgstr ""
 
 #: .\templates\about.html:9 .\templates\account.html:10
-#: .\templates\base.html:212 .\templates\checkout.html:8
+#: .\templates\base.html:197 .\templates\checkout.html:8
 #: .\templates\contact.html:8 .\templates\product.html:9
 #: .\templates\shop.html:9
 msgid "Bosh sahifa"
 msgstr "Домашняя страница"
 
 #: .\templates\about.html:10 .\templates\base.html:119
-#: .\templates\base.html:242
+#: .\templates\base.html:227
 msgid "Biz haqimizda"
 msgstr "O Hac"
 
-#: .\templates\account.html:11 .\templates\base.html:282
+#: .\templates\account.html:11 .\templates\base.html:267
 msgid "Profil"
 msgstr "Профиль"
 
@@ -80,109 +80,113 @@ msgstr "Позвоните нам"
 msgid "Qidiruv..."
 msgstr "Поиск..."
 
-#: .\templates\base.html:124 .\templates\base.html:214
-#: .\templates\base.html:217 .\templates\product.html:10
+#: .\templates\base.html:121 .\templates\base.html:199
+#: .\templates\base.html:202 .\templates\product.html:10
 #: .\templates\shop.html:10
 msgid "Do'kon"
 msgstr "Магазин"
 
-#: .\templates\base.html:127 .\templates\base.html:223
-msgid "Sizning Kartangiz"
-msgstr "Ваша карта"
-
-#: .\templates\base.html:128 .\templates\base.html:192
-#: .\templates\base.html:224 .\templates\cart.html:70
-#: .\templates\checkout.html:9
-msgid "To'lov"
-msgstr "Оплата"
-
-#: .\templates\base.html:129 .\templates\base.html:225
-msgid "Sizga yoqgan maxsullotlar"
-msgstr "Список желаний"
-
-#: .\templates\base.html:137 .\templates\base.html:232
+#: .\templates\base.html:122 .\templates\base.html:217
 #: .\templates\blog-details.html:10 .\templates\blog.html:10
 msgid "Blog"
 msgstr "Блог"
 
-#: .\templates\base.html:142 .\templates\base.html:163
-#: .\templates\base.html:286 .\templates\base.html:304
-#: .\templates\base.html:327
+#: .\templates\base.html:127 .\templates\base.html:148
+#: .\templates\base.html:271 .\templates\base.html:289
+#: .\templates\base.html:312
 msgid "Mening profilim"
 msgstr "Мой профайл"
 
-#: .\templates\base.html:146
+#: .\templates\base.html:131
 #, fuzzy
 #| msgid "Contact"
 msgid "Kontakt"
 msgstr "Контакт"
 
-#: .\templates\base.html:160 .\templates\base.html:291
-#: .\templates\login.html:46 .\templates\register.html:41
+#: .\templates\base.html:143 .\templates\base.html:145
+#: .\templates\base.html:276 .\templates\login.html:46
+#: .\templates\register.html:41
 msgid "Kirish"
 msgstr "Входить"
 
-#: .\templates\base.html:161
+#: .\templates\base.html:146
 msgid "Ro'yhadan o'tish"
 msgstr "Зарегистрироваться"
 
-#: .\templates\base.html:221
+#: .\templates\base.html:174 .\templates\checkout.html:67
+msgid "Jami"
+msgstr "Общий"
+
+#: .\templates\base.html:177 .\templates\base.html:209 .\templates\cart.html:70
+#: .\templates\checkout.html:9
+msgid "To'lov"
+msgstr "Оплата"
+
+#: .\templates\base.html:206
 msgid "Maxsulot haqida"
 msgstr "О продукте"
 
-#: .\templates\base.html:237
+#: .\templates\base.html:208
+msgid "Sizning Kartangiz"
+msgstr "Ваша карта"
+
+#: .\templates\base.html:210
+msgid "Sizga yoqgan maxsullotlar"
+msgstr "Список желаний"
+
+#: .\templates\base.html:222
 msgid "Kirish Sahifasi"
 msgstr "Страница авторизации"
 
-#: .\templates\base.html:238
+#: .\templates\base.html:223
 msgid "Ro'yhadan o'tish sahifasi "
 msgstr "Страница регистрации"
 
-#: .\templates\base.html:243
+#: .\templates\base.html:228
 msgid "Biz bilan Bo'g'laning"
 msgstr "Связаться с нами"
 
-#: .\templates\base.html:268
+#: .\templates\base.html:253
 msgid "Biz bilan boglaning"
 msgstr "связаться с нами"
 
-#: .\templates\base.html:272
+#: .\templates\base.html:257
 #, fuzzy
 #| msgid "Bizga xat yuboring :"
 msgid "Bizga xat yuboring "
 msgstr "Отправить нам письмо"
 
-#: .\templates\base.html:273
+#: .\templates\base.html:258
 #, fuzzy
 #| msgid " Telefon:"
-msgid " Telefon"
+msgid "Telefon"
 msgstr "Телефон:"
 
-#: .\templates\base.html:287
+#: .\templates\base.html:272
 msgid "To'lov sahifasi"
 msgstr "Страница оплаты"
 
-#: .\templates\base.html:300
+#: .\templates\base.html:285
 msgid "Moslashtirilgan xizmatlar"
 msgstr "Индивидуальные услуги"
 
-#: .\templates\base.html:308
+#: .\templates\base.html:293
 msgid "Yangi"
 msgstr "Hовый"
 
-#: .\templates\base.html:309
+#: .\templates\base.html:294
 msgid "SIzning kartangiz"
 msgstr "Ваша карта"
 
-#: .\templates\base.html:310
+#: .\templates\base.html:295
 msgid "Sizning Buyurtmanlaringiz"
 msgstr "Ваши заказы"
 
-#: .\templates\base.html:319
+#: .\templates\base.html:304
 msgid "Keling, sizga yordam beraylik"
 msgstr "Позвольте нам помочь вам"
 
-#: .\templates\base.html:325
+#: .\templates\base.html:310
 msgid "Sizning buyurmalaringiz"
 msgstr "Ваши заказы"
 
@@ -201,6 +205,10 @@ msgstr "Сообщение"
 #: .\templates\blog.html:9
 msgid "Bosh sihifa"
 msgstr "Главная страница"
+
+#: .\templates\blog.html:37 .\templates\index.html:131
+msgid "Batafsil"
+msgstr "Более..."
 
 #: .\templates\cart.html:7
 msgid "kart"
@@ -238,6 +246,12 @@ msgstr "Страна"
 msgid "Ism"
 msgstr "Имя"
 
+#: .\templates\checkout.html:46
+#, fuzzy
+#| msgid "bino manzili"
+msgid "E-pochta manzili"
+msgstr "Адрес здания"
+
 #: .\templates\checkout.html:52
 #, fuzzy
 #| msgid " Telefon:"
@@ -254,9 +268,9 @@ msgstr "Ваши заказы"
 msgid "Maxsulot"
 msgstr "Продукт"
 
-#: .\templates\checkout.html:67
-msgid "Jami"
-msgstr "Общий"
+#: .\templates\checkout.html:84
+msgid "Kartadagi Jami"
+msgstr ""
 
 #: .\templates\contact.html:9 .\templates\contact.html:19
 msgid "Contact"
@@ -277,13 +291,9 @@ msgstr "Самые продаваемые продукты"
 
 #: .\templates\index.html:112
 #, fuzzy
-#| msgid "Blog"
-msgid "Blogdan"
-msgstr "Блог"
-
-#: .\templates\index.html:131
-msgid "Batafsil"
-msgstr "Более..."
+#| msgid "Sizning buyurmalaringiz"
+msgid "Bizning bloglarimiz"
+msgstr "Ваши заказы"
 
 #: .\templates\login.html:41 .\templates\register.html:46
 msgid "Ro'yxatdan o'tish"
@@ -1534,6 +1544,11 @@ msgstr ""
 #: .\venv\Lib\site-packages\modeltranslation\widgets.py:24
 msgid "None"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Blog"
+#~ msgid "Blogdan"
+#~ msgstr "Блог"
 
 #~ msgid "Boshqaruv sahifasi"
 #~ msgstr "Страница администрирования"
