@@ -67,7 +67,7 @@
                             <div class="search-box-view">
                                 <form action="{% url 'search_url' %}" method="GET">
                                     {% csrf_token %}
-                                    <input type="text" class="email" placeholder="Search Your Product" name="title">
+                                    <input type="text" class="email" placeholder="{% blocktrans %}Qidiruv...{% endblocktrans %}" name="title">
                                     <button type="submit" class="submit"></button>
                                 </form>
                             </div>
