@@ -118,22 +118,7 @@
                                     <ul class="middle-menu-list">
                                         <li><a href="{% url 'about_url' %}">{% blocktrans %}Biz haqimizda{% endblocktrans %}</a></li>
 
-                                        <li><a href="{% url 'shop_url' %}">shop<i class="fa fa-angle-down"></i></a>
-                                            <!-- Home Version Dropdown Start -->
-                                            <ul class="ht-dropdown dropdown-style-two">
-                                                <li><a href="{% url 'shop_url' %}">{% blocktrans %}Do'kon{% endblocktrans %}</a>
-                                                </li>
-                                                {% if user.is_authenticated %}
-                                                    <li><a href="{% url 'cart_url' user.id %}">{% blocktrans %}Sizning Kartangiz{% endblocktrans %}</a></li>
-                                                    <li><a href="{% url 'checkout_url' user.pk %}">{% blocktrans %}To'lov{% endblocktrans %}</a></li>
-                                                    <li><a href="{% url 'wishlist_url' user.pk %}">{% blocktrans %}Sizga yoqgan maxsullotlar{% endblocktrans %}</a></li>
-                                                {% else %}
-                                                    <a href="{% url 'login_url' %}">
-                                                {% endif %}
-
-                                            </ul>
-                                            <!-- Home Version Dropdown End -->
-                                        </li>
+                                        <li><a href="{% url 'shop_url' %}">shop<i class="fa fa-angle-down"></i></a></li>
                                         <li><a href="{% url 'blog_url' %}">{% blocktrans %}Blog{% endblocktrans %}</a>
                                             <!-- Home Version Dropdown Start -->
                                             <!-- Home Version Dropdown End -->
