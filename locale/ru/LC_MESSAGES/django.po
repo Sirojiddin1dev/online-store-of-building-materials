@@ -270,7 +270,7 @@ msgstr "Продукт"
 
 #: .\templates\checkout.html:84
 msgid "Kartadagi Jami"
-msgstr ""
+msgstr "Итого на карте"
 
 #: .\templates\contact.html:9 .\templates\contact.html:19
 msgid "Contact"
