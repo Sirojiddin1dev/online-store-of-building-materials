@@ -11,7 +11,7 @@
                         <div class="slider-wrapper theme-default">
                             <!-- Slider Background  Image Start-->
                             <div id="slider" class="nivoSlider">
-                                <a href="shop.html"> <img src="{{ banner.img.url }}" data-thumb="{{ banner.img.url }}" alt="" title="#slider-1-caption1"/></a>
+                                <a href="{% url 'shop_url' %}"> <img src="{{ banner.img.url }}" data-thumb="{{ banner.img.url }}" alt="" title="#slider-1-caption1"/></a>
                             </div>
                             <!-- Slider Background  Image Start-->
                             <div id="slider-1-caption1" class="nivo-html-caption nivo-caption">
@@ -19,7 +19,7 @@
                                     <div class="text-content">
                                         <h1 class="title1 wow bounceInRight text-white mb-16" data-wow-duration="2s" data-wow-delay="1s">{{ banner.title }}</h1>
                                         <div class="banner-readmore wow bounceInUp mt-35" data-wow-duration="2s" data-wow-delay="2s">
-                                            <a class="button slider-btn" href="shop.html">{% blocktrans %}Sizga yoqgan Maxsullotlar{% endblocktrans %}</a>
+                                            <a class="button slider-btn" href="{% url 'shop_url' %}">{% blocktrans %}Sizga yoqgan Maxsullotlar{% endblocktrans %}</a>
                                         </div>
                                     </div>
                                 </div>

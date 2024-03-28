@@ -19,8 +19,6 @@
 											<!--end::Svg Icon-->
 										</span>
 									</div>
-									<div class="alert-text">The grouping indicator is added by the drawCallback function, which will parse through the rows which are displayed, and enter a grouping TR element where a new group is found. See official documentation
-									<a class="font-weight-bold" href="https://datatables.net/examples/advanced_init/row_grouping.html" target="_blank">here</a>.</div>
 								</div>
 								<!--end::Notice-->
 								<!--begin::Card-->
@@ -54,20 +52,37 @@
 																<form action="{% url 'create_blog' %}" method="post" enctype="multipart/form-data">
 																	{% csrf_token %}
 																	<!-- Add input fields for each attribute of the Home model -->
-																	<label>Title:</label>
-																	<input type="text" name="title" required><br><br>
-																	<input type="text" name="title_uz" required><br><br>
-																	<input type="text" name="title_ru" required><br><br>
-																	<input type="text" name="title_en" required><br><br>
-																	<label>Description:</label>
-																	<input type="text" name="description" accept="" required><br><br>
+																	<label for="Title" >Title:</label>
+																	<input type="text" name="title" id="Title" placeholder="Title" required><br><br>
+
+																	<label for="title uz" >Title uz:</label>
+																	<input type="text" name="title_uz" id="title uz" placeholder="Title uz" required><br><br>
+
+																	<label for="title ru" >Title ru</label>
+																	<input type="text" name="title_ru" id="title ru" placeholder="Title ru" required><br><br>
+
+																	<label for="title en" >Title en</label>
+																	<input type="text" name="title_en" id="title en" placeholder="Title en" required><br><br>
+
+																	<label for="description" >Description:</label>
+																	<input type="text" id="description" name="description" placeholder="Description" accept="" required><br><br>
+																	<label for="description_uz" >Description Uz:</label>
+																	<input type="text" id="description_uz" name="description_uz" placeholder="Description Uz" accept="" required><br><br>
+																	<label for="description_ru" >Description Ru :</label>
+																	<input type="text" id="description_ru" name="description_ru" placeholder="Description Ru " accept="" required><br><br>
+																	<label for="description_en" >Description Uz:</label>
+																	<input type="text" id="description_en" name="description_en" placeholder="Description En " accept="" required><br><br>
+
 																	<!-- Add input fields for the remaining attributes of the Home model -->
-																	<label>Category:</label>
-																	<input type="text" name="category" required><br><br>
-																	<label>Image:</label>
-																	<input type="file" name="image" accept="image/*" required><br><br>
-																	<label>Tags:</label>
-																	<input type="text" name="tags" required><br><br>
+																	<label for="category" >Category:</label>
+																	<input type="text" id="category" name="category" placeholder="Category" required><br><br>
+
+																	<label for="image" >Image:</label>
+																	<input type="file" id="image" name="image" accept="image/*" required><br><br>
+
+																	<label for="tags" >Tags:</label>
+																	<input type="text" id="tags" name="tags" placeholder="Tag" required><br><br>
+
 																	<div class="modal-footer">
 																		<button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
 																		<button type="submit" class="btn btn-primary font-weight-bold">Save</button>
@@ -93,6 +108,8 @@
 													<th>Description</th>
 													<th>Category</th>
 													<th>Tags</th>
+													<th>Update</th>
+													<th>Delete</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -132,25 +149,29 @@
 																					<form action="{% url 'update_blog' i.pk %}" method="post" enctype="multipart/form-data">
 																						{% csrf_token %}
 																						<!-- Add input fields with initial values for each attribute of the Home model -->
-																						<label>Title:</label>
-																						<input type="text" value="{{ i.title }}" name="title"  required><br><br>
-																						<input type="text" value="{{ i.title }}" name="title_uz"  required><br><br>
-																						<input type="text" value="{{ i.title }}" name="title_ru"  required><br><br>
-																						<input type="text" value="{{ i.title }}" name="title_en"  required><br><br>
-																						<label>Image:</label>
-																						<input type="file" name="image" required>
+																						<label for="Title1" >Title:</label>
+																						<input type="text" id="Title1" value="{{ i.title }}" name="title"  required><br><br>
+																						<label for="Title_uz" >Title uz:</label>
+																						<input type="text" id="Title_uz" value="{{ i.title }}" name="title_uz"  required><br><br>
+																						<label for="Title_ru" >Title ru:</label>
+																						<input type="text" id="Title_ru" value="{{ i.title }}" name="title_ru"  required><br><br>
+																						<label for="Title_en" >Title en:</label>
+																						<input type="text" id="Title_en" value="{{ i.title }}" name="title_en"  required><br><br>
 																						<label>Description:</label>
 																						<input type="text" name="description" value="{{ i.description }}" required><br><br>
-																						<input type="text" name="description" value="{{ i.description_uz }}" required><br><br>
-																						<input type="text" name="description" value="{{ i.description_ru }}" required><br><br>
-																						<input type="text" name="description" value="{{ i.description_en }}" required><br><br>
+																						<label for="Description_uz" >Description uz:</label>
+																						<input type="text" id="Description_uz" name="description" value="{{ i.description_uz }}" required><br><br>
+																						<label for="Description_ru" >Description ru:</label>
+																						<input type="text" id="Description_ru" name="description" value="{{ i.description_ru }}" required><br><br>
+																						<label for="Description_en" >Description en:</label>
+																						<input type="text" id="Description_en" name="description" value="{{ i.description_en }}" required><br><br>
 																						<!-- ... (previous form fields) ... -->
-																						<label>Category:</label>
-																						<input type="text" name="category">
-																						<label>Image:</label>
-																						<input type="file" name="image" accept="image/*" required><br><br>
-																						<label>Tags:</label>
-																						<input type="text" name="tags" value="{{ i.tags }}" required><br><br>
+																						<label for="Category1" >Category:</label>
+																						<input id="Category1" type="text" name="category">
+																						<label for="Image1" >Image:</label>
+																						<input id="Image1" type="file" name="image" accept="image/*" required><br><br>
+																						<label for="Tags1" >Tags:</label>
+																						<input type="text" id="Tags1" name="tags" value="{{ i.tags }}" required><br><br>
 																						<!-- ... (remaining form fields) ... -->
 																						<button type="submit">Save</button>
 																					</form>
@@ -181,7 +202,7 @@
 																	</div>
 																</div>
 															</div>
-														</div>b
+														</div>
 													</td>
 												</tr>
 											{% endfor %}

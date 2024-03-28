@@ -19,8 +19,6 @@
 											<!--end::Svg Icon-->
 										</span>
 									</div>
-									<div class="alert-text">The grouping indicator is added by the drawCallback function, which will parse through the rows which are displayed, and enter a grouping TR element where a new group is found. See official documentation
-									<a class="font-weight-bold" href="https://datatables.net/examples/advanced_init/row_grouping.html" target="_blank">here</a>.</div>
 								</div>
 								<!--end::Notice-->
 								<!--begin::Card-->
@@ -53,26 +51,6 @@
 											</div>
 											<!--end::Dropdown-->
 											<!--begin::Button-->
-											<div class="btn btn-light-primary font-weight-bold mr-2">
-
-
-												<a href="#" style="margin-top: 50px;" data-toggle="modal" data-target="#exampleModalScrollable">New Info</a>
-
-												<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
-													<div class="modal-dialog modal-dialog-scrollable" role="document">
-														<div class="modal-content">
-															<div class="modal-header">
-																<h5 class="modal-title" id="exampleModalLabel">Create info</h5>
-																<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-																	<i aria-hidden="true" class="ki ki-close"></i>
-																</button>
-															</div>
-															<div class="modal-body" style="height: 600px;">
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
 
 										</div>
 									</div>
@@ -129,20 +107,20 @@
 																						{% csrf_token %}
 
 																						<!-- Add input fields with initial values for each attribute of the Home model -->
-																						<label>Logo:</label>
-																						<input type="file" name="image" accept="image/*" required><br><br>
-																						<label> Address:</label>
-																						<input type="text" name="address" required><br><br>
-																						<label>Email :</label>
-																						<input type="email" name="email" required><br><br>
-																						<label>Phone_number :</label>
-																						<input type="text" name="phone_number" required><br><br>
-																						<label>Facebook :</label>
-																						<input type="text" name="facebook" required><br><br>
-																						<label>Youtube :</label>
-																						<input type="text" name="youtube" required><br><br>
-																						<label>Twitter</label>
-																						<input type="text" name="twitter" required><br><br>
+																						<label for="Logo" >Logo:</label>
+																						<input type="file" id="Logo" name="logo" accept="logo/*" required><br><br>
+																						<label for="Address" > Address:</label>
+																						<input type="text" id="Address" name="address" required><br><br>
+																						<label for="Email" >Email :</label>
+																						<input type="email" id="Email" name="email" required><br><br>
+																						<label for="Phone_number" >Phone_number :</label>
+																						<input type="text" id="Phone_number" name="phone_number" required><br><br>
+																						<label for="Facebook" >Facebook :</label>
+																						<input type="text" id="Facebook" name="facebook" required><br><br>
+																						<label for="Youtube" >Youtube :</label>
+																						<input type="text" id="Youtube" name="youtube" required><br><br>
+																						<label for="Twitter" >Twitter</label>
+																						<input type="text" id="Twitter" name="twitter" required><br><br>
 																						<button type="submit">Update Info</button>
 																					</form>
 																				</div>

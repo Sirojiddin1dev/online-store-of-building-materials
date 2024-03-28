@@ -4,13 +4,17 @@ from django.contrib.auth.decorators import login_required
 from dashboard.models import *
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseBadRequest
+from account.models import *
 
 
 
 def index_1_view(request):
     user = User.objects.filter(is_staff=True).order_by('-id')[:8]
+    total_login_count = User.get_total_login_count()
+    print(total_login_count)
     context = {
-        'user':user
+        'user':user,
+        'count': total_login_count
     }
     return render(request, 'index_1.html', context)
 
@@ -180,8 +184,8 @@ def create_banner(request):
     return render(request, 'index_1.html')
 
 
-def update_banner(request, banner_id):
-    banner = Banner.objects.get(pk=banner_id)
+def update_banner(request, pk):
+    banner = Banner.objects.get(pk=pk)
     if request.method == 'POST':
         banner.title = request.POST['title']
         banner.title_uz = request.POST['title_uz']
@@ -190,7 +194,7 @@ def update_banner(request, banner_id):
         if 'img' in request.FILES:
             banner.img = request.FILES['img']
         banner.save()
-        return redirect('banner_list')
+        return redirect('all_banner_url')
     return render(request, 'house.html', {'banner': banner})
 
 
@@ -213,9 +217,8 @@ def create_blog(request):
         description_en = request.POST['description_en']
         category = request.POST['category']
         image = request.FILES.get('image')
-        tags = request.POST('tags')  # List of tag IDs
-
-        blog = Blog.objects.create(
+        tags = request.POST['tags']  # List of tag IDs
+        Blog.objects.create(
             user=user,
             title=title,
             title_uz=title_uz,
@@ -253,8 +256,8 @@ def update_blog(request, pk):
     return render(request, 'popular_home.html',)
 
 
-def delete_blog(request, blog_id):
-    blog = get_object_or_404(Blog, pk=blog_id)
+def delete_blog(request, pk):
+    blog = get_object_or_404(Blog, pk=pk)
     blog.delete()
     return redirect('all_blog_url')  # Assuming you have a URL named 'blog_list' for listing blogs
 

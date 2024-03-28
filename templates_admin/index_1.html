@@ -11,65 +11,6 @@
 									<div class="col-lg-6 col-xxl-4">
 										<!--begin::Mixed Widget 1-->
 										<div class="card card-custom bg-gray-100 card-stretch gutter-b">
-											<!--begin::Header-->
-											<div class="card-header border-0 bg-dark py-5">
-												<h3 class="card-title font-weight-bolder text-white">Sales Stat</h3>
-												<div class="card-toolbar">
-													<div class="dropdown dropdown-inline">
-														<a href="#" class="btn btn-transparent-white btn-sm font-weight-bolder dropdown-toggle px-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Export</a>
-														<div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
-															<!--begin::Navigation-->
-															<ul class="navi navi-hover">
-																<li class="navi-header pb-1">
-																	<span class="text-primary text-uppercase font-weight-bold font-size-sm">Add new:</span>
-																</li>
-																<li class="navi-item">
-																	<a href="#" class="navi-link">
-																		<span class="navi-icon">
-																			<i class="flaticon2-shopping-cart-1"></i>
-																		</span>
-																		<span class="navi-text">Order</span>
-																	</a>
-																</li>
-																<li class="navi-item">
-																	<a href="#" class="navi-link">
-																		<span class="navi-icon">
-																			<i class="flaticon2-calendar-8"></i>
-																		</span>
-																		<span class="navi-text">Event</span>
-																	</a>
-																</li>
-																<li class="navi-item">
-																	<a href="#" class="navi-link">
-																		<span class="navi-icon">
-																			<i class="flaticon2-graph-1"></i>
-																		</span>
-																		<span class="navi-text">Report</span>
-																	</a>
-																</li>
-																<li class="navi-item">
-																	<a href="#" class="navi-link">
-																		<span class="navi-icon">
-																			<i class="flaticon2-rocket-1"></i>
-																		</span>
-																		<span class="navi-text">Post</span>
-																	</a>
-																</li>
-																<li class="navi-item">
-																	<a href="#" class="navi-link">
-																		<span class="navi-icon">
-																			<i class="flaticon2-writing"></i>
-																		</span>
-																		<span class="navi-text">File</span>
-																	</a>
-																</li>
-															</ul>
-															<!--end::Navigation-->
-														</div>
-													</div>
-												</div>
-											</div>
-											<!--end::Header-->
 											<!--begin::Body-->
 											<div class="card-body p-0 position-relative overflow-hidden">
 												<!--begin::Chart-->
@@ -88,7 +29,7 @@
 															</svg><!--end::Svg Icon--></span>
 
 <!-- Button trigger modal-->
-															<a href="#"  style="margin-top: 50px;" data-toggle="modal" data-target="#exampleModalScro">New Hause</a>
+															<a href="#"  style="margin-top: 50px;" data-toggle="modal" data-target="#exampleModalScro">New Product</a>
 															<!-- Modal-->
 															<div class="modal fade" id="exampleModalScro" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
 																<div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -104,28 +45,28 @@
 																				<h1>Create Product</h1>
 																				<form action="{% url 'create_product' %}" method="post" enctype="multipart/form-data">
 																					{% csrf_token %}
-																					<input type="file" name="image" accept="image/*"><br>
-																					<input type="text" name="title" placeholder="Title"><br>
-																					<input type="text" name="title_uz" placeholder="Title (Uzbek)"><br>
-																					<input type="text" name="title_ru" placeholder="Title (Russian)"><br>
-																					<input type="text" name="title_en" placeholder="Title (English)"><br>
-																					<input type="number" name="price" placeholder="Price"><br>
-																					<textarea name="product_info" placeholder="Product Info"></textarea><br>
-																					<textarea name="product_info_uz" placeholder="Product Info (Uzbek)"></textarea><br>
-																					<textarea name="product_info_ru" placeholder="Product Info (Russian)"></textarea><br>
-																					<textarea name="product_info_en" placeholder="Product Info (English)"></textarea><br>
+																					<input type="file" name="image" accept="image/*" required><br>
+																					<input type="text" name="title" placeholder="Title" required><br>
+																					<input type="text" name="title_uz" placeholder="Title (Uzbek)" required><br>
+																					<input type="text" name="title_ru" placeholder="Title (Russian)" required><br>
+																					<input type="text" name="title_en" placeholder="Title (English)" required><br>
+																					<input type="number" name="price" placeholder="Price" required><br>
+																					<textarea name="product_info" placeholder="Product Info" required></textarea><br>
+																					<textarea name="product_info_uz" placeholder="Product Info (Uzbek)" required></textarea><br>
+																					<textarea name="product_info_ru" placeholder="Product Info (Russian)" required></textarea><br>
+																					<textarea name="product_info_en" placeholder="Product Info (English)" required></textarea><br>
 																					<select name="category">
 																						<option value="Fasad">Fasad</option>
 																						<option value="Tiokliya">Tiokliya</option>
 																						<option value="Qoliplik">Qoliplik</option>
 																					</select><br>
-																					<input type="number" name="quantity" placeholder="Quantity"><br>
+																					<input type="number" name="quantity" placeholder="Quantity" required><br>
 																					<input type="checkbox" name="featured_product" value="on"> Featured Product<br>
 																					<input type="checkbox" name="is_advert" value="on"> Advert<br>
-																					<input type="text" name="advert_text" placeholder="Advert Text"><br>
-																					<input type="text" name="advert_text_uz" placeholder="Advert Text (Uzbek)"><br>
-																					<input type="text" name="advert_text_ru" placeholder="Advert Text (Russian)"><br>
-																					<input type="text" name="advert_text_en" placeholder="Advert Text (English)"><br>
+																					<input type="text" name="advert_text" placeholder="Advert Text" required><br>
+																					<input type="text" name="advert_text_uz" placeholder="Advert Text (Uzbek)" required><br>
+																					<input type="text" name="advert_text_ru" placeholder="Advert Text (Russian)" required><br>
+																					<input type="text" name="advert_text_en" placeholder="Advert Text (English)" required><br>
 																					<input type="checkbox" name="new_product" value="on" checked> New Product<br>
 																					<button type="submit">Save</button>
 																				</form>
@@ -201,7 +142,7 @@
 																						padding: 10px;
 																						margin: 8px 0;
 																						box-sizing: border-box;
-																					" type="checkbox" name="is_staff" value="true"><br>
+																					" type="checkbox" name="is_staff" value="on"><br>
 
 																					<div class="modal-footer">
 																						<button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
@@ -228,7 +169,7 @@
 															</svg><!--end::Svg Icon--></span><br><br>
 
 <!-- Button trigger modal-->
-															<a href="#"  style="margin-top: 50px;" data-toggle="modal" data-target="#exampleModalScrol">New Brand</a>
+															<a href="#"  style="margin-top: 50px;" data-toggle="modal" data-target="#exampleModalScrol">New info</a>
 															<!-- Modal-->
 															<div class="modal fade" id="exampleModalScrol" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
 																<div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -244,19 +185,19 @@
 																				<form action="{% url 'create_info' %}" method="post" enctype="multipart/form-data">
 																				  {% csrf_token %}
 																				  <label for="logo">Logo:</label>
-																				  <input type="file" name="logo" id="logo"><br>
+																				  <input type="file" name="logo" id="logo" required><br>
 																				  <label for="address">Address:</label>
-																				  <input type="text" name="address" id="address"><br>
+																				  <input type="text" name="address" id="address" required><br>
 																				  <label for="email">Email:</label>
-																				  <input type="email" name="email" id="email"><br>
+																				  <input type="email" name="email" id="email" required><br>
 																				  <label for="phone_number">Phone Number:</label>
-																				  <input type="text" name="phone_number" id="phone_number"><br>
+																				  <input type="text" name="phone_number" id="phone_number" required><br>
 																				  <label for="facebook">Facebook:</label>
-																				  <input type="text" name="facebook" id="facebook"><br>
+																				  <input type="text" name="facebook" id="facebook" required><br>
 																				  <label for="youtube">Youtube:</label>
-																				  <input type="text" name="youtube" id="youtube"><br>
+																				  <input type="text" name="youtube" id="youtube" required><br>
 																				  <label for="twitter">Twitter:</label>
-																				  <input type="text" name="twitter" id="twitter"><br>
+																				  <input type="text" name="twitter" id="twitter" required><br>
 																				  <button type="submit">Submit</button>
 																				</form>
 																			</div>
@@ -292,9 +233,15 @@
 																				<form action="{% url 'create_banner' %}" method="post" enctype="multipart/form-data">
 																				  {% csrf_token %}
 																					<label for="title">Title:</label><br>
-																					<input type="text" id="title" name="title"><br><br>
+																					<input type="text" id="title" name="title" required><br><br>
+																					<label for="title_uz">Title uz:</label><br>
+																					<input type="text" id="title_uz" name="title_uz" required><br><br>
+																					<label for="title_ru">Title ru:</label><br>
+																					<input type="text" id="title_ru" name="title_ru" required><br><br>
+																					<label for="title_en">Title en:</label><br>
+																					<input type="text" id="title_en" name="title_en" required><br><br>
 																					<label for="img">Image:</label><br>
-																					<input type="file" id="img" name="img"><br><br>
+																					<input type="file" id="img" name="img" required><br><br>
 																				  <button type="submit">Save</button>
 																				</form>
 																			</div>
@@ -393,45 +340,46 @@
 									</div>
 
 								</div>
-								<div class="row">
-									<div class="col-12 col-lg-12 d-flex">
-									  <div class="card flex-fill w-100">
-										<div class="card-body">
-										<div class="card">
-										<div>
-										  <canvas id="myChart"></canvas>
-										</div>
-										<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-										<script>
-											const ctx = document.getElementById('myChart');
-											new Chart(ctx, {
-											type: 'line',
-											data: {
-											  labels: [{% for i in qs %} "{{ i.day }} {{ i.mon }}", {% endfor %}],
-											  datasets: [{
-											  label: '# of Votes',
-											  data: [{% for x in qs %} {{ x.n }}, {% endfor %}],
-											  borderWidth: 2
-											  }]
-											},
-											options: {
-											  scales: {
-											  y: {
-											  beginAtZero: true
-											  }
-											  }
-											}
-											});
-										</script>
-										</div>
-										</div>
-										</div>
-									  </div>
-									</div>
-							</div>
-							<!--end::Container-->
-						</div>
-						<!--end::Entry-->
-					</div>
-					<!--end::Content-->
+								<h1>Saytga kirishlar soni: {{ count }}</h1>
+<!--								<div class="row">-->
+<!--									<div class="col-12 col-lg-12 d-flex">-->
+<!--									  <div class="card flex-fill w-100">-->
+<!--										<div class="card-body">-->
+<!--										<div class="card">-->
+<!--										<div>-->
+<!--										  <canvas id="myChart"></canvas>-->
+<!--										</div>-->
+<!--										<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>-->
+<!--										<script>-->
+<!--											const ctx = document.getElementById('myChart');-->
+<!--											new Chart(ctx, {-->
+<!--											type: 'line',-->
+<!--											data: {-->
+<!--											  labels: [{% for i in qs %} "{{ i.day }} {{ i.mon }}", {% endfor %}],-->
+<!--											  datasets: [{-->
+<!--											  label: '# of Votes',-->
+<!--											  data: [{% for x in qs %} {{ x.n }}, {% endfor %}],-->
+<!--											  borderWidth: 2-->
+<!--											  }]-->
+<!--											},-->
+<!--											options: {-->
+<!--											  scales: {-->
+<!--											  y: {-->
+<!--											  beginAtZero: true-->
+<!--											  }-->
+<!--											  }-->
+<!--											}-->
+<!--											});-->
+<!--										</script>-->
+<!--										</div>-->
+<!--										</div>-->
+<!--										</div>-->
+<!--									  </div>-->
+<!--									</div>-->
+<!--							</div>-->
+<!--							&lt;!&ndash;end::Container&ndash;&gt;-->
+<!--						</div>-->
+<!--						&lt;!&ndash;end::Entry&ndash;&gt;-->
+<!--					</div>-->
+<!--					&lt;!&ndash;end::Content&ndash;&gt;-->
 {% endblock %}

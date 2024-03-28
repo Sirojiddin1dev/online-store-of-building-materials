@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, UserManager
 from django.core.validators import RegexValidator
 from django.utils import timezone
+from django.db.models import Sum
 
 
 class User(AbstractUser):
@@ -30,3 +31,7 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.username
+
+    @classmethod
+    def get_total_login_count(cls):
+        return cls.objects.aggregate(total_login_count=models.Sum('login_count'))['total_login_count'] or 0
