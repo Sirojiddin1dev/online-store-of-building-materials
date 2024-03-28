@@ -230,11 +230,11 @@ msgstr "Building address"
 
 #: .\templates\checkout.html:28
 msgid "Mamlakat"
-msgstr ""
+msgstr "Country"
 
 #: .\templates\checkout.html:34
 msgid "Ism"
-msgstr ""
+msgstr "Name"
 
 #: .\templates\checkout.html:52
 #, fuzzy
@@ -281,7 +281,7 @@ msgstr "Blog"
 
 #: .\templates\index.html:131
 msgid "Batafsil"
-msgstr ""
+msgstr "Read more.."
 
 #: .\templates\login.html:41 .\templates\register.html:46
 msgid "Ro'yxatdan o'tish"

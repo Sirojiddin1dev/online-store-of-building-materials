@@ -232,11 +232,11 @@ msgstr "Адрес здания"
 
 #: .\templates\checkout.html:28
 msgid "Mamlakat"
-msgstr ""
+msgstr "Страна"
 
 #: .\templates\checkout.html:34
 msgid "Ism"
-msgstr ""
+msgstr "Имя"
 
 #: .\templates\checkout.html:52
 #, fuzzy
@@ -283,7 +283,7 @@ msgstr "Блог"
 
 #: .\templates\index.html:131
 msgid "Batafsil"
-msgstr ""
+msgstr "Более..."
 
 #: .\templates\login.html:41 .\templates\register.html:46
 msgid "Ro'yxatdan o'tish"
