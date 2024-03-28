@@ -113,14 +113,14 @@
                 </div>
                  <!-- Popular Categorie Activation Start -->
                  <div class="blog-active owl-carousel">
-                     {% for i in blog %}
-                    <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        {% for i in blog %}
                         <div class="single-blog">
                             <div class="blog-img">
                                 <a href="{% url 'single_blog_url' i.pk %}"><img src="{{ i.image.url }}" alt="blog-image"></a>
                             </div>
                             <div class="blog-content">
-                                    <h4 class="blog-title"><a href="{% url 'single_blog_url' i.pk %}">{{ i.title }}</a></h4>
+                                <h4 class="blog-title"><a href="{% url 'single_blog_url' i.pk %}">{{ i.title }}</a></h4>
                                 <div class="blog-meta">
                                     <ul>
                                         <li><span>By: </span> <a href="#">{{ i.user.id }}</a></li>
@@ -132,8 +132,10 @@
                                 </div>
                             </div>
                         </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
+
+
                     <!-- Single Blog End -->
 
                  </div>
