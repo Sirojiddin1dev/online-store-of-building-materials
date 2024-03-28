@@ -78,7 +78,7 @@ msgstr "Позвоните нам"
 
 #: .\templates\base.html:70
 msgid "Qidiruv..."
-msgstr ""
+msgstr "Поиск..."
 
 #: .\templates\base.html:124 .\templates\base.html:214
 #: .\templates\base.html:217 .\templates\product.html:10
