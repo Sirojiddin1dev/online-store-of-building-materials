@@ -109,7 +109,7 @@
         <div class="blog-area pb-60">
             <div class="container">
                 <div class="group-title">
-                    <h2>From The Blog</h2>
+                    <h2>{% blocktrans %}Blogdan{% endblocktrans %}</h2>
                 </div>
                  <!-- Popular Categorie Activation Start -->
                  <div class="blog-active owl-carousel">
@@ -128,7 +128,7 @@
                                     </ul>
                                 </div>
                                 <div class="readmore">
-                                    <a href="{% url 'single_blog_url' i.pk %}">Read More.....</a>
+                                    <a href="{% url 'single_blog_url' i.pk %}">{% blocktrans %}Batafsil{% endblocktrans %}</a>
                                 </div>
                             </div>
                         </div>

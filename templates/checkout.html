@@ -25,13 +25,13 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="country-select mb-30">
-                                            <label>Country <span class="required">*</span></label>
+                                            <label>{% blocktrans %}Mamlakat{% endblocktrans %}<span class="required">*</span></label>
                                             <input type="text" name="country" placeholder="" required/>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="checkout-form-list">
-                                            <label>Name <span class="required">*</span></label>
+                                            <label>{% blocktrans %}Ism{% endblocktrans %}<span class="required">*</span></label>
                                             <input type="text" name="name" placeholder="" required/>
                                         </div>
                                     </div>
@@ -43,13 +43,13 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="checkout-form-list mb-30">
-                                            <label>Email Address<span class="required">*</span></label>
+                                            <label>{%  %}E-pochta manzili{% endblocktrans %}<span class="required">*</span></label>
                                             <input type="email" name="email" placeholder="" required />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="checkout-form-list mb-30">
-                                            <label>Phone Number  <span class="required">*</span></label>
+                                            <label>{% blocktrans %}Telefon raqam{% endblocktrans %}<span class="required">*</span></label>
                                             <input type="text" name="phone_number" placeholder="" required />
                                         </div>
                                     </div>
@@ -58,7 +58,7 @@
                         </div>
                         <div class="col-lg-6 col-md-6">
                             <div class="your-order">
-                                <h3>Your order</h3>
+                                <h3>{% blocktrans %}Sizning buyurtmalaringiz{% endblocktrans %}</h3>
                                 <div class="your-order-table table-responsive">
                                     <table>
                                         <thead>
@@ -95,20 +95,6 @@
                                 <div class="payment-method">
                                     <div class="payment-accordion">
                                         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                                            <div class="panel panel-default">
-                                                <div class="panel-heading" role="tab" id="headingOne">
-                                                    <h4 class="panel-title">
-                                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                    Direct Bank Transfer
-                                                    </a>
-                                                    </h4>
-                                                </div>
-                                                <div id="collapseOne" class="panel-collapse collapse  in show" role="tabpanel" aria-labelledby="headingOne">
-                                                    <div class="panel-body">
-                                                        <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
                                             <div class="panel panel-default">
                                                 <div class="panel-heading" role="tab" id="headingTwo">
                                                     <h4 class="panel-title">
