@@ -45,6 +45,10 @@ class Banner(models.Model):
     def __str__(self):
         return self.title
 
+class Future(models.Model):
+    img = models.ImageField(upload_to='banner_img')
+
+
 
 class Blog(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

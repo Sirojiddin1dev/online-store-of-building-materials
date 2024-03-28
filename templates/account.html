@@ -23,7 +23,7 @@
                        <div class="row no-gutters align-items-center">
                            <div class="col-lg-3 col-md-6">
                                <div class="d-single-info">
-                                   <p class="user-name">Hello <span>{{ user.username }}</span></p>
+                                   <p class="user-name">{% blocktrans %}salom{% endblocktrans %} <span>{{ user.username }}</span></p>
                                    <p><a href="{% url 'logout_url' %}">{% blocktrans %}Chiqish{% endblocktrans %}</a>)</p>
                                </div>
                            </div>
@@ -39,7 +39,7 @@
                            </div>
                            <div class="col-lg-3 col-md-6">
                                <div class="d-single-info text-center">
-                                   <a class="view-cart" href="{% url 'cart_url' user.pk %}"><i class="fa fa-cart-plus" aria-hidden="true"></i>view cart</a>
+                                   <a class="view-cart" href="{% url 'cart_url' user.pk %}"><i class="fa fa-cart-plus" aria-hidden="true"></i>{% blocktrans %}savatni ko'rish{% endblocktrans %}</a>
                                </div>
                            </div>
                        </div>

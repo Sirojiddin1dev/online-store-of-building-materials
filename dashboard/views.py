@@ -13,7 +13,7 @@ def banner_view(request):
         subtotal += item.product.price
     total = subtotal
     banner = Banner.objects.last()
-    product1 = Products.objects.filter(featured_product = True).order_by('-id')[:2]
+    product1 = Future.objects.all().order_by('-id')[:2]
     product2 = Products.objects.all().order_by('-view')[:4]
     product3 = Products.objects.filter(is_advert=True)[:3]
     product4 = Products.objects.filter(new_product=True).order_by('-id')[:12]

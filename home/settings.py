@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'dashboard.apps.DashboardConfig',
     'about.apps.AboutConfig',
     'admin_panel.apps.AdminPanelConfig',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [

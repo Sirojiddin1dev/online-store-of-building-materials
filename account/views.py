@@ -4,6 +4,8 @@ from django.contrib.auth import login, logout, authenticate
 from dashboard.models import Basket
 from main.models import Info
 from django.http import HttpResponse
+from django.db import IntegrityError
+from django.contrib import messages
 
 
 def create_user_view(request):
@@ -12,13 +14,22 @@ def create_user_view(request):
         password = request.POST.get('password')
         email = request.POST.get('email')
         phone_number = request.POST.get('phone_number')
-        User.objects.create_user(
-            username=username,
-            password=password,
-            phone_number=phone_number,
-            email=email
-        )
-        return redirect('login_url')
+
+        try:
+            # Attempt to create the user
+            user = User.objects.create_user(
+                username=username,
+                password=password,
+                phone_number=phone_number,
+                email=email
+            )
+            return redirect('index_url')
+        except IntegrityError:
+            # Handle the case when the username is not unique
+            error_message = "This username is already taken. Please choose a different one."
+            messages.error(request, error_message)
+            return render(request, 'login.html')
+
     return render(request, 'register.html')
 
 
@@ -29,12 +40,15 @@ def create_staff_user_view(request):
         is_staff = request.POST.get('is_staff', True) == 'on'
         if is_staff:
             is_staff = True
-        User.objects.create_user(
-            username=username,
-            password=password,
-            is_staff=is_staff,
-        )
-        return HttpResponse("Sizning so'rovingiz qabul qilindi! Sizga Tez orada Javob Berildi ")
+        try:
+            User.objects.create_user(
+                username=username,
+                password=password,
+                is_staff=is_staff,
+            )
+            return HttpResponse("Siz Staff User Qo'shdingiz ")
+        except IntegrityError:
+            return HttpResponse("This username is already taken. Please choose a different one.")
     return render(request, 'index_1.html')
 
 

@@ -44,7 +44,7 @@
                                 <p><span class="in-stock">IN STOCK</span><span class="sku">{{ product.quantity }}</span></p>
                             </div>
                             <div class="box-quantity">
-                                    <a class="add-cart" href="{% url 'add_basket_url' product.pk %}">{% blocktrans %}Kartaga Ko'shish{% endblocktrans %}</a>
+                                    <a class="add-cart" href="{% url 'add_basket_url' product.pk %}">{% blocktrans %}Qo'shish{% endblocktrans %}</a>
                             </div>
                             <div class="product-link">
                                 <ul class="list-inline">
@@ -89,7 +89,7 @@
             <div class="container">
                 <div class="related-box">
                     <div class="group-title">
-                        <h2>related product</h2>
+                        <h2>{% blocktrans %}tegishli mahsulot{% endblocktrans %}</h2>
                     </div>
                     <!-- Realted Product Activation Start -->
 
@@ -110,7 +110,7 @@
                                     <div class="pro-actions">
                                         <div class="actions-secondary">
                                             <a href="{% url 'wishlist_url' i.pk %}" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                            <a class="add-cart" href="{% url 'add_basket_url' i.pk %}" data-toggle="tooltip" title="Add to Cart">Add To Cart</a>
+                                            <a class="add-cart" href="{% url 'add_basket_url' i.pk %}" data-toggle="tooltip" title="Add to Cart">{% blocktrans %}Qo'shish{% endblocktrans %}</a>
                                         </div>
                                     </div>
                                 </div>

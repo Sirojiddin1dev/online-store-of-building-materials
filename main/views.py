@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from dashboard.models import *
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from django.urls import reverse
 
 
 def blog_view(request):
@@ -93,7 +94,7 @@ def contact_view(request):
 def remove_cart_product(request, pk):
     basket = Basket.objects.get(pk=pk)
     basket.delete()
-    return HttpResponse("1 ta obyekt o'chirildi!")
+    return redirect(reverse('cart_url', args=[request.user.id]))
 
 
 def cart_view(request, id):
@@ -117,12 +118,14 @@ def cart_view(request, id):
 
 def checkout_view(request, pk):
     basket = Basket.objects.filter(user_id=request.user.pk)
+    basket_count = Basket.objects.filter(user_id=request.user.id).count()
     subtotal = 0
     for i in basket:
         subtotal += i.product.price
     total = subtotal
     context = {
         'basket': basket,
+        'basket_count': basket_count,
         'subtotal': subtotal,
         'total': total,
         'info': Info.objects.last()
@@ -197,7 +200,7 @@ def wishlist_view(request, id):
 def remove_wishlist_product(request, pk):
     wishlist = Wishlist.objects.get(pk=pk)
     wishlist.delete()
-    return HttpResponse("1 ta obyekt o'chirildi!")
+    return redirect('wishlist_url', request.user.id)
 
 
 def search_view(request):
@@ -213,8 +216,8 @@ def search_view(request):
     total = subtotal
     if query:  # Check if query is not empty
         shop = Products.objects.filter(
-            Q(title__icontains=query) |
             Q(title_ru__icontains=query) |
+            Q(title__icontains=query) |
             Q(title_uz__icontains=query) |
             Q(title_en__icontains=query)
         )

@@ -1,6 +1,18 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% block content %}
+        <div class="breadcrumb-area pt-60 pb-55 pt-sm-30 pb-sm-20">
+            <div class="container">
+                <div class="breadcrumb">
+                    <ul>
+                        <li><a href="{% url 'index_url' %}">{% blocktrans %}Bosh sahifa{% endblocktrans %}</a></li>
+                        <li class="active"><a href="{% url 'wishlist_url' user.pk %}">{% blocktrans %}Istaklar roʻyxati{% endblocktrans %}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Breadcrumb End -->
         <!-- Wish List Start -->
         <div class="cart-main-area wish-list pb-60">
             <div class="container">
@@ -32,7 +44,7 @@
                                             <td class="product-name"><a href="{% url 'single_product_url' i.product.pk %}">{{ i.product.title }}</a></td>
                                             <td class="product-price"><span class="amount">{{ i.product.price }} So'm</span></td>
                                             <td class="product-stock-status"><span>in stock</span></td>
-                                            <td class="product-add-to-cart"><a href="{% url 'add_basket_url' i.product.pk %}">{% blocktrans %}Kartaga ko'shish{% endblocktrans %}</a></td>
+                                            <td class="product-add-to-cart"><a href="{% url 'add_basket_url' i.product.pk %}">{% blocktrans %}Qo'shish{% endblocktrans %}</a></td>
                                         </tr>
                                     {% endfor %}
                                     </tbody>

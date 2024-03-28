@@ -5,8 +5,8 @@
             <div class="container">
                 <div class="breadcrumb">
                     <ul>
-                        <li><a href="index.html">{% blocktrans %}Bosh sahifa{% endblocktrans %}</a></li>
-                        <li class="active"><a href="checkout.html">{% blocktrans %}To'lov{% endblocktrans %}</a></li>
+                        <li><a href="{% url 'index_url' %}">{% blocktrans %}Bosh sahifa{% endblocktrans %}</a></li>
+                        <li class="active"><a href="{% url 'checkout_url' user.pk %}">{% blocktrans %}To'lov{% endblocktrans %}</a></li>
                     </ul>
                 </div>
             </div>
@@ -94,23 +94,8 @@
                                 </div>
                                 <div class="payment-method">
                                     <div class="payment-accordion">
-                                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                                            <div class="panel panel-default">
-                                                <div class="panel-heading" role="tab" id="headingTwo">
-                                                    <h4 class="panel-title">
-                                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                    {% blocktrans %}To'lovni tekshirish{% endblocktrans %}<
-                                                    </a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                            <div class="panel panel-default">
-                                                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div class="order-button-payment">
-                                            <input type="submit" value="Place order" />
+                                            <input type="submit" value="{% blocktrans %}Buyurtma berish{% endblocktrans %}" />
                                         </div>
                                     </div>
                                 </div>

@@ -105,37 +105,39 @@
             <div class="header-bottom header-sticky">
                 <div class="container">
                     <div class="row">
-                        <div class="col-xl-3 col-lg-2 col-sm-5 col-5">
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-5">
                             <div class="logo">
-                                <a href="{% url 'index_url' %}"><img src="{{ info.logo.url }}" alt="logo-image"></a>
+                                <a href="{% url 'index_url' %}">
+                                    <img src="{{ info.logo.url }}" alt="logo-image">
+                                </a>
                             </div>
                         </div>
+
                         <!-- Primary Vertical-Menu End -->
                         <!-- Search Box Start -->
                         <div class="col-xl-6 col-lg-7 d-none d-lg-block">
                             <div class="middle-menu pull-right">
                                 <nav>
                                     <ul class="middle-menu-list">
-                                        <li><a href="{% url 'about_url' %}">{% blocktrans %}Biz haqimizda{% endblocktrans %}</a></li>
 
+                                        <li><a href="{% url 'about_url' %}">{% blocktrans %}Biz haqimizda{% endblocktrans %}</a></li>
                                         <li><a href="{% url 'shop_url' %}">{% blocktrans %}Do'kon{% endblocktrans %}</a></li>
                                         <li><a href="{% url 'blog_url' %}">{% blocktrans %}Blog{% endblocktrans %}</a>
                                             <!-- Home Version Dropdown Start -->
                                             <!-- Home Version Dropdown End -->
                                         </li>
-                                            {% if user.is_authenticated %}
-                                                <li><a href="{% url 'my_profile_url' user.pk %}">{% blocktrans %}Mening profilim{% endblocktrans %}</a></li>
-                                            {% else %}
-                                                <a href="{% url 'login_url' %}"></a>
-                                            {% endif %}
+                                        {% if user.is_authenticated %}
+                                            <li><a href="{% url 'my_profile_url' user.pk %}">{% blocktrans %}Mening profilim{% endblocktrans %}</a></li>
+                                        {% else %}
+                                            <li><a href="{% url 'login_url' %}">{% blocktrans %}Kirish{% endblocktrans %}</a></li>
+                                        {% endif %}
                                         <li><a href="{% url 'contact_url'  %}">{% blocktrans %}Kontakt{% endblocktrans %}</a></li>
-
-
                                     </ul>
                                 </nav>
                             </div>
                         </div>
                         <!-- Search Box End -->
+
                         <!-- Cartt Box Start -->
                         <div class="col-lg-3 col-sm-7 col-7">
                             <div class="cart-box text-right">
@@ -253,9 +255,9 @@
                                 <h3>{% blocktrans %}Biz bilan boglaning{% endblocktrans %}</h3>
                                 <div class="footer-content">
                                     <div class="loc-address">
-                                        <span><i class="fa fa-map-marker"></i>{{ info.address }}</span>
-                                        <span><i class="fa fa-envelope-o"></i>{% blocktrans %}Bizga xat yuboring {% endblocktrans %}: {{ info.email }}</span>
-                                        <span><i class="fa fa-phone"></i>{% blocktrans %}Telefon{% endblocktrans %}: {{ info.phone_number }}</span>
+                                        <span><i class="fa fa-map-marker"></i> {{ info.address }}</span>
+                                        <span><i class="fa fa-envelope-o"></i> {{ info.email }}</span>
+                                        <span><i class="fa fa-phone"></i> {{ info.phone_number }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -282,32 +284,13 @@
                         <!-- Single Footer Start -->
                         <div class="col-lg-2 col-md-4 col-sm-6 footer-full">
                             <div class="single-footer">
-                                <h3 class="footer-title">{% blocktrans %}Moslashtirilgan xizmatlar{% endblocktrans %}</h3>
-                                <div class="footer-content">
-                                    <ul class="footer-list">
-                                        {% if user.is_authenticated %}
-                                            <li><a href="{% url 'my_profile_url' user.pk %}">{% blocktrans %}Mening profilim{% endblocktrans %}</a></li>
-                                        {% else %}
-                                            <a href="{% url 'login_url' %}">
-                                        {% endif %}
-                                        <li><a href="#">{% blocktrans %}Yangi{% endblocktrans %}</a></li>
-                                        <li><a href="#">{% blocktrans %}SIzning kartangiz{% endblocktrans %}</a></li>
-                                        <li><a href="#">{% blocktrans %}Sizning Buyurtmanlaringiz{% endblocktrans %}</a></li>
-                                     </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Single Footer Start -->
-                        <!-- Single Footer Start -->
-                        <div class="col-lg-2 col-md-4 col-sm-6 footer-full">
-                            <div class="single-footer">
                                 <h3 class="footer-title">{% blocktrans %}Keling, sizga yordam beraylik{% endblocktrans %}</h3>
                                 <div class="footer-content">
                                     <ul class="footer-list">
 
 
                                         {% if user.is_authenticated %}
-                                            <li><a href="{% url 'cart_url' user.pk %}">{% blocktrans %}Sizning buyurmalaringiz{% endblocktrans %}</a></li>
+                                            <li><a href="{% url 'cart_url' user.pk %}">{% blocktrans %}Sizning buyurtmalaringiz{% endblocktrans %}</a></li>
 
                                             <li><a href="{% url 'my_profile_url' user.pk %}">{% blocktrans %}Mening profilim{% endblocktrans %}</a></li>
                                         {% else %}

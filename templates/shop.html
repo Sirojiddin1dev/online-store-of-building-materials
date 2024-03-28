@@ -44,7 +44,7 @@
                                                     <div class="pro-actions">
                                                         <div class="actions-secondary">
                                                             <a href="{% url 'wishlist_url' i.pk %}" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                                            <a class="add-cart" href="{% url 'add_basket_url' i.pk %}" data-toggle="tooltip" title="Add to Cart">Add To Cart</a>
+                                                            <a class="add-cart" href="{% url 'add_basket_url' i.pk %}" data-toggle="tooltip" title="Add to Cart">{% blocktrans %}Qo'shish{% endblocktrans %}</a>
                                                         </div>
                                                     </div>
                                                 </div>

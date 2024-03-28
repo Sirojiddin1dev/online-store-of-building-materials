@@ -1,6 +1,18 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% block content %}
+        <div class="breadcrumb-area pt-60 pb-55 pt-sm-30 pb-sm-20">
+            <div class="container">
+                <div class="breadcrumb">
+                    <ul>
+                        <li><a href="{% url 'index_url' %}">{% blocktrans %}Bosh sahifa{% endblocktrans %}</a></li>
+                        <li class="active"><a href="{% url 'cart_url' user.pk %}">{% blocktrans %}kart{% endblocktrans %}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Breadcrumb End -->
         <!-- Cart Main Area Start -->
         <div class="cart-main-area pb-80 pb-sm-50">
             <div class="container">
@@ -55,11 +67,11 @@
                                             <tbody>
 
                                                 <tr class="cart-subtotal">
-                                                    <th>Subtotal</th>
+                                                    <th>{% blocktrans %}Subtotal{% endblocktrans %}</th>
                                                     <td><span class="amount">{{ subtotal }} So'm </span></td>
                                                 </tr>
                                                 <tr class="order-total">
-                                                    <th>Total</th>
+                                                    <th>{% blocktrans %}Total{% endblocktrans %}</th>
                                                     <td>
                                                         <strong><span class="amount">{{ total }} So'm</span></strong>
                                                     </td>

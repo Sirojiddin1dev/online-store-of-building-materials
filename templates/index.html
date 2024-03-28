@@ -27,12 +27,12 @@
                         </div>
                     </div>
                     <div class="col-md-4">
+                        {% for i in product1 %}
                          <!-- Single Banner Start -->
                         <div class="single-banner zoom mb-20">
-                            {% for i in product1 %}
-                            <a href="{% url 'single_product_url' i.pk %}"><img src="{{ i.image.url }}" alt="slider-banner"></a>
-                            {% endfor %}
+                            <a href="#"><img src="{{ i.img.url }}" alt="slider-banner"></a>
                         </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -55,12 +55,12 @@
                             <!-- Product Image End -->
                             <!-- Product Content Start -->
                             <div class="pro-content">
-                                <h4><a href="product.html">{{ i.title }}</a></h4>
+                                <h4><a href="{% url 'single_product_url' i.pk %}">{{ i.title }}</a></h4>
                                 <p><span class="price">{{ i.price }} so'm</span></p>
                                 <div class="pro-actions">
                                     <div class="actions-secondary">
                                         <a href="{% url 'add_wishlist_url' i.pk %}" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                        <a class="add-cart" href="{% url 'add_basket_url' i.pk %}" data-toggle="tooltip" title="Add to Cart">{% blocktrans %}Kartaga ko'shish{% endblocktrans %}</a>
+                                        <a class="add-cart" href="{% url 'add_basket_url' i.pk %}" data-toggle="tooltip" title="Add to Cart">{% blocktrans %}Qo'shish{% endblocktrans %}</a>
                                     </div>
                                 </div>
                             </div>
