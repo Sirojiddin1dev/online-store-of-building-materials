@@ -17,7 +17,8 @@ def create_user_view(request):
             username=username,
             password=password,
             phone_number=phone_number,
-            email=email
+            first_name =first_name,
+            last_name =last_name,
         )
         return redirect('login_url')
     return render(request, 'register.html')

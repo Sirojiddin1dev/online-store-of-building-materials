@@ -10,50 +10,102 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="{% static 'style_1.css' %}" />
-    <title>{% blocktrans %}Kirish va ro'yxatdan o'tish shakli{% endblocktrans %}</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css/bootstrap.min.css' %}">
+    <title>Sign in & Sign up Form</title>
   </head>
   <body>
     <div class="container">
       <div class="forms-container">
+         {% if messages %}
+          <div class="modal fade" id="usernameErrorModal" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content"><br><br><br>
+                <div class="modal-body text-center">Bu foydalanuvchi nomi allaqachon olingan. Boshqasini tanlang.</div>
+              </div>
+            </div>
+          </div>
+
+          <script>
+            // Wait for the modal to be fully rendered before showing it
+            $(document).ready(function() {
+              // Show the modal
+              $('#usernameErrorModal').modal('show');
+
+              // Automatically close the modal after 3 seconds
+              setTimeout(function() {
+                $('#usernameErrorModal').modal('hide');
+              }, 3000); // 3000 milliseconds = 3 seconds
+            });
+          </script>
+          {% endif %}
         <div class="signin-signup">
-          <form action="{% url 'login_url'%}" class="sign-in-form">
+          <form action="{% url 'login_url' %}" class="sign-in-form" method="post">
             {% csrf_token %}
-            <h2 class="title">{% blocktrans %}Tizimga kirish{% endblocktrans %}</h2>
+            <h2 class="title">Sign in</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" name="username" placeholder="Username" />
+              <input type="text" name="username" placeholder="username" />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" name="password" placeholder="Password" />
+              <input type="password" name="password" placeholder="password" />
             </div>
             <input type="submit" value="Login" class="btn solid" />
           </form>
-          <form action="{% url 'register_url' %}" class="sign-up-form">
-            <h2 class="title">{% blocktrans %}Ro'yhadan o'tish{% endblocktrans %}</h2>
+
+          <form action="{% url 'register_url' %}" class="sign-up-form" method="post">
+            {% csrf_token %}
+            <h2 class="title">Sign up</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
               <input type="text" name="username" placeholder="Username" />
             </div>
             <div class="input-field">
-              <i class="fas fa-envelope"></i>
-              <input type="email" name="email" placeholder="Email" />
-            </div>
-            <div class="input-field">
               <i class="fas fa-lock"></i>
               <input type="password" name="password" placeholder="Password" />
             </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="text" name="first_name" placeholder="First_name" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="text" name="last_name" placeholder="Last_name" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="text" name="phone_number" placeholder="Phone_number" />
+            </div>
+            <input type="submit" class="btn" value="Sign up" />
           </form>
         </div>
       </div>
-    </div>
-    <div class="container">
-    <button class="btn transparent" id="sign-up-btn"><a href="{% url 'register_url'%}">Sign up</a></button>
-    <div class="panels-container">
+
+
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content">
+            <h3>New here ?</h3>
+            <button class="btn transparent" id="sign-up-btn">
+              Sign up
+            </button>
+          </div>
+          <img src="{% static 'img/log.svg' %}" class="image" alt="" />
+        </div>
         <div class="panel right-panel">
+          <div class="content">
+            <h3>One of us ?</h3>
+            <button class="btn transparent" id="sign-in-btn">
+              Sign in
+            </button>
+          </div>
           <img src="{% static 'img/register.svg' %}" class="image" alt="" />
         </div>
       </div>
-    <script src="{% static 'app.js'%}"></script>
-</body>
+    </div>
+
+    <script src="{% static 'app.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.js/bootstrap.min.js' %}"></script>
+  </body>
 </html>
