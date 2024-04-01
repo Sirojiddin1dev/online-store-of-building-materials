@@ -159,7 +159,7 @@ def add_basket(request, pk):
             user=request.user,
             product=product,
         )
-        return HttpResponse("Item added to Cart successfully!")
+        return redirect('single_product_url', pk)
     else:
         return redirect('login_url')
 

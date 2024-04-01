@@ -314,7 +314,7 @@ msgstr "Our blogs"
 
 #: .\templates\product.html:51
 msgid "Istaklarga qo'shish"
-msgstr "Add to card"
+msgstr "Add to wishlist"
 
 #: .\templates\product.html:70
 msgid "Tafsilotlar"

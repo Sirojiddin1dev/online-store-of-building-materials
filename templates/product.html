@@ -43,8 +43,8 @@
                             <div class="pro-ref mb-15">
                                 <p><span class="in-stock">IN STOCK</span><span class="sku">{{ product.quantity }}</span></p>
                             </div>
-                            <div class="box-quantity">
-                                    <a class="add-cart" href="{% url 'add_basket_url' product.pk %}">{% blocktrans %}Qo'shish{% endblocktrans %}</a>
+                            <div class="product-link">
+                                <a class="add-cart" href="{% url 'add_basket_url' product.pk %}">{% blocktrans %}Qo'shish{% endblocktrans %}</a>
                             </div>
                             <div class="product-link">
                                 <ul class="list-inline">
@@ -110,7 +110,7 @@
                                     <div class="pro-actions">
                                         <div class="actions-secondary">
                                             <a href="{% url 'wishlist_url' i.pk %}" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                            <a class="add-cart" href="{% url 'add_basket_url' i.pk %}" data-toggle="tooltip" title="Add to Cart">{% blocktrans %}Qo'shish{% endblocktrans %}</a>
+                                            <a class="add-cart" href="{% url 'add_basket_url' i.pk %}" onclick="addToBasket({{ i.id }})">{% blocktrans %}Qo'shish{% endblocktrans %}</a>
                                         </div>
                                     </div>
                                 </div>

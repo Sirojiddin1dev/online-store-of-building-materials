@@ -355,6 +355,37 @@
     <script src="{% static 'js/plugins.js' %}"></script>
     <!-- main js -->
     <script src="{% static 'js/main.js' %}"></script>
+    <script>function addToBasket(productId) {
+           event.preventDefault();
+           var xhr = new XMLHttpRequest();
+           var url = "index/add_basket/" + productId + "/";
+           xhr.open("GET", url, true);
+           xhr.onreadystatechange = function() {
+               if (xhr.readyState == 4 && xhr.status == 200) {
+                   // Mahsulot qo'shildi
+                   alert("Mahsulot savatga qo'shildi");
+                   setTimeout(function() {
+                       window.close();
+                   }, 5);
+               }
+           };
+           xhr.send();
+       }</script>
+    <script>function addToWishlist(productId) {
+           event.preventDefault();
+           var xhr = new XMLHttpRequest();
+           var url = "index/add_basket/" + productId + "/";
+           xhr.open("GET", url, true);
+           xhr.onreadystatechange = function() {
+               if (xhr.readyState == 4 && xhr.status == 200) {
+                   // Mahsulot qo'shildi
+                   alert("Mahsulot savatga qo'shildi");
+                   setTimeout(function() {
+                       window.close();
+                   }, 5);
+               }
+           };
+           xhr.send();
+       }</script>
 </body>
-
 </html>
