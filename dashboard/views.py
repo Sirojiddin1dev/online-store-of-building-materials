@@ -17,7 +17,7 @@ def banner_view(request):
     product2 = Products.objects.all().order_by('-view')[:4]
     product3 = Products.objects.filter(is_advert=True)[:3]
     product4 = Products.objects.filter(new_product=True).order_by('-id')[:12]
-    blog = Blog.objects.all().order_by('-id')[:6]
+    blog = Blog.objects.all().order_by('-id')[:8]
     context = {
         'banner': banner,
         "product1": product1,

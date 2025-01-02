@@ -25,6 +25,7 @@ def create_user_view(request):
                 first_name = first_name,
                 last_name = last_name,
             )
+            login(request, user)
             return redirect('index_url')
         except IntegrityError:
             # Handle the case when the username is not unique

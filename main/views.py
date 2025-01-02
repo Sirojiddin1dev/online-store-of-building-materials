@@ -164,6 +164,42 @@ def add_basket(request, pk):
         return redirect('login_url')
 
 
+def add_basket_index(request, pk):
+    if request.user.is_authenticated:
+        product = Products.objects.get(pk=pk)
+        Basket.objects.create(
+            user=request.user,
+            product=product,
+        )
+        return redirect('index_url')
+    else:
+        return redirect('login_url')
+
+
+def add_basket_shop(request, pk):
+    if request.user.is_authenticated:
+        product = Products.objects.get(pk=pk)
+        Basket.objects.create(
+            user=request.user,
+            product=product,
+        )
+        return redirect('shop_url')
+    else:
+        return redirect('login_url')
+
+
+def add_basket_wishlist(request, pk):
+    if request.user.is_authenticated:
+        product = Products.objects.get(pk=pk)
+        Basket.objects.create(
+            user=request.user,
+            product=product,
+        )
+        return redirect('wishlist_url', request.user.id)
+    else:
+        return redirect('login_url')
+
+
 def add_wishlist(request, pk):
     if request.user.is_authenticated:
         product = Products.objects.get(pk=pk)
@@ -171,7 +207,31 @@ def add_wishlist(request, pk):
             user=request.user,
             product=product,
         )
-        return HttpResponse("Item added to Wishlist successfully!")
+        return redirect('shop_url')
+    else:
+        return redirect('login_url')
+
+
+def add_wishlist_index(request, pk):
+    if request.user.is_authenticated:
+        product = Products.objects.get(pk=pk)
+        Wishlist.objects.create(
+            user=request.user,
+            product=product,
+        )
+        return redirect('index_url')
+    else:
+        return redirect('login_url')
+
+
+def add_wishlist_product(request, pk):
+    if request.user.is_authenticated:
+        product = Products.objects.get(pk=pk)
+        Wishlist.objects.create(
+            user=request.user,
+            product=product,
+        )
+        return redirect('single_product_url', pk)
     else:
         return redirect('login_url')
 
@@ -216,10 +276,10 @@ def search_view(request):
     total = subtotal
     if query:  # Check if query is not empty
         shop = Products.objects.filter(
-            Q(title_ru__icontains=query) |
             Q(title__icontains=query) |
             Q(title_uz__icontains=query) |
-            Q(title_en__icontains=query)
+            Q(title_en__icontains=query)|
+            Q(title_ru__icontains=query)
         )
     context = {
         'basket': basket,

@@ -1,17 +1,17 @@
 from account.models import *
 
+class Category(models.Model):
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
 
 class Products(models.Model):
     image = models.ImageField(upload_to='product_photo/')
     title = models.CharField(max_length=55)
     price = models.IntegerField(default=0)
     product_info = models.TextField(null=True, blank=True)
-    Category =(
-        ("Fasad", "Fasad"),
-        ('Tiokliya', 'Tiokliya'),
-        ('Qoliplik', 'Qoliplik'),
-    )
-    category = models.CharField(max_length=100, choices=Category)
+    category = models.ForeignKey(to='Category', default=1, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)
     featured_product = models.BooleanField(default=False)
     is_advert = models.BooleanField(default=False)

@@ -10,7 +10,6 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="{% static 'style_1.css' %}" />
-    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css/bootstrap.min.css' %}">
     <title>Sign in & Sign up Form</title>
   </head>
   <body>
@@ -25,18 +24,6 @@
             </div>
           </div>
 
-          <script>
-            // Wait for the modal to be fully rendered before showing it
-            $(document).ready(function() {
-              // Show the modal
-              $('#usernameErrorModal').modal('show');
-
-              // Automatically close the modal after 3 seconds
-              setTimeout(function() {
-                $('#usernameErrorModal').modal('hide');
-              }, 3000); // 3000 milliseconds = 3 seconds
-            });
-          </script>
           {% endif %}
         <div class="signin-signup">
           <form action="{% url 'login_url' %}" class="sign-in-form" method="post">

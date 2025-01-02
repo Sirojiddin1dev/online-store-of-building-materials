@@ -3996,3 +3996,7 @@ legend {
 .mobile-menu nav ul{
     display: none;
 }
+
+.border-radius_main{
+    border-radius: 30px;
+}

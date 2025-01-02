@@ -56,9 +56,9 @@
 																					<textarea name="product_info_ru" placeholder="Product Info (Russian)" required></textarea><br>
 																					<textarea name="product_info_en" placeholder="Product Info (English)" required></textarea><br>
 																					<select name="category">
-																						<option value="Fasad">Fasad</option>
-																						<option value="Tiokliya">Tiokliya</option>
-																						<option value="Qoliplik">Qoliplik</option>
+																						{% for i in category %}
+																						<option value="{{ i.name }}">{{ i.name }}</option>
+																						{% endfor %}
 																					</select><br>
 																					<input type="number" name="quantity" placeholder="Quantity" required><br>
 																					<input type="checkbox" name="featured_product" value="on"> Featured Product<br>

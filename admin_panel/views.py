@@ -14,7 +14,8 @@ def index_1_view(request):
     print(total_login_count)
     context = {
         'user':user,
-        'count': total_login_count
+        'count': total_login_count,
+        'category': Category.objects.all()
     }
     return render(request, 'index_1.html', context)
 
@@ -31,7 +32,7 @@ def create_product(request):
         product_info_uz = request.POST.get('product_info_uz')
         product_info_ru = request.POST.get('product_info_ru')
         product_info_en = request.POST.get('product_info_en')
-        category = request.POST.get('category')
+        category_name = request.POST.get('category')
         quantity = request.POST.get('quantity')
         featured_product = request.POST.get('featured_product', False) == 'on'
         is_advert = request.POST.get('is_advert', False) == 'on'
@@ -40,7 +41,7 @@ def create_product(request):
         advert_text_ru = request.POST.get('advert_text_ru')
         advert_text_en = request.POST.get('advert_text_en')
         new_product = request.POST.get('new_product', True) == 'on'
-
+        category, _ = Category.objects.get_or_create(name=category_name)
         product = Products.objects.create(
             image=image,
             title=title,

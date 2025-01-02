@@ -161,7 +161,7 @@
                                                 <!-- Cart Box Start -->
                                                 <div class="single-cart-box">
                                                     <div class="cart-img">
-                                                        <a href="{% url 'single_product_url' i.product.pk %}"><img src="{{ i.product.image.url }}" alt="cart-image"></a>
+                                                        <a href="{% url 'single_product_url' i.product.pk %}"><img src="{{ i.product.image.url }}" alt="cart-image" style="border-radius:8px;"></a>
                                                     </div>
                                                     <div class="cart-content">
                                                         <h6><a href="{% url 'single_product_url' i.product.pk %}">{{ i.product.title }}</a></h6>
@@ -370,16 +370,17 @@
                }
            };
            xhr.send();
-       }</script>
+    }
+    </script>
     <script>function addToWishlist(productId) {
            event.preventDefault();
            var xhr = new XMLHttpRequest();
-           var url = "index/add_basket/" + productId + "/";
+           var url = "index/add_wishlist/" + productId + "/";
            xhr.open("GET", url, true);
            xhr.onreadystatechange = function() {
                if (xhr.readyState == 4 && xhr.status == 200) {
                    // Mahsulot qo'shildi
-                   alert("Mahsulot savatga qo'shildi");
+                   alert("Mahsulot istaklarga qo'shildi");
                    setTimeout(function() {
                        window.close();
                    }, 5);

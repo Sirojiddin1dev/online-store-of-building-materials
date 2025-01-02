@@ -19,21 +19,20 @@
             <div class="container">
                 <!-- Row End -->
                 <div class="row">
-                    <div class="col-lg-9 order-lg-2">
+                    <div class="col-lg-12 order-lg-1">
                         <!-- Grid & List View Start -->
                         <!-- Grid & List View End -->
                         <div class="main-categorie">
                             <!-- Grid & List Main Area End -->
                             <div class="tab-content fix">
-
                                     <div class="row">
                                         {% for i in shop %}
-                                        <div class="col-lg-4 col-sm-6">
+                                        <div class="col-lg-3 col-sm-5">
                                             <div class="single-product">
                                                 <!-- Product Image Start -->
                                                 <div class="pro-img">
                                                     <a href="{% url 'single_product_url' i.pk %}">
-                                                        <img class="primary-img" src="{{ i.image.url }}" alt="single-product">
+                                                        <img class="primary-img" src="{{ i.image.url }}" alt="single-product" style="border-radius:30px;">
                                                     </a>
                                                 </div>
                                                 <!-- Product Image End -->
@@ -43,8 +42,8 @@
                                                     <p><span class="price">{{ i.price }} So'm</span></p>
                                                     <div class="pro-actions">
                                                         <div class="actions-secondary">
-                                                            <a href="{% url 'wishlist_url' i.pk %}" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                                            <a class="add-cart" href="{% url 'add_basket_url' i.pk %}" data-toggle="tooltip" title="Add to Cart">{% blocktrans %}Qo'shish{% endblocktrans %}</a>
+                                                            <a href="{% url 'add_wishlist_url' i.pk %}" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
+                                                            <a class="add-cart" href="{% url 'add_basket_shop' i.pk %}">{% blocktrans %}Qo'shish{% endblocktrans %}</a>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -39,12 +39,12 @@
                                         <tr>
                                             <td class="product-remove"> <a href="{% url 'remove_wishlist_product_url' i.pk %}"><i class="fa fa-times" aria-hidden="true"></i></a></td>
                                             <td class="product-thumbnail">
-                                                <a href="{% url 'single_product_url' i.product.pk %}"><img src="{{ i.product.image.url }}" alt="cart-image" /></a>
+                                                <a href="{% url 'single_product_url' i.product.pk %}"><img src="{{ i.product.image.url }}" alt="cart-image" style="border-radius:10px;"></a>
                                             </td>
                                             <td class="product-name"><a href="{% url 'single_product_url' i.product.pk %}">{{ i.product.title }}</a></td>
                                             <td class="product-price"><span class="amount">{{ i.product.price }} So'm</span></td>
                                             <td class="product-stock-status"><span>in stock</span></td>
-                                            <td class="product-add-to-cart"><a href="{% url 'add_basket_url' i.product.pk %}">{% blocktrans %}Qo'shish{% endblocktrans %}</a></td>
+                                            <td class="product-add-to-cart"><a href="{% url 'add_basket_wishlist' i.product.pk %}">{% blocktrans %}Qo'shish{% endblocktrans %}</a></td>
                                         </tr>
                                     {% endfor %}
                                     </tbody>

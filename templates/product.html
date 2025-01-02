@@ -24,7 +24,7 @@
                         <!-- Thumbnail Large Image start -->
                         <div class="tab-content">
                             <div id="thumb1" class="tab-pane active">
-                                <a data-fancybox="images" href="{{ product.image.url }}"><img src="{{ product.image.url }}" alt="product-view"></a>
+                                <a data-fancybox="images" href="{{ product.image.url }}"><img src="{{ product.image.url }}" alt="product-view" style="border-radius:30px;"></a>
                             </div>
                         </div>
                         <!-- Thumbnail Large Image End -->
@@ -48,10 +48,11 @@
                             </div>
                             <div class="product-link">
                                 <ul class="list-inline">
-                                    <li><a href="{% url 'add_wishlist_url' product.pk %}">{% blocktrans %}Istaklarga qo'shish{% endblocktrans %}</a></li>
+                                    <li><a href="{% url 'add_wishlist_product' product.pk %}">{% blocktrans %}Istaklarga qo'shish{% endblocktrans %}</a></li>
                                 </ul>
                             </div>
                             <p class="ptb-20">{{ product.advert_text }}</p>
+                            <h4>{{ product.category }}</h4>
                         </div>
                     </div>
                     <!-- Thumbnail Description End -->
@@ -99,7 +100,7 @@
                                 <!-- Product Image Start -->
                                 <div class="pro-img">
                                     <a href="{% url 'single_product_url' i.pk %}">
-                                        <img class="primary-img" src="{{ i.image.url }}" alt="single-product">
+                                        <img class="primary-img" src="{{ i.image.url }}" alt="single-product" style="border-radius:30px;">
                                     </a>
                                 </div>
                                 <!-- Product Image End -->
@@ -107,12 +108,6 @@
                                 <div class="pro-content">
                                     <h4><a href="{% url 'single_product_url' i.pk %}">{{ i.title }}</a></h4>
                                     <p><span class="price">{{ i.price }} so'm</span></p>
-                                    <div class="pro-actions">
-                                        <div class="actions-secondary">
-                                            <a href="{% url 'wishlist_url' i.pk %}" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                            <a class="add-cart" href="{% url 'add_basket_url' i.pk %}" onclick="addToBasket({{ i.id }})">{% blocktrans %}Qo'shish{% endblocktrans %}</a>
-                                        </div>
-                                    </div>
                                 </div>
                                 <!-- Product Content End -->
                             </div>
